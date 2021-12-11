@@ -1,6 +1,7 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace GitHubManager
@@ -118,6 +119,17 @@ namespace GitHubManager
         private void OnFileExit(object sender, EventArgs e)
             => Close();
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            // obscure the (as yet unfilled) DataGridView behind a panel
+            workspacePanel.Show();
+            workspacePanel.BringToFront();
+        }
+
         private void OnFileLogin(object sender, EventArgs e)
         {
             using (var dialogBox = MakeNewLoginDialogBox.FromScratch())
@@ -137,6 +149,10 @@ namespace GitHubManager
                         reposListBindingSource.DataSource = null;
                         reposListBindingSource.DataSource =
                             new BindingList<Repo>(await Presenter.GetRepos());
+
+                        Thread.Sleep(500);  // allow time for the DataGridView to be filled
+
+                        workspacePanel.Hide();
                     }
                 )
             );
