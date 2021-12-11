@@ -190,5 +190,10 @@ namespace GitHubManager
 
         private void OnViewStatusBar(object sender, EventArgs e)
             => statusBar.Visible = !statusBar.Visible;
+
+        private void OnFileMenuDropDownOpening(object sender, EventArgs e)
+        {
+            fileLogin.Enabled = !IsSignedIn;
+        }
     }
 }
