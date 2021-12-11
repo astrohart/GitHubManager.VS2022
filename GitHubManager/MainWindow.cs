@@ -17,6 +17,11 @@ namespace GitHubManager
         private readonly IMainWindowPresenter Presenter;
 
         /// <summary>
+        /// Flag indicating whether the application is signed-in.
+        /// </summary>
+        private bool _isSignedIn;
+
+        /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         static MainWindow() { }
@@ -57,9 +62,27 @@ namespace GitHubManager
             => GetGitHubSession.SoleInstance();
 
         /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:GitHubManager.IMainWindow.IsSignedIn" /> property changes.
+        /// </summary>
+        public event EventHandler SignedInChanged;
+
+        /// <summary>
         /// Gets or sets a value indicating whether the user is signed in.
         /// </summary>
-        public bool IsSignedIn { get; set; }
+        public bool IsSignedIn
+        {
+            get => _isSignedIn;
+            private set
+            {
+                var changed = value != _isSignedIn;
+
+                _isSignedIn = value;
+
+                if (changed)
+                    OnSignedInChanged();
+            }
+        }
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
         /// <param name="e">
@@ -74,6 +97,12 @@ namespace GitHubManager
                                                   .LoginOnStartup)
                 fileLogin.PerformClick();
         }
+
+        /// <summary>
+        /// Raises the <see cref="E:GitHubManager.MainWindow.SignedInChanged" /> event.
+        /// </summary>
+        protected virtual void OnSignedInChanged()
+            => SignedInChanged?.Invoke(this, EventArgs.Empty);
 
         private void OnDropDownOpeningViewMenu(object sender, EventArgs e)
             => viewStatusBar.Checked = statusBar.Visible;
