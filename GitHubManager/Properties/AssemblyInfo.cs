@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GitHubManager")]
+[assembly: AssemblyTitle("GitHub Manager")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("GitHubManager")]
+[assembly: AssemblyProduct("xyLOGIX GitHub Manager")]
 [assembly: AssemblyCopyright("Copyright © xyLOGIX, LLC 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
