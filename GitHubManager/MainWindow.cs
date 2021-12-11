@@ -153,6 +153,8 @@ namespace GitHubManager
                         Thread.Sleep(500);  // allow time for the DataGridView to be filled
 
                         workspacePanel.Hide();
+
+                        Text = $"Repositories - {Application.ProductName}";
                     }
                 )
             );
