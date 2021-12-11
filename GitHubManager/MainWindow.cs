@@ -70,6 +70,10 @@ namespace GitHubManager
         /// <summary>
         /// Gets or sets a value indicating whether the user is signed in.
         /// </summary>
+        /// <remarks>
+        /// When this property's value is changed, the
+        /// <see cref="E:GitHubManager.MainWindow.SignedInChanged" /> event is raised.
+        /// </remarks>
         public bool IsSignedIn
         {
             get => _isSignedIn;
