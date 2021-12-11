@@ -31,7 +31,7 @@ namespace GitHubManager
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.fileLogin = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,10 +58,11 @@ namespace GitHubManager
             this.deleteButton = new System.Windows.Forms.ToolStripButton();
             this.addNewButton = new System.Windows.Forms.ToolStripButton();
             this.reposDataGridView = new System.Windows.Forms.DataGridView();
-            this.reposListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cloneUrlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reposListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.workspacePanel = new System.Windows.Forms.Panel();
             this.mainMenu.SuspendLayout();
             this.navigateToolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reposDataGridView)).BeginInit();
@@ -288,8 +289,8 @@ namespace GitHubManager
             this.reposDataGridView.AllowUserToAddRows = false;
             this.reposDataGridView.AllowUserToDeleteRows = false;
             this.reposDataGridView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            this.reposDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            this.reposDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.reposDataGridView.AutoGenerateColumns = false;
             this.reposDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.reposDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -304,10 +305,6 @@ namespace GitHubManager
             this.reposDataGridView.ReadOnly = true;
             this.reposDataGridView.Size = new System.Drawing.Size(858, 531);
             this.reposDataGridView.TabIndex = 3;
-            // 
-            // reposListBindingSource
-            // 
-            this.reposListBindingSource.DataSource = typeof(GitHubManager.Repo);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -330,11 +327,26 @@ namespace GitHubManager
             this.cloneUrlDataGridViewTextBoxColumn.Name = "cloneUrlDataGridViewTextBoxColumn";
             this.cloneUrlDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // reposListBindingSource
+            // 
+            this.reposListBindingSource.DataSource = typeof(GitHubManager.Repo);
+            // 
+            // workspacePanel
+            // 
+            this.workspacePanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.workspacePanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.workspacePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.workspacePanel.Location = new System.Drawing.Point(0, 49);
+            this.workspacePanel.Name = "workspacePanel";
+            this.workspacePanel.Size = new System.Drawing.Size(858, 531);
+            this.workspacePanel.TabIndex = 4;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(858, 602);
+            this.Controls.Add(this.workspacePanel);
             this.Controls.Add(this.reposDataGridView);
             this.Controls.Add(this.navigateToolBar);
             this.Controls.Add(this.statusBar);
@@ -388,6 +400,7 @@ namespace GitHubManager
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cloneUrlDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel workspacePanel;
     }
 }
 
