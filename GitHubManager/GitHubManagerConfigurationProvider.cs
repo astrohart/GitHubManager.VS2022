@@ -32,8 +32,8 @@ namespace GitHubManager
         protected GitHubManagerConfigurationProvider() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:GitHubManager.GitHubManagerConfigurationProvider" />.
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:GitHubManager.IGitHubManagerConfigurationProvider" /> interface.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static IGitHubManagerConfigurationProvider Instance { get; } =
