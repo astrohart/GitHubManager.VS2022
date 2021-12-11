@@ -10,13 +10,6 @@ namespace GitHubManager
     public interface IForm : IWin32Window, IDisposable, ISynchronizeInvoke
     {
         /// <summary>
-        /// Gets or sets a <see cref="T:System.Windows.Forms.DialogResult" /> value that
-        /// indicates how the user closed this form if it was shown as a dialog box using
-        /// the <see cref="M:GitHubManager.IForm.ShowDialog" /> method.
-        /// </summary>
-        DialogResult DialogResult { get; set; }
-
-        /// <summary>
         /// Occurs when this form is first loaded into memory.
         /// </summary>
         event EventHandler Load;
@@ -25,6 +18,23 @@ namespace GitHubManager
         /// Occurs when this form is first shown to the user.
         /// </summary>
         event EventHandler Shown;
+
+        /// <summary>
+        /// Gets or sets a <see cref="T:System.Windows.Forms.DialogResult" /> value that
+        /// indicates how the user closed this form if it was shown as a dialog box using
+        /// the <see cref="M:GitHubManager.IForm.ShowDialog" /> method.
+        /// </summary>
+        DialogResult DialogResult { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether this form has been disposed.
+        /// </summary>
+        bool IsDisposed { get; }
+
+        /// <summary>
+        /// Gets a value indicating whether this form's window handle has been created.
+        /// </summary>
+        bool IsHandleCreated { get; }
 
         /// <summary>
         /// Closes this form.

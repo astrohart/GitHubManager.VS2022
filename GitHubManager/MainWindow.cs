@@ -23,6 +23,10 @@ namespace GitHubManager
         private bool _isSignedIn;
 
         /// <summary>
+        /// </summary>
+        private IMarqueeProgressDialogBox _progressDialog;
+
+        /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         static MainWindow() { }
@@ -89,6 +93,23 @@ namespace GitHubManager
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            // obscure the (as yet unfilled) DataGridView behind a panel
+            workspacePanel.Show();
+            workspacePanel.BringToFront();
+
+            _progressDialog?.DestroyWindow();
+            _progressDialog = null;
+        }
+
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
         /// <param name="e">
         /// A <see cref="T:System.EventArgs" /> that contains the event
@@ -119,17 +140,6 @@ namespace GitHubManager
         private void OnFileExit(object sender, EventArgs e)
             => Close();
 
-        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
-        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            // obscure the (as yet unfilled) DataGridView behind a panel
-            workspacePanel.Show();
-            workspacePanel.BringToFront();
-        }
-
         private void OnFileLogin(object sender, EventArgs e)
         {
             using (var dialogBox = MakeNewLoginDialogBox.FromScratch())
@@ -137,8 +147,20 @@ namespace GitHubManager
                 dialogBox.GitHubLoginInfoReceived += OnGitHubLoginInfoReceived;
 
                 IsSignedIn = DialogResult.OK == dialogBox.ShowDialog(this);
+
+                if (IsSignedIn)
+                {
+                    _progressDialog = MakeNewMarqueeProgressDialogBox.FromScratch()
+                                                .HavingMessage(
+                                                    "Retrieving repositories..."
+                                                );
+                    _progressDialog.Show(this);
+                }
             }
         }
+
+        private void OnFileMenuDropDownOpening(object sender, EventArgs e)
+            => fileLogin.Enabled = !IsSignedIn;
 
         private void OnGitHubAuthenticated(object sender,
             GitHubAuthenticatedEventArgs e)
@@ -150,11 +172,16 @@ namespace GitHubManager
                         reposListBindingSource.DataSource =
                             new BindingList<Repo>(await Presenter.GetRepos());
 
-                        Thread.Sleep(500);  // allow time for the DataGridView to be filled
+                        Thread.Sleep(
+                            500
+                        ); // allow time for the DataGridView to be filled
 
                         workspacePanel.Hide();
 
                         Text = $"Repositories - {Application.ProductName}";
+
+                        _progressDialog?.DestroyWindow();
+                        _progressDialog = null;
                     }
                 )
             );
@@ -190,10 +217,5 @@ namespace GitHubManager
 
         private void OnViewStatusBar(object sender, EventArgs e)
             => statusBar.Visible = !statusBar.Visible;
-
-        private void OnFileMenuDropDownOpening(object sender, EventArgs e)
-        {
-            fileLogin.Enabled = !IsSignedIn;
-        }
     }
 }
