@@ -42,9 +42,12 @@ namespace GitHubManager
         public static IMainWindow Instance { get; } = new MainWindow();
 
         /// <summary>
-        /// Gets or sets a value indicating whether the user is signed in.
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.IGitHubManagerConfigurationProvider" /> interface.
         /// </summary>
-        public bool IsSignedIn { get; set; }
+        private static IGitHubManagerConfigurationProvider
+            GitHubManagerConfigurationProvider
+            => GetGitHubManagerConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -52,6 +55,11 @@ namespace GitHubManager
         /// </summary>
         private static IGitHubSession Session
             => GetGitHubSession.SoleInstance();
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the user is signed in.
+        /// </summary>
+        public bool IsSignedIn { get; set; }
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
         /// <param name="e">
@@ -87,9 +95,9 @@ namespace GitHubManager
             }
         }
 
-        private void OnGitHubAuthenticated(object sender, GitHubAuthenticatedEventArgs e)
-        {
-            this.InvokeIfRequired(
+        private void OnGitHubAuthenticated(object sender,
+            GitHubAuthenticatedEventArgs e)
+            => this.InvokeIfRequired(
                 new MethodInvoker(
                     async () =>
                     {
@@ -99,11 +107,9 @@ namespace GitHubManager
                     }
                 )
             );
-        }
 
         private void OnGitHubLoginInfoReceived(object sender,
-            GitHubLoginInfoReceivedEventArgs e)
-        { }
+            GitHubLoginInfoReceivedEventArgs e) { }
 
         private void OnToolsOptions(object sender, EventArgs e)
             => Presenter.ConfigureOptions();
@@ -124,7 +130,6 @@ namespace GitHubManager
         /// This method responds by ensuring that the enabled/disabled state of
         /// controls corresponds to the internal state of the application.
         /// </remarks>
-
         [Log(AttributeExclude = true)]
         private void OnUpdateCmdUI(object sender, EventArgs e)
             => navigateToolBar.Enabled = false;

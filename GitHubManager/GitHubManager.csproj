@@ -87,6 +87,7 @@
     <Compile Include="ConvertGitHubManagerConfigurationTests.cs" />
     <Compile Include="FormExtensions.cs" />
     <Compile Include="GetGitHubLoginServer.cs" />
+    <Compile Include="GetGitHubManagerConfigurationProvider.cs" />
     <Compile Include="GetGitHubSession.cs" />
     <Compile Include="GitHubAuthenticatedEventHandler.cs" />
     <Compile Include="GitHubAuthenticatedEventArgs.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="IForm.cs" />
     <Compile Include="IGitHubLoginServer.cs" />
     <Compile Include="IGitHubManagerConfiguration.cs" />
+    <Compile Include="IGitHubManagerConfigurationProvider.cs" />
     <Compile Include="IGitHubSession.cs" />
     <Compile Include="ILoginDialogBox.cs" />
     <Compile Include="ILoginDialogBoxPresenter.cs" />

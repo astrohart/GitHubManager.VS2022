@@ -1,4 +1,5 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace GitHubManager
@@ -6,27 +7,44 @@ namespace GitHubManager
     /// <summary>
     /// Methods and properties for loading, accessing, and saving the configuration.
     /// </summary>
-    public static class GitHubManagerConfigurationProvider
+    public class
+        GitHubManagerConfigurationProvider : IGitHubManagerConfigurationProvider
     {
         /// <summary>
         /// Gets the fully-qualified pathname of the default configuration file.
         /// </summary>
-        public static readonly string ConfigurationFilePathname = Path.Combine(
+        public readonly string ConfigurationFilePathname = Path.Combine(
             Environment.GetFolderPath(
                 Environment.SpecialFolder.LocalApplicationData
             ), @"xyLOGIX, LLC\GitHub Manager\Config\.config.json"
         );
 
         /// <summary>
+        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        static GitHubManagerConfigurationProvider() { }
+
+        /// <summary>
+        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        protected GitHubManagerConfigurationProvider() { }
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:GitHubManager.GitHubManagerConfigurationProvider" />.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static IGitHubManagerConfigurationProvider Instance { get; } =
+            new GitHubManagerConfigurationProvider();
+
+        /// <summary>
         /// Gets or sets a reference to the instance of an object implementing the
         /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface that
         /// represents the currently-loaded configuration.
         /// </summary>
-        public static IGitHubManagerConfiguration CurrentConfiguration
-        {
-            get;
-            set;
-        }
+        public IGitHubManagerConfiguration CurrentConfiguration { get; set; }
 
         /// <summary>
         /// Loads the configuration from the default configuration file, and stores the
@@ -44,7 +62,7 @@ namespace GitHubManager
         /// configuration object, all of whose properties are initialized to the default
         /// settings.
         /// </remarks>
-        public static IGitHubManagerConfiguration Load()
+        public IGitHubManagerConfiguration Load()
         {
             var result = MakeNewGitHubManagerConfiguration.FromScratch();
 
@@ -68,7 +86,7 @@ namespace GitHubManager
         /// <summary>
         /// Saves the current configuration to the default configuration file on the disk.
         /// </summary>
-        public static void Save()
+        public void Save()
         {
             var folder = Path.GetDirectoryName(ConfigurationFilePathname);
 

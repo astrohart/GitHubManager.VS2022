@@ -30,6 +30,14 @@ namespace GitHubManager
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.IGitHubManagerConfigurationProvider" /> interface.
+        /// </summary>
+        private static IGitHubManagerConfigurationProvider
+            GitHubManagerConfigurationProvider
+            => GetGitHubManagerConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface.
         /// </summary>
         private static IGitHubManagerConfiguration CurrentConfiguration
