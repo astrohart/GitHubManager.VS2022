@@ -184,7 +184,7 @@ namespace GitHubManager
             var info = GitHubAuthorizationRequestInfo.FromRequest(e.Request);
 
             var request = new OauthTokenRequest(
-                ClientId, ClientSecet, info.Code
+                ClientId, ClientSecet, info.code
             );
             var token = await Client.Oauth.CreateAccessToken(request);
 

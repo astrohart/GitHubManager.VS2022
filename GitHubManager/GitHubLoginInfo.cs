@@ -10,17 +10,17 @@ namespace GitHubManager
         /// <summary>
         /// Gets or sets a string containing the ID of the client.
         /// </summary>
-        public string ClientId { get; set; }
+        public string client_id { get; set; }
 
         /// <summary>
         /// Gets or sets a string containing a comma-separated list of scopes.
         /// </summary>
-        public string Scope { get; set; }
+        public string scope { get; set; }
 
         /// <summary>
         /// Gets or sets a string containing a state value.
         /// </summary>
-        public string State { get; set; }
+        public string state { get; set; }
 
         /// <summary>
         /// Parses the query string of the specified <paramref name="url" /> and returns a
@@ -45,19 +45,9 @@ namespace GitHubManager
                     "Value cannot be null or whitespace.", nameof(url)
                 );
 
-            if (!url.StartsWith(GitHubUrls.GitHubLoginAuthorizeUrlStart))
-                return default;
-
-            var values = new Uri(url).ParseQueryString();
-            if (values == null || values.Count == 0)
-                return default;
-
-            return new GitHubLoginInfo
-            {
-                ClientId = values["client_id"],
-                Scope = values["scope"],
-                State = values["state"]
-            };
+            return !url.StartsWith(GitHubUrls.GitHubLoginAuthorizeUrlStart)
+                ? default
+                : new Uri(url).Query.To<GitHubLoginInfo>();
         }
     }
 }

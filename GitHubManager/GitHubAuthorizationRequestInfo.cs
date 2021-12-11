@@ -10,19 +10,19 @@ namespace GitHubManager
     public class GitHubAuthorizationRequestInfo
     {
         /// <summary>
+        /// Gets or sets the body of the request.
+        /// </summary>
+        public string Body { get; set; }
+
+        /// <summary>
         /// Gets or sets the authorization code.
         /// </summary>
-        public string Code { get; set; }
+        public string code { get; set; }
 
         /// <summary>
         /// Gets or sets the authorization state.
         /// </summary>
-        public string State { get; set; }
-
-        /// <summary>
-        /// Gets or sets the body of the request.
-        /// </summary>
-        public string Body { get; set; }
+        public string state { get; set; }
 
         /// <summary>
         /// Gets or sets the URL of the request, as an instance of <see cref="T:System.Uri"/>.
@@ -34,22 +34,16 @@ namespace GitHubManager
         {
             if (request == null)
                 throw new ArgumentNullException(nameof(request));
-            
 
             if (string.IsNullOrWhiteSpace(request.Url.AbsoluteUri)) return default;
             if (string.IsNullOrWhiteSpace(request.Url.Query)) return default;
 
-            var queryParts = request.Url.ParseQueryString();
-            if (queryParts == null || queryParts.Count == 0)
-                return default;
+            var result = request.Url.Query.To<GitHubAuthorizationRequestInfo>();
 
-            return new GitHubAuthorizationRequestInfo
-            {
-                Url = request.Url,
-                Body = GetBody(request),
-                State = queryParts["state"],
-                Code = queryParts["code"]
-            };
+            result.Url = request.Url;
+            result.Body = GetBody(request);
+
+            return result;
         }
 
         private static string GetBody(HttpListenerRequest request)
@@ -63,7 +57,7 @@ namespace GitHubManager
 
             try
             {
-                using(var bodyStream = request.InputStream)
+                using (var bodyStream = request.InputStream)
                 using (var reader = new StreamReader(
                     bodyStream, request.ContentEncoding
                 ))
@@ -77,7 +71,6 @@ namespace GitHubManager
             }
 
             return result;
-
         }
     }
 }
