@@ -285,6 +285,9 @@ namespace GitHubManager
             // 
             // reposDataGridView
             // 
+            this.reposDataGridView.AllowUserToAddRows = false;
+            this.reposDataGridView.AllowUserToDeleteRows = false;
+            this.reposDataGridView.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             this.reposDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.reposDataGridView.AutoGenerateColumns = false;
@@ -298,6 +301,7 @@ namespace GitHubManager
             this.reposDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reposDataGridView.Location = new System.Drawing.Point(0, 49);
             this.reposDataGridView.Name = "reposDataGridView";
+            this.reposDataGridView.ReadOnly = true;
             this.reposDataGridView.Size = new System.Drawing.Size(858, 531);
             this.reposDataGridView.TabIndex = 3;
             // 
@@ -310,18 +314,21 @@ namespace GitHubManager
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cloneUrlDataGridViewTextBoxColumn
             // 
             this.cloneUrlDataGridViewTextBoxColumn.DataPropertyName = "CloneUrl";
             this.cloneUrlDataGridViewTextBoxColumn.HeaderText = "CloneUrl";
             this.cloneUrlDataGridViewTextBoxColumn.Name = "cloneUrlDataGridViewTextBoxColumn";
+            this.cloneUrlDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // MainWindow
             // 
