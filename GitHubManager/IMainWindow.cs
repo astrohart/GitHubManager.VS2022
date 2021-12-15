@@ -9,11 +9,6 @@ namespace GitHubManager
     public interface IMainWindow : IForm
     {
         /// <summary>
-        /// Occurs when the value of the <see cref="P:GitHubManager.IMainWindow.IsSignedIn"/> property changes.
-        /// </summary>
-        event EventHandler SignedInChanged;
-
-        /// <summary>
         /// Gets or sets a value indicating whether the user is signed in.
         /// </summary>
         /// <remarks>
@@ -21,5 +16,11 @@ namespace GitHubManager
         /// <see cref="E:GitHubManager.MainWindow.SignedInChanged" /> event is raised.
         /// </remarks>
         bool IsSignedIn { get; }
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:GitHubManager.IMainWindow.IsSignedIn" /> property changes.
+        /// </summary>
+        event EventHandler SignedInChanged;
     }
 }
