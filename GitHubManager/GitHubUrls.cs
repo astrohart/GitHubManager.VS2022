@@ -13,6 +13,10 @@
         public const string GitHubLoginAuthorizeUrlStart =
             @"https://github.com/login/oauth/authorize?";
 
+        /// <summary>
+        /// URL route that our internal HTTP server listens on for incoming authorization
+        /// requests.
+        /// </summary>
         public const string OAuthRedirectURL =
             @"http://localhost:38929/home/authorize";
     }
