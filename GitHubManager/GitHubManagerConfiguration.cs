@@ -23,13 +23,15 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Gets or sets a string containing the ID of the particular GitHub app we want to utilize with this application.
+        /// Gets or sets a string containing the ID of the particular GitHub app we want to
+        /// utilize with this application.
         /// </summary>
         [JsonProperty("clientId")]
         public string ClientId { get; set; }
 
         /// <summary>
-        /// Gets or sets a string containing the Client Secret of the OAuth App to bind to this application.
+        /// Gets or sets a string containing the Client Secret of the OAuth App to bind to
+        /// this application.
         /// </summary>
         [JsonProperty("clientSecret")]
         public string ClientSecret { get; set; }
@@ -42,7 +44,8 @@ namespace GitHubManager
         public bool LoginOnStartup { get; set; }
 
         /// <summary>
-        /// Get or sets a collection of strings that defines the scopes to be used with this application.
+        /// Get or sets a collection of strings that defines the scopes to be used with
+        /// this application.
         /// </summary>
         [JsonProperty("scopes")]
         public IList<string> Scopes { get; set; }
