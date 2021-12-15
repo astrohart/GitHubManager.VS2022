@@ -3,6 +3,13 @@ using System.Windows.Forms;
 
 namespace GitHubManager
 {
+    /// <summary>
+    /// Keyboard-handler object for the CefSharp WebBrowser control.
+    /// </summary>
+    /// <remarks>
+    /// This object handles key presses etc. on the control, such the user
+    /// pressing the <c>ESC</c> key triggering a close of the containing dialog box.
+    /// </remarks>
     public class KeyboardHandler : IKeyboardHandler
     {
         /// <summary>
@@ -73,7 +80,7 @@ namespace GitHubManager
                 mod.IsBitmaskOn((int)CefEventFlags.AltDown))
                 return false;
 
-            if (KeyChars.ESCAPE != windowsKeyCode) 
+            if (KeyChars.ESCAPE != windowsKeyCode)
                 return false;
 
             if (Form.InvokeRequired)

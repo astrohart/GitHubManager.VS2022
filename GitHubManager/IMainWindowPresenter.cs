@@ -24,6 +24,6 @@ namespace GitHubManager
         /// Collection of instances of <see cref="T:GitHubManager.Repo" /> objects
         /// that contain the data for all of the repositories for the current user.
         /// </returns>
-        Task<IList<Repo>> GetRepos();
+        Task<IList<IRepo>> GetRepos();
     }
 }

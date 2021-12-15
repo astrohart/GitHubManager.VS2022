@@ -41,16 +41,17 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the <see cref="T:GitHubManager.IGitHubSession" /> interface.
-        /// </summary>
-        public IGitHubSession Session
-            => GetGitHubSession.SoleInstance();
-
-        /// <summary>
         /// Gets or sets a reference to a collection of strings that is the history of
         /// navigated addresses.
         /// </summary>
         public IList<string> AddressHistoryList { get; private set; }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.IGitHubSession" /> interface.
+        /// </summary>
+        public IGitHubSession Session
+            => GetGitHubSession.SoleInstance();
 
         /// <summary>
         /// Saves the address history to a file in the user's Local AppData directory.
@@ -90,8 +91,6 @@ namespace GitHubManager
         /// Provides common initialization for all of this object's constructor overloads.
         /// </summary>
         private void CommonConstruct()
-        {
-            AddressHistoryList = new List<string>();
-        }
+            => AddressHistoryList = new List<string>();
     }
 }

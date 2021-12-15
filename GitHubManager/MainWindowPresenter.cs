@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace GitHubManager
 {
+    /// <summary>
+    /// Presenter object that defines the behaviors of the main application window.
+    /// </summary>
     public class MainWindowPresenter : IMainWindowPresenter
     {
         /// <summary>
@@ -25,8 +28,20 @@ namespace GitHubManager
         /// Constructs a new instance of <see cref="T:GitHubManager.MainWindowPresenter" />
         /// and returns a reference to it.
         /// </summary>
+        /// <param name="view">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.IMainWindow" /> interface that plays the role of the
+        /// main application window.
+        /// </param>
         public MainWindowPresenter(IMainWindow view)
             => View = view;
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface.
+        /// </summary>
+        private static IGitHubManagerConfiguration CurrentConfiguration
+            => GitHubManagerConfigurationProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -35,13 +50,6 @@ namespace GitHubManager
         private static IGitHubManagerConfigurationProvider
             GitHubManagerConfigurationProvider
             => GetGitHubManagerConfigurationProvider.SoleInstance();
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface.
-        /// </summary>
-        private static IGitHubManagerConfiguration CurrentConfiguration
-            => GitHubManagerConfigurationProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -72,9 +80,9 @@ namespace GitHubManager
         /// Collection of instances of <see cref="T:GitHubManager.Repo" /> objects
         /// that contain the data for all of the repositories for the current user.
         /// </returns>
-        public async Task<List<Repo>> GetRepos()
+        public async Task<IList<IRepo>> GetRepos()
         {
-            var result = new List<Repo>();
+            var result = new List<IRepo>();
 
             try
             {
@@ -89,11 +97,12 @@ namespace GitHubManager
                                              Name = r.Name
                                          }
                                      )
+                                     .Cast<IRepo>()
                                      .ToList();
             }
             catch
             {
-                result = new List<Repo>();
+                result = new List<IRepo>();
             }
 
             return result;
