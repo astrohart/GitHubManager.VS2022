@@ -133,6 +133,7 @@
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="MainWindowPresenter.cs" />
+    <Compile Include="MakeNewGitHubLoginInfo.cs" />
     <Compile Include="MakeNewGitHubManagerConfiguration.cs" />
     <Compile Include="MakeNewLoginDialogBox.cs" />
     <Compile Include="MakeNewMarqueeProgressDialogBox.cs" />
