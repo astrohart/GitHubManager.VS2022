@@ -25,7 +25,7 @@ namespace GitHubManager
         /// Gets a reference to the one and only instance of
         /// <see cref="T:GitHubManager.GitHubSession" />.
         /// </summary>
-        public static GitHubSession Instance { get; } = new GitHubSession();
+        public static IGitHubSession Instance { get; } = new GitHubSession();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
