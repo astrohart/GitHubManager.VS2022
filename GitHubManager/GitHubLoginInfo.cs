@@ -47,16 +47,17 @@ namespace GitHubManager
         /// </summary>
         /// <param name="url">(Required.) String that contains a URL that begins with the </param>
         /// <returns>
-        /// Reference to an instance of
-        /// <see cref="T:GitHubManager.GitHubLoginInfo" /> whose properties have been
-        /// initialized with the query string values.
+        /// Reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.IGitHubLoginInfo" /> interface whose properties are
+        /// initialized to the values that are parsed from the provided
+        /// <paramref name="url" />, or <see langword="null" /> if this is not feasible.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter,
         /// <paramref name="url" />, is passed a blank or <see langword="null" /> string
         /// for a value.
         /// </exception>
-        public static GitHubLoginInfo FromUrl(string url)
+        public static IGitHubLoginInfo FromUrl(string url)
         {
             if (string.IsNullOrWhiteSpace(url))
                 throw new ArgumentException(
