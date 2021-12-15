@@ -3,6 +3,10 @@ using System.Threading.Tasks;
 
 namespace GitHubManager
 {
+    /// <summary>
+    /// Defines the publicly-exposed methods and properties of the <c>Presenter</c>
+    /// object for the main application window.
+    /// </summary>
     public interface IMainWindowPresenter
     {
         /// <summary>
@@ -20,6 +24,6 @@ namespace GitHubManager
         /// Collection of instances of <see cref="T:GitHubManager.Repo" /> objects
         /// that contain the data for all of the repositories for the current user.
         /// </returns>
-        Task<List<Repo>> GetRepos();
+        Task<IList<Repo>> GetRepos();
     }
 }
