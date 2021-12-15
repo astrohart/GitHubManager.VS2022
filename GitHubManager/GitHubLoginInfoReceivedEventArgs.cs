@@ -16,12 +16,12 @@ namespace GitHubManager
         /// (Required.) String containing the URL conveying important login information.
         /// </param>
         /// <param name="loginInfo">
-        /// (Required.) Reference to an instance of
-        /// <see cref="T:GitHubManager.GitHubLoginInfo" /> that contains the login
-        /// information, parsed from the url in the <paramref name="address" /> parameter.
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.IGitHubLoginInfo" /> interface that plays the role
+        /// of an object that contains important login information.
         /// </param>
         public GitHubLoginInfoReceivedEventArgs(string address,
-            GitHubLoginInfo loginInfo)
+            IGitHubLoginInfo loginInfo)
         {
             Address = address;
             LoginInfo = loginInfo;
@@ -33,10 +33,10 @@ namespace GitHubManager
         public string Address { get; }
 
         /// <summary>
-        /// Gets a reference to an instance of
-        /// <see cref="T:GitHubManager.GitHubLoginInfo" /> that contains information about
-        /// the login.
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.IGitHubLoginInfo" /> interface that plays the role
+        /// of an object that contains important login information.
         /// </summary>
-        public GitHubLoginInfo LoginInfo { get; }
+        public IGitHubLoginInfo LoginInfo { get; }
     }
 }
