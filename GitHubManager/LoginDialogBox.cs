@@ -37,11 +37,11 @@ namespace GitHubManager
             GitHubLoginInfoReceived;
 
         /// <summary>
-        /// Gets a reference to an instance of
-        /// <see cref="T:GitHubManager.GitHubLoginInfo" /> that contains important login
-        /// information.
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.IGitHubLoginInfo" /> interface that plays the role
+        /// of an object that contains important login information.
         /// </summary>
-        public GitHubLoginInfo GitHubLoginInfo { get; private set; }
+        public IGitHubLoginInfo GitHubLoginInfo { get; private set; }
 
         /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" />
@@ -156,7 +156,7 @@ namespace GitHubManager
             if (!e.Address.StartsWith(GitHubUrls.GitHubLoginAuthorizeUrlStart))
                 return;
 
-            GitHubLoginInfo = GitHubLoginInfo.FromUrl(e.Address);
+            GitHubLoginInfo = MakeNewGitHubLoginInfo.FromUrl(e.Address);
 
             OnGitHubLoginInfoReceived(
                 new GitHubLoginInfoReceivedEventArgs(e.Address, GitHubLoginInfo)
