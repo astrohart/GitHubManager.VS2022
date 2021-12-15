@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net;
 using System.Threading;
-using System.Windows.Forms;
 
 namespace GitHubManager
 {
@@ -98,6 +97,10 @@ namespace GitHubManager
             _requestContextThread.Start();
         }
 
+        /// <summary>
+        /// Stops this GitHub login server instance from acknowledging any further
+        /// requests.
+        /// </summary>
         public void Stop()
         {
             IsStarted = false;
@@ -119,18 +122,13 @@ namespace GitHubManager
             GitHubServerRequestReceivedEventArgs e)
             => GitHubServerRequestReceived?.Invoke(this, e);
 
-        private void RequestContextThread()
-        {
-            if (_httpListener == null || !_httpListener.IsListening)
-                return;
-
-            if (!IsStarted) return;
-
-            var context = _httpListener.BeginGetContext(
-                GetContextCallback, null
-            );
-        }
-
+        /// <summary>
+        /// Method that is called when a new HTTP request comes in from a client.
+        /// </summary>
+        /// <param name="ar">
+        /// (Required.) Reference to an instance of an object that
+        /// implements the <see cref="T:System.IAsyncResult" /> interface.
+        /// </param>
         private void GetContextCallback(IAsyncResult ar)
         {
             if (ar == null)
@@ -151,6 +149,22 @@ namespace GitHubManager
                 new GitHubServerRequestReceivedEventArgs(
                     context.Request, context.Response
                 )
+            );
+        }
+
+        /// <summary>
+        /// Background thread that listens for new requests and then calls a callback
+        /// method when they come in.
+        /// </summary>
+        private void RequestContextThread()
+        {
+            if (_httpListener == null || !_httpListener.IsListening)
+                return;
+
+            if (!IsStarted) return;
+
+            var context = _httpListener.BeginGetContext(
+                GetContextCallback, null
             );
         }
     }
