@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.Common.96.0.142\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.96.0.142\build\CefSharp.Common.props')" />
+  <Import Project="..\packages\cef.redist.x86.96.0.14\build\cef.redist.x86.props" Condition="Exists('..\packages\cef.redist.x86.96.0.14\build\cef.redist.x86.props')" />
+  <Import Project="..\packages\cef.redist.x64.96.0.14\build\cef.redist.x64.props" Condition="Exists('..\packages\cef.redist.x64.96.0.14\build\cef.redist.x64.props')" />
+  <Import Project="..\packages\PostSharp.6.10.10\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.10.10\build\PostSharp.props')" />
+  <Import Project="..\packages\NUnit.3.13.3\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" />
   <Import Project="..\packages\PostSharp.6.10.6\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.10.6\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -39,6 +44,54 @@
     <ApplicationIcon>xylogix.ICO</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AlphaFS.2.2.6\lib\net452\AlphaFS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CefSharp, Version=96.0.142.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.Common.96.0.142\lib\net452\CefSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CefSharp.Core, Version=96.0.142.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.Common.96.0.142\lib\net452\CefSharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CefSharp.WinForms, Version=96.0.142.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.WinForms.96.0.142\lib\net462\CefSharp.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.13.3.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.13.3\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Octokit, Version=0.50.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Octokit.0.50.0\lib\net46\Octokit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PostSharp, Version=6.10.10.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Redist.6.10.10\lib\net45\PostSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Common, Version=6.10.10.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Common.Redist.6.10.10\lib\net47\PostSharp.Patterns.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics, Version=6.10.10.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.6.10.10\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics.Backends.Log4Net, Version=6.10.10.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.10.10\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -143,6 +196,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\GitHubManagerConfiguration.datasource" />
     <None Include="Properties\DataSources\Repo.datasource" />
     <None Include="Properties\Settings.settings">
@@ -168,6 +222,17 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\PostSharp.6.10.6\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.10.6\build\PostSharp.props'))" />
     <Error Condition="!Exists('..\packages\PostSharp.6.10.6\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.10.6\build\PostSharp.targets'))" />
+    <Error Condition="!Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Vsxmd.1.4.5\build\Vsxmd.targets'))" />
+    <Error Condition="!Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.13.3\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.6.10.10\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.10.10\build\PostSharp.props'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.6.10.10\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.10.10\build\PostSharp.targets'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x64.96.0.14\build\cef.redist.x64.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.96.0.14\build\cef.redist.x64.props'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.96.0.14\build\cef.redist.x86.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.96.0.14\build\cef.redist.x86.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.96.0.142\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.96.0.142\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.96.0.142\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.96.0.142\build\CefSharp.Common.targets'))" />
   </Target>
   <Import Project="..\packages\PostSharp.6.10.6\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.10.6\build\PostSharp.targets')" />
+  <Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
+  <Import Project="..\packages\PostSharp.6.10.10\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.10.10\build\PostSharp.targets')" />
+  <Import Project="..\packages\CefSharp.Common.96.0.142\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.96.0.142\build\CefSharp.Common.targets')" />
 </Project>
