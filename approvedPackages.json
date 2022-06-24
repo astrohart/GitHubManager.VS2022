@@ -73,19 +73,19 @@
         },
         {
           "name": "cef.redist.x64",
-          "version": "102.0.10"
+          "version": "latest"
         },
         {
           "name": "cef.redist.x86",
-          "version": "102.0.10"
+          "version": "latest"
         },
         {
           "name": "CefSharp.Common",
-          "version": "102.0.100"
+          "version": "latest"
         },
         {
           "name": "CefSharp.WinForms",
-          "version": "102.0.100"
+          "version": "latest"
         },
         {
           "name": "Octokit",
