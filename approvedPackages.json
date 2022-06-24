@@ -20,7 +20,23 @@
           "version": "latest"
         },
         {
+          "name": "log4net",
+          "version": "latest"
+        },
+        {
+          "name": "PostSharp.Patterns.Diagnostics.Log4Net",
+          "version": "latest"
+        },
+        {
           "name": "PostSharp",
+          "version": "latest"
+        },
+        {
+          "name": "PostSharp.Patterns.Common",
+          "version": "latest"
+        },
+        {
+          "name": "PostSharp.Patterns.Common.Redist",
           "version": "latest"
         },
         {
@@ -32,24 +48,48 @@
           "version": "latest"
         },
         {
+          "name": "PostSharp.Patterns.Diagnostics.Redist",
+          "version": "latest"
+        },
+        {
+          "name": "PostSharp.Redist",
+          "version": "latest"
+        },
+        {
+          "name": "PostSharp.Patterns.Diagnostics",
+          "version": "latest"
+        },
+        {
+          "name": "PostSharp.Patterns.Diagnostics.Log4Net",
+          "version": "latest"
+        },
+        {
+          "name": "PostSharp.Patterns.Diagnostics.Redist",
+          "version": "latest"
+        },
+        {
+          "name": "PostSharp.Patterns.Diagnostics.Log4Net",
+          "version": "latest"
+        },
+        {
           "name": "cef.redist.x64",
-          "version": "96.0.14"
+          "version": "102.0.10"
         },
         {
           "name": "cef.redist.x86",
-          "version": "96.0.14"
+          "version": "102.0.10"
         },
         {
           "name": "CefSharp.Common",
-          "version": "96.0.142"
+          "version": "102.0.100"
         },
         {
           "name": "CefSharp.WinForms",
-          "version": "96.0.142"
+          "version": "102.0.100"
         },
         {
           "name": "Octokit",
-          "version": "0.50.0"
+          "version": "0.51.0"
         }
       ]
     }
