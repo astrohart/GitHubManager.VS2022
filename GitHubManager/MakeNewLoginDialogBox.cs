@@ -1,10 +1,12 @@
 ﻿namespace GitHubManager
+using PostSharp.Patterns.Diagnostics;
 {
     /// <summary>
     /// Creates new instances of objects that implement the
     /// <see cref="T:GitHubManager.ILoginDialogBox" /> interface, and returns
     /// references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewLoginDialogBox
     {
         /// <summary>

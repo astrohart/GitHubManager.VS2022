@@ -1,4 +1,5 @@
 ﻿using System;
+using PostSharp.Patterns.Diagnostics;
 
 namespace GitHubManager
 {
@@ -7,6 +8,7 @@ namespace GitHubManager
     /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface, and
     /// returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewGitHubManagerConfiguration
     {
         /// <summary>

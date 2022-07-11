@@ -1,8 +1,10 @@
 ﻿namespace GitHubManager
+using PostSharp.Patterns.Diagnostics;
 {
     /// <summary>
     /// Creates new instances of objects that implement the <see cref="T:GitHubManager.IGitHubLoginInfo" /> interface, and returns references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewGitHubLoginInfo
     {
         /// <summary>
