@@ -1,4 +1,4 @@
-﻿using Alphaleonis.Win32.Filesystem;
+using Alphaleonis.Win32.Filesystem;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

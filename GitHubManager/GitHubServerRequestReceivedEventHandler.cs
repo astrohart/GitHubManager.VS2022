@@ -1,4 +1,4 @@
-﻿namespace GitHubManager
+namespace GitHubManager
 {
     /// <summary>
     /// Represents a handler for a GitHubServerRequestReceived event.
