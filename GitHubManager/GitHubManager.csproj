@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.6.10.16\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.10.16\build\PostSharp.props')" />
   <Import Project="..\packages\NUnit.3.13.3\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" />
@@ -17,8 +17,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>false</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -186,8 +185,7 @@
     <Error Condition="!Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Vsxmd.1.4.5\build\Vsxmd.targets'))" />
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>git config core.longpaths true
-SET "_PROJECT_DIR=$(ProjectDir.TrimEnd('\'))"
+    <PreBuildEvent>SET "_PROJECT_DIR=$(ProjectDir.TrimEnd('\'))"
 SET "_SOLUTION_DIR=$(SolutionDir.TrimEnd('\'))"
 SET "GENERATED_README_FILE_PATH=$(TargetDir)$(TargetName).md"
 SET "PROJECT_README_FILE_PATH=$(ProjectDir)README.md"
@@ -211,8 +209,7 @@ GOTO AFTER_README
 ECHO *** SUCCESS *** The file "%25PROJECT_README_FILE_PATH%25" was found.
 :AFTER_README
 ECHO *** DONE *** with pre-build event for project $(ProjectName).
-SET ERRORLEVEL=0
-</PreBuildEvent>
+SET ERRORLEVEL=0</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>SET "_TARGET_DIR=$(TargetDir)"
@@ -237,8 +234,7 @@ IF EXIST "%25PROJECT_README_FILE_PATH%25" ATTRIB -R "%25PROJECT_README_FILE_PATH
 GOTO FINALIZATION
 :FINALIZATION
 ECHO *** DONE *** with post-build script.
-SET ERRORLEVEL=0
-</PostBuildEvent>
+SET ERRORLEVEL=0</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\CefSharp.Common.102.0.100\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.102.0.100\build\CefSharp.Common.targets')" />
   <Import Project="..\packages\PostSharp.6.10.16\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.10.16\build\PostSharp.targets')" />
