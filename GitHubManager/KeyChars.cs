@@ -1,4 +1,4 @@
-﻿namespace GitHubManager
+namespace GitHubManager
 {
     /// <summary>
     /// ASCII character codes for keyboard keys.

@@ -1,4 +1,4 @@
-﻿namespace GitHubManager
+namespace GitHubManager
 {
     /// <summary>
     /// Serves as the Presenter for the Options dialog box.

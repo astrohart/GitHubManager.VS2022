@@ -1,4 +1,4 @@
-﻿namespace GitHubManager
+namespace GitHubManager
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of the Marquee Progress Dialog Box.
