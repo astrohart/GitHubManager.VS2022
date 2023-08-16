@@ -1,4 +1,4 @@
-using CefSharp;
+﻿using CefSharp;
 using System.Windows.Forms;
 
 namespace GitHubManager

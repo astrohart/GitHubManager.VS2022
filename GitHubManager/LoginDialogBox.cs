@@ -1,4 +1,4 @@
-using CefSharp;
+﻿using CefSharp;
 using System;
 using System.Threading;
 using System.Windows.Forms;

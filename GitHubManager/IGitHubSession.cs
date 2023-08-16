@@ -1,4 +1,4 @@
-using Octokit;
+﻿using Octokit;
 using System;
 
 namespace GitHubManager
