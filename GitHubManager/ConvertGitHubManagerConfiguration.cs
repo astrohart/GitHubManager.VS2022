@@ -1,13 +1,11 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System;
+﻿using System;
 using System.Globalization;
 
 namespace GitHubManager
 {
     /// <summary>
-    /// Methods to serialize and deserialize the application's configuration to and/or
-    /// from JSON content.
+    /// Methods to serialize and deserialize the application's configuration
+    /// to and/or from JSON content.
     /// </summary>
     public static class ConvertGitHubManagerConfiguration
     {
@@ -33,8 +31,8 @@ namespace GitHubManager
             };
 
         /// <summary>
-        /// Parses the specified <paramref name="json" /> content and, if successful,
-        /// initializes an instance of an object that implements the
+        /// Parses the specified <paramref name="json" /> content and, if
+        /// successful, initializes an instance of an object that implements the
         /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface and
         /// returns a reference to it.
         /// </summary>
@@ -80,7 +78,8 @@ namespace GitHubManager
         /// <see langword="null" /> value.
         /// </exception>
         public static string ToJson(
-            this IGitHubManagerConfiguration configuration)
+            this IGitHubManagerConfiguration configuration
+        )
         {
             if (configuration == null)
                 throw new ArgumentNullException(nameof(configuration));

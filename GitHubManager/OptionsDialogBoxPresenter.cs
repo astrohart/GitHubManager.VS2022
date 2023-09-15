@@ -1,8 +1,6 @@
-namespace GitHubManager
+﻿namespace GitHubManager
 {
-    /// <summary>
-    /// Serves as the Presenter for the Options dialog box.
-    /// </summary>
+    /// <summary> Serves as the Presenter for the Options dialog box. </summary>
     public class OptionsDialogBoxPresenter : IOptionsDialogBoxPresenter
     {
         /// <summary>
@@ -26,8 +24,8 @@ namespace GitHubManager
         /// reference to it.
         /// </summary>
         /// <param name="view">
-        /// (Required.) Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IOptionsDialogBox" /> interface.
+        /// (Required.) Reference to an instance of an object that
+        /// implements the <see cref="T:GitHubManager.IOptionsDialogBox" /> interface.
         /// <para />
         /// This object plays the role of the View that displays this Presenter's data.
         /// </param>
@@ -35,8 +33,8 @@ namespace GitHubManager
             => View = view;
 
         /// <summary>
-        /// Gets or sets a value that indicates whether any of the settings on the property
-        /// sheet have been modified.
+        /// Gets or sets a value that indicates whether any of the settings on
+        /// the property sheet have been modified.
         /// </summary>
         public bool IsModified { get; set; }
     }

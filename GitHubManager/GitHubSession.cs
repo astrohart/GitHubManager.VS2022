@@ -1,31 +1,44 @@
-using Octokit;
-using System;
+﻿using System;
 
 namespace GitHubManager
 {
-    /// <summary>
-    /// Manages all interaction with GitHub.
-    /// </summary>
+    /// <summary> Manages all interaction with GitHub. </summary>
     public class GitHubSession : IGitHubSession
     {
         /// <summary>
-        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// Empty, static constructor to prohibit direct allocation of this
+        /// class.
         /// </summary>
         static GitHubSession() { }
 
         /// <summary>
-        /// Constructs a new instance of <see cref="T:GitHubManager.GitHubSession" /> and
-        /// returns a reference to it.
+        /// Constructs a new instance of
+        /// <see cref="T:GitHubManager.GitHubSession" /> and returns a reference to it.
         /// </summary>
         protected GitHubSession()
             => CsrfId = Guid.NewGuid()
                             .ToString("N");
 
+        /// <summary> Gets a value that determines whether the session is authenticated. </summary>
+        public bool Authenticated
+            => Token != null && !string.IsNullOrWhiteSpace(Token.AccessToken);
+
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:GitHubManager.GitHubSession" />.
+        /// Reference to an instance of <see cref="T:Octokit.GitHubClient" />
+        /// that allows communication with the GitHub server.
         /// </summary>
-        public static IGitHubSession Instance { get; } = new GitHubSession();
+        public GitHubClient Client { get; } = new GitHubClient(
+            new ProductHeaderValue("xyLOGIX-GitHub-Manager")
+        );
+
+        /// <summary> Gets a string containing the Client ID of this session. </summary>
+        public string ClientId { get; private set; }
+
+        /// <summary> Gets a string containing the Client Secret of this session. </summary>
+        public string ClientSecet { get; private set; }
+
+        /// <summary> Gets or sets a random string that uniquely identifies this session. </summary>
+        public string CsrfId { get; }
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -35,59 +48,33 @@ namespace GitHubManager
             => GetGitHubLoginServer.SoleInstance();
 
         /// <summary>
-        /// Gets or sets a <see cref="T:Octokit.OauthLoginRequest" /> that represents the
-        /// OAuth Flow.
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:GitHubManager.GitHubSession" />.
+        /// </summary>
+        public static IGitHubSession Instance { get; } = new GitHubSession();
+
+        /// <summary>
+        /// Gets or sets a <see cref="T:Octokit.OauthLoginRequest" /> that
+        /// represents the OAuth Flow.
         /// </summary>
         private OauthLoginRequest Request { get; set; }
 
         /// <summary>
-        /// Occurs when the user's GitHub account has been authenticated.
-        /// </summary>
-        public event GitHubAuthenticatedEventHandler GitHubAuthenticated;
-
-        /// <summary>
-        /// Occurs when we are ready to have a client, e.g., form, navigate to the login
-        /// page.
-        /// </summary>
-        public event EventHandler<Uri> ReadyToNavigateToLoginPage;
-
-        /// <summary>
-        /// Gets a value that determines whether the session is authenticated.
-        /// </summary>
-        public bool Authenticated
-            => Token != null && !string.IsNullOrWhiteSpace(Token.AccessToken);
-
-        /// <summary>
-        /// Reference to an instance of <see cref="T:Octokit.GitHubClient" /> that allows
-        /// communication with the GitHub server.
-        /// </summary>
-        public GitHubClient Client { get; } = new GitHubClient(
-            new ProductHeaderValue("xyLOGIX-GitHub-Manager")
-        );
-
-        /// <summary>
-        /// Gets a string containing the Client ID of this session.
-        /// </summary>
-        public string ClientId { get; private set; }
-
-        /// <summary>
-        /// Gets a string containing the Client Secret of this session.
-        /// </summary>
-        public string ClientSecet { get; private set; }
-
-        /// <summary>
-        /// Gets or sets a random string that uniquely identifies this session.
-        /// </summary>
-        public string CsrfId { get; }
-
-        /// <summary>
-        /// Gets or sets a <see cref="T:Octokit.OauthToken" /> to be used for API calls.
+        /// Gets or sets a <see cref="T:Octokit.OauthToken" /> to be used for API
+        /// calls.
         /// </summary>
         public OauthToken Token { get; set; }
 
+        /// <summary> Occurs when the user's GitHub account has been authenticated. </summary>
+        public event GitHubAuthenticatedEventHandler GitHubAuthenticated;
+
         /// <summary>
-        /// Associates this session object with a particular GitHub OAuth App.
+        /// Occurs when we are ready to have a client, e.g., form, navigate to
+        /// the login page.
         /// </summary>
+        public event EventHandler<Uri> ReadyToNavigateToLoginPage;
+
+        /// <summary> Associates this session object with a particular GitHub OAuth App. </summary>
         /// <param name="clientId">(Required.) String containing the Client ID of the app.</param>
         /// <param name="clientSecret">
         /// (Required.) String containing the Client Secret of
@@ -122,9 +109,7 @@ namespace GitHubManager
             GitHubLoginServer.Start(GitHubUrls.OAuthRedirectURL);
         }
 
-        /// <summary>
-        /// This method is called to initiate the OAuth process.
-        /// </summary>
+        /// <summary> This method is called to initiate the OAuth process. </summary>
         public void InitiateOauthFlow()
         {
             if (Client == null)
@@ -139,20 +124,19 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Raises the <see cref="E:GitHubManager.GitHubSession.GitHubAuthenticated" />
-        /// event.
+        /// Raises the
+        /// <see cref="E:GitHubManager.GitHubSession.GitHubAuthenticated" /> event.
         /// </summary>
         /// <param name="e">
         /// A <see cref="T:GitHubManager.GitHubAuthenticatedEventArgs" />
         /// that contains the event data.
         /// </param>
         protected virtual void OnGitHubAuthenticated(
-            GitHubAuthenticatedEventArgs e)
+            GitHubAuthenticatedEventArgs e
+        )
             => GitHubAuthenticated?.Invoke(this, e);
 
-        /// <summary>
-        /// Sets up the parameters of the OAuth request object for this session.
-        /// </summary>
+        /// <summary> Sets up the parameters of the OAuth request object for this session. </summary>
         private void InitializeOAUthRequest()
             => Request = new OauthLoginRequest(ClientId)
             {
@@ -177,8 +161,10 @@ namespace GitHubManager
         /// This method responds by parsing the request and then posting our
         /// authorization information to the server, to then receive an access token.
         /// </remarks>
-        private async void OnGitHubServerRequestReceived(object sender,
-            GitHubServerRequestReceivedEventArgs e)
+        private async void OnGitHubServerRequestReceived(
+            object sender,
+            GitHubServerRequestReceivedEventArgs e
+        )
         {
             // Obtain code and state from GitHub callback endpoint
             var info = GitHubAuthorizationRequestInfo.FromRequest(e.Request);
@@ -205,8 +191,8 @@ namespace GitHubManager
         /// <see cref="E:GitHubManager.GitHubSession.ReadyToNavigateToLoginPage" /> event.
         /// </summary>
         /// <param name="uri">
-        /// (Required.) A <see cref="T:System.Uri" /> containing the OAuth Flow URL to be
-        /// navigated to, in order to start the process.
+        /// (Required.) A <see cref="T:System.Uri" /> containing the
+        /// OAuth Flow URL to be navigated to, in order to start the process.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required

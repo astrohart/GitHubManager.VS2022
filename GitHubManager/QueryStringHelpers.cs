@@ -1,6 +1,4 @@
-using System.Web;
-
-namespace GitHubManager
+﻿namespace GitHubManager
 {
     public static class QueryStringHelpers
     {
@@ -12,11 +10,9 @@ namespace GitHubManager
             // ASSUME that the queryString parameter actually contains
             // a query string
 
-            var dict = HttpUtility.ParseQueryString(queryString);   
+            var dict = HttpUtility.ParseQueryString(queryString);
             foreach (var property in properties)
-            {
                 property.SetValue(obj, dict[property.Name], null);
-            }
 
             return obj;
         }

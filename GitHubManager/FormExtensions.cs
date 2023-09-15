@@ -1,16 +1,16 @@
-using System;
-using System.Windows.Forms;
+﻿using System;
 
 namespace GitHubManager
 {
     /// <summary>
-    /// Helper methods for working with Windows Forms and their child controls.
+    /// Helper methods for working with Windows Forms and their child
+    /// controls.
     /// </summary>
     public static class FormExtensions
     {
         /// <summary>
-        /// Carries out the action called for by the specified <paramref name="delegate" />
-        /// if the <paramref name="form" /> is not disposed.
+        /// Carries out the action called for by the specified
+        /// <paramref name="delegate" /> if the <paramref name="form" /> is not disposed.
         /// <para />
         /// Performs cross-thread invocation as necessary.
         /// </summary>
@@ -31,8 +31,11 @@ namespace GitHubManager
         /// parameter, <paramref name="delegate" />, is passed a <see langword="null" />
         /// value.
         /// </exception>
-        public static void DoIfNotDisposed(this IForm form, Delegate @delegate,
-            params object[] args)
+        public static void DoIfNotDisposed(
+            this IForm form,
+            Delegate @delegate,
+            params object[] args
+        )
         {
             if (form == null || !form.IsHandleCreated || form.IsDisposed)
                 return;
@@ -47,8 +50,8 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Uses cross-thread synchronization and method invocation to carry out the
-        /// action(s) directed by the provided <paramref name="delegate" /> on the
+        /// Uses cross-thread synchronization and method invocation to carry out
+        /// the action(s) directed by the provided <paramref name="delegate" /> on the
         /// specified <paramref name="control" />, if such an action is required to be
         /// invoked across threads.
         /// </summary>
@@ -70,8 +73,11 @@ namespace GitHubManager
         /// required parameters, <paramref name="control" />, or
         /// <paramref name="delegate" />, are passed a <see langword="null" /> value.
         /// </exception>
-        public static void InvokeIfRequired(this Control control,
-            Delegate @delegate, params object[] args)
+        public static void InvokeIfRequired(
+            this Control control,
+            Delegate @delegate,
+            params object[] args
+        )
         {
             if (control == null)
                 throw new ArgumentNullException(nameof(control));

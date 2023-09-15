@@ -1,5 +1,4 @@
-using System;
-using PostSharp.Patterns.Diagnostics;
+﻿using System;
 
 namespace GitHubManager
 {
@@ -25,15 +24,11 @@ namespace GitHubManager
 
         /// <summary>
         /// Builder extension method that initializes the
-        /// <see
-        ///     cref="P:GitHubManager.IMarqueeProgressDialogBox.Message" />
-        /// property.
+        /// <see cref="P:GitHubManager.IMarqueeProgressDialogBox.Message" /> property.
         /// </summary>
         /// <param name="self">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the
-        /// <see
-        ///     cref="T:GitHubManager.IMarqueeProgressDialogBox" />
+        /// (Required.) Reference to an instance of an object that
+        /// implements the <see cref="T:GitHubManager.IMarqueeProgressDialogBox" />
         /// interface.
         /// </param>
         /// <param name="message">
@@ -41,15 +36,17 @@ namespace GitHubManager
         /// <see cref="P:GitHubManager.IMarqueeProgressDialogBox.Message" /> property.
         /// </param>
         /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
+        /// Reference to the same instance of the object that called this method,
+        /// for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="self" />, is
-        /// passed a <see langword="null" /> value.
+        /// Thrown if the required
+        /// parameter, <paramref name="self" />, is passed a <see langword="null" /> value.
         /// </exception>
         public static IMarqueeProgressDialogBox HavingMessage(
-            this IMarqueeProgressDialogBox self, string message)
+            this IMarqueeProgressDialogBox self,
+            string message
+        )
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 

@@ -1,13 +1,9 @@
-namespace GitHubManager
+﻿namespace GitHubManager
 {
-    /// <summary>
-    /// Helper methods for integer variables.
-    /// </summary>
+    /// <summary> Helper methods for integer variables. </summary>
     public static class IntExtensions
     {
-        /// <summary>
-        /// Determines whether a bitmask is 'on' or 'off'.
-        /// </summary>
+        /// <summary> Determines whether a bitmask is 'on' or 'off'. </summary>
         /// <param name="num">(Required.) Value containing the data to be checked.</param>
         /// <param name="bitmask">(Required.) Bitmask.</param>
         /// <returns>

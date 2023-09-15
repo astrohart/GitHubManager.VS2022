@@ -1,33 +1,35 @@
-using System;
-using System.Net;
+﻿using System;
 using System.Threading;
 
 namespace GitHubManager
 {
     /// <summary>
-    /// Simple HTTP server that catches the action of receiving login information from
-    /// GitHub.
+    /// Simple HTTP server that catches the action of receiving login
+    /// information from GitHub.
     /// </summary>
     public class GitHubLoginServer : IGitHubLoginServer
     {
         /// <summary>
-        /// A <see cref="T:System.Net.HttpListener" /> that listens for calls on URLs for
-        /// us.
+        /// A <see cref="T:System.Net.HttpListener" /> that listens for calls on
+        /// URLs for us.
         /// </summary>
         private readonly HttpListener _httpListener;
 
         /// <summary>
-        /// A <see cref="T:System.Threading.Thread" /> that monitors for incoming requests.
+        /// A <see cref="T:System.Threading.Thread" /> that monitors for incoming
+        /// requests.
         /// </summary>
         private readonly Thread _requestContextThread;
 
         /// <summary>
-        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// Empty, static constructor to prohibit direct allocation of this
+        /// class.
         /// </summary>
         static GitHubLoginServer() { }
 
         /// <summary>
-        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// Empty, protected constructor to prohibit direct allocation of this
+        /// class.
         /// </summary>
         protected GitHubLoginServer()
         {
@@ -42,20 +44,14 @@ namespace GitHubManager
         public static IGitHubLoginServer Instance { get; } =
             new GitHubLoginServer();
 
-        /// <summary>
-        /// Occurs when a request has been received from GitHub.
-        /// </summary>
+        /// <summary> Gets a value indicating whether the server has been started. </summary>
+        public bool IsStarted { get; private set; }
+
+        /// <summary> Occurs when a request has been received from GitHub. </summary>
         public event GitHubServerRequestReceivedEventHandler
             GitHubServerRequestReceived;
 
-        /// <summary>
-        /// Gets a value indicating whether the server has been started.
-        /// </summary>
-        public bool IsStarted { get; private set; }
-
-        /// <summary>
-        /// Starts this server.
-        /// </summary>
+        /// <summary> Starts this server. </summary>
         /// <param name="route">
         /// (Required.) String containing the route (i.e., URL) that
         /// the server should listen on.
@@ -66,7 +62,8 @@ namespace GitHubManager
         /// for a value.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
-        /// Thrown if the <paramref name="route" /> parameter's value does not start with
+        /// Thrown if the
+        /// <paramref name="route" /> parameter's value does not start with
         /// <c>'http://'</c>.
         /// </exception>
         public void Start(string route)
@@ -98,8 +95,8 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Stops this GitHub login server instance from acknowledging any further
-        /// requests.
+        /// Stops this GitHub login server instance from acknowledging any
+        /// further requests.
         /// </summary>
         public void Stop()
         {
@@ -119,12 +116,11 @@ namespace GitHubManager
         /// contains the event data.
         /// </param>
         protected virtual void OnGitHubServerRequestReceived(
-            GitHubServerRequestReceivedEventArgs e)
+            GitHubServerRequestReceivedEventArgs e
+        )
             => GitHubServerRequestReceived?.Invoke(this, e);
 
-        /// <summary>
-        /// Method that is called when a new HTTP request comes in from a client.
-        /// </summary>
+        /// <summary> Method that is called when a new HTTP request comes in from a client. </summary>
         /// <param name="ar">
         /// (Required.) Reference to an instance of an object that
         /// implements the <see cref="T:System.IAsyncResult" /> interface.
@@ -153,8 +149,8 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Background thread that listens for new requests and then calls a callback
-        /// method when they come in.
+        /// Background thread that listens for new requests and then calls a
+        /// callback method when they come in.
         /// </summary>
         private void RequestContextThread()
         {

@@ -1,13 +1,9 @@
-using CefSharp;
-using System;
+﻿using System;
 using System.Threading;
-using System.Windows.Forms;
 
 namespace GitHubManager
 {
-    /// <summary>
-    /// Dialog box that helps the user log in to GitHub.
-    /// </summary>
+    /// <summary> Dialog box that helps the user log in to GitHub. </summary>
     public partial class LoginDialogBox : Form, ILoginDialogBox
     {
         /// <summary>
@@ -17,8 +13,8 @@ namespace GitHubManager
         private readonly ILoginDialogBoxPresenter Presenter;
 
         /// <summary>
-        /// Constructs a new instance of <see cref="T:GitHubManager.LoginDialogBox" /> and
-        /// returns a reference to it.
+        /// Constructs a new instance of
+        /// <see cref="T:GitHubManager.LoginDialogBox" /> and returns a reference to it.
         /// </summary>
         public LoginDialogBox()
         {
@@ -30,18 +26,18 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Occurs when important login and authorization information is received from
-        /// GitHub.
-        /// </summary>
-        public event GitHubLoginInfoReceivedEventHandler
-            GitHubLoginInfoReceived;
-
-        /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:GitHubManager.IGitHubLoginInfo" /> interface that plays the role
         /// of an object that contains important login information.
         /// </summary>
         public IGitHubLoginInfo GitHubLoginInfo { get; private set; }
+
+        /// <summary>
+        /// Occurs when important login and authorization information is received
+        /// from GitHub.
+        /// </summary>
+        public event GitHubLoginInfoReceivedEventHandler
+            GitHubLoginInfoReceived;
 
         /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" />
@@ -67,7 +63,8 @@ namespace GitHubManager
         /// the event data.
         /// </param>
         protected virtual void OnGitHubLoginInfoReceived(
-            GitHubLoginInfoReceivedEventArgs e)
+            GitHubLoginInfoReceivedEventArgs e
+        )
             => GitHubLoginInfoReceived?.Invoke(this, e);
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
@@ -85,7 +82,8 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Sets up the properties and event handlers of the internal Web browser control.
+        /// Sets up the properties and event handlers of the internal Web browser
+        /// control.
         /// </summary>
         private void InitializeWebBrowser()
         {
@@ -111,8 +109,7 @@ namespace GitHubManager
         /// </param>
         /// <remarks>
         /// This method responds by navigating the embedded web browser to the
-        /// page specified in the <paramref name="e" /> parameter.
-        /// </rema
+        /// page specified in the <paramref name="e" /> parameter. </rema
         private void OnReadyToNavigateToLoginPage(object sender, Uri e)
         {
             webBrowser.Load(e.AbsoluteUri);
@@ -143,8 +140,10 @@ namespace GitHubManager
         /// appropriate action is taken, such as closing the dialog box once the user's
         /// portion of the authorization is finished.
         /// </remarks>
-        private void OnWebBrowserAddressChanged(object sender,
-            AddressChangedEventArgs e)
+        private void OnWebBrowserAddressChanged(
+            object sender,
+            AddressChangedEventArgs e
+        )
         {
             if (!webBrowser.IsBrowserInitialized)
                 return;
@@ -213,8 +212,10 @@ namespace GitHubManager
         /// <see cref="T:System.Windows.Forms.DialogResult.OK" /> value for the
         /// <see cref="P:System.Windows.Forms.Form.DialogResult" /> property set.
         /// </remarks>
-        private async void OnWebBrowserLoadingStateChanged(object sender,
-            LoadingStateChangedEventArgs e)
+        private async void OnWebBrowserLoadingStateChanged(
+            object sender,
+            LoadingStateChangedEventArgs e
+        )
         {
             if (!webBrowser.IsBrowserInitialized)
                 return;
@@ -226,8 +227,8 @@ namespace GitHubManager
             if (string.IsNullOrWhiteSpace(source)) return;
 
             if (!source.Contains(
-                "You are being redirected to the authorized application."
-            ))
+                    "You are being redirected to the authorized application."
+                ))
                 return;
 
             Thread.Sleep(500);
@@ -252,8 +253,8 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Sets the focus to the internal CefSharp Web browser control that is hosted by
-        /// this dialog, and does so in a thread-safe manner.
+        /// Sets the focus to the internal CefSharp Web browser control that is
+        /// hosted by this dialog, and does so in a thread-safe manner.
         /// </summary>
         private void SetFocusToWebBrowser()
             => this.InvokeIfRequired(

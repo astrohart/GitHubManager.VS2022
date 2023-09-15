@@ -1,14 +1,9 @@
-using PostSharp.Patterns.Diagnostics;
-using System;
-using System.ComponentModel;
+﻿using System;
 using System.Threading;
-using System.Windows.Forms;
 
 namespace GitHubManager
 {
-    /// <summary>
-    /// Main window of the application.
-    /// </summary>
+    /// <summary> Main window of the application. </summary>
     public partial class MainWindow : Form, IMainWindow
     {
         /// <summary>
@@ -17,22 +12,21 @@ namespace GitHubManager
         /// </summary>
         private readonly IMainWindowPresenter Presenter;
 
-        /// <summary>
-        /// Flag indicating whether the application is signed-in.
-        /// </summary>
+        /// <summary> Flag indicating whether the application is signed-in. </summary>
         private bool _isSignedIn;
 
-        /// <summary>
-        /// </summary>
+        /// <summary> </summary>
         private IMarqueeProgressDialogBox _progressDialog;
 
         /// <summary>
-        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// Empty, static constructor to prohibit direct allocation of this
+        /// class.
         /// </summary>
         static MainWindow() { }
 
         /// <summary>
-        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// Empty, protected constructor to prohibit direct allocation of this
+        /// class.
         /// </summary>
         protected MainWindow()
         {
@@ -46,12 +40,6 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:GitHubManager.MainWindow" />.
-        /// </summary>
-        public static IMainWindow Instance { get; } = new MainWindow();
-
-        /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:GitHubManager.IGitHubManagerConfigurationProvider" /> interface.
         /// </summary>
@@ -60,21 +48,12 @@ namespace GitHubManager
             => GetGitHubManagerConfigurationProvider.SoleInstance();
 
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubSession" /> interface.
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:GitHubManager.MainWindow" />.
         /// </summary>
-        private static IGitHubSession Session
-            => GetGitHubSession.SoleInstance();
+        public static IMainWindow Instance { get; } = new MainWindow();
 
-        /// <summary>
-        /// Occurs when the value of the
-        /// <see cref="P:GitHubManager.IMainWindow.IsSignedIn" /> property changes.
-        /// </summary>
-        public event EventHandler SignedInChanged;
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the user is signed in.
-        /// </summary>
+        /// <summary> Gets or sets a value indicating whether the user is signed in. </summary>
         /// <remarks>
         /// When this property's value is changed, the
         /// <see cref="E:GitHubManager.MainWindow.SignedInChanged" /> event is raised.
@@ -92,6 +71,19 @@ namespace GitHubManager
                     OnSignedInChanged();
             }
         }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.IGitHubSession" /> interface.
+        /// </summary>
+        private static IGitHubSession Session
+            => GetGitHubSession.SoleInstance();
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:GitHubManager.IMainWindow.IsSignedIn" /> property changes.
+        /// </summary>
+        public event EventHandler SignedInChanged;
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
         /// <param name="e">
@@ -125,7 +117,8 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Raises the <see cref="E:GitHubManager.MainWindow.SignedInChanged" /> event.
+        /// Raises the <see cref="E:GitHubManager.MainWindow.SignedInChanged" />
+        /// event.
         /// </summary>
         protected virtual void OnSignedInChanged()
             => SignedInChanged?.Invoke(this, EventArgs.Empty);
@@ -170,14 +163,16 @@ namespace GitHubManager
         /// for the various toolbars displayed in the main application window, depending on
         /// whether they are visible (checked) or hidden (not checked)
         /// </remarks>
-        private void OnDropDownOpeningViewToolbarsMenu(object sender,
-            EventArgs e)
+        private void OnDropDownOpeningViewToolbarsMenu(
+            object sender,
+            EventArgs e
+        )
             => viewNavigateToolbar.Checked = navigateToolBar.Visible;
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event
-        /// raised by the <strong>Exit</strong> menu item on the <strong>File</strong>
-        /// menu..
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
+        /// event raised by the <strong>Exit</strong> menu item on the
+        /// <strong>File</strong> menu..
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the
@@ -196,9 +191,9 @@ namespace GitHubManager
             => Close();
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event
-        /// raised by the <strong>Login</strong> menu item on the <strong>File</strong>
-        /// menu..
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
+        /// event raised by the <strong>Login</strong> menu item on the
+        /// <strong>File</strong> menu..
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the
@@ -209,8 +204,8 @@ namespace GitHubManager
         /// data.
         /// </param>
         /// <remarks>
-        /// This menu responds by showing the user the Login dialog box for GitHub
-        /// and signing the user into the account that is chosen.
+        /// This menu responds by showing the user the Login dialog box for
+        /// GitHub and signing the user into the account that is chosen.
         /// </remarks>
         private void OnFileLogin(object sender, EventArgs e)
         {
@@ -260,8 +255,9 @@ namespace GitHubManager
             => fileLogin.Enabled = !IsSignedIn;
 
         /// <summary>
-        /// Handles the <see cref="E:GitHubManager.IGitHubSession.GitHubAuthenticated" />
-        /// event raised by the GitHub Session Object when the OAuth flow is complete.
+        /// Handles the
+        /// <see cref="E:GitHubManager.IGitHubSession.GitHubAuthenticated" /> event raised
+        /// by the GitHub Session Object when the OAuth flow is complete.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the
@@ -275,8 +271,10 @@ namespace GitHubManager
         /// This method responds by initiating the process of loading repository
         /// data into the DataGridView displayed in the middle of the window.
         /// </remarks>
-        private void OnGitHubAuthenticated(object sender,
-            GitHubAuthenticatedEventArgs e)
+        private void OnGitHubAuthenticated(
+            object sender,
+            GitHubAuthenticatedEventArgs e
+        )
             => this.InvokeIfRequired(
                 new MethodInvoker(
 
@@ -302,9 +300,9 @@ namespace GitHubManager
             );
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event
-        /// raised by the <strong>Options</strong> menu item on the <strong>Tools</strong>
-        /// menu.
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
+        /// event raised by the <strong>Options</strong> menu item on the
+        /// <strong>Tools</strong> menu.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the
@@ -322,8 +320,8 @@ namespace GitHubManager
             => Presenter.ConfigureOptions();
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.Application.Idle" /> event raised
-        /// by the application.
+        /// Handles the <see cref="E:System.Windows.Forms.Application.Idle" />
+        /// event raised by the application.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the
@@ -342,8 +340,8 @@ namespace GitHubManager
             => navigateToolBar.Enabled = false;
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event
-        /// raised by the <strong>Navigate</strong> menu item on the
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
+        /// event raised by the <strong>Navigate</strong> menu item on the
         /// <strong>Toolbars</strong> sub-menu of the <strong>View</strong> menu..
         /// </summary>
         /// <param name="sender">
@@ -359,8 +357,8 @@ namespace GitHubManager
             => navigateToolBar.Visible = !navigateToolBar.Visible;
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event
-        /// raised by the <strong>Status Bar</strong> menu item on the
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
+        /// event raised by the <strong>Status Bar</strong> menu item on the
         /// <strong>View</strong> menu..
         /// </summary>
         /// <param name="sender">

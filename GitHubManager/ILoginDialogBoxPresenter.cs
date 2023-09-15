@@ -1,16 +1,16 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace GitHubManager
 {
     /// <summary>
-    /// Defines the publicly-exposed methods and properties of the Presenter of the
-    /// Login dialog box.
+    /// Defines the publicly-exposed methods and properties of the Presenter
+    /// of the Login dialog box.
     /// </summary>
     public interface ILoginDialogBoxPresenter
     {
         /// <summary>
-        /// Gets or sets a reference to a collection of strings that is the history of
-        /// navigated addresses.
+        /// Gets or sets a reference to a collection of strings that is the
+        /// history of navigated addresses.
         /// </summary>
         IList<string> AddressHistoryList { get; }
 
@@ -21,7 +21,8 @@ namespace GitHubManager
         IGitHubSession Session { get; }
 
         /// <summary>
-        /// Saves the address history to a file in the user's Local AppData directory.
+        /// Saves the address history to a file in the user's Local AppData
+        /// directory.
         /// </summary>
         void SaveAddressHistoryList();
     }

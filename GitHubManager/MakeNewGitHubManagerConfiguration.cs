@@ -1,5 +1,4 @@
-using System;
-using PostSharp.Patterns.Diagnostics;
+﻿using System;
 
 namespace GitHubManager
 {
@@ -25,32 +24,31 @@ namespace GitHubManager
 
         /// <summary>
         /// Builder extension method that initializes the
-        /// <see
-        ///     cref="P:GitHubManager.IGitHubManagerConfiguration.LoginOnStartup" />
+        /// <see cref="P:GitHubManager.IGitHubManagerConfiguration.LoginOnStartup" />
         /// property.
         /// </summary>
         /// <param name="self">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the
-        /// <see
-        ///     cref="T:GitHubManager.IGitHubManagerConfiguration" />
+        /// (Required.) Reference to an instance of an object that
+        /// implements the <see cref="T:GitHubManager.IGitHubManagerConfiguration" />
         /// interface.
         /// </param>
         /// <param name="loginOnStartup">
-        /// (Required.) A <see cref="T:System.Boolean" /> value that determines whether the
-        /// application shows the user the Login form or attempts to login to GitHub upon
-        /// startup.
+        /// (Required.) A <see cref="T:System.Boolean" />
+        /// value that determines whether the application shows the user the Login form or
+        /// attempts to login to GitHub upon startup.
         /// </param>
         /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
+        /// Reference to the same instance of the object that called this method,
+        /// for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="self" />, is
-        /// passed a <see langword="null" /> value.
+        /// Thrown if the required
+        /// parameter, <paramref name="self" />, is passed a <see langword="null" /> value.
         /// </exception>
         public static IGitHubManagerConfiguration ThatHasLoginOnStartupSetTo(
-            this IGitHubManagerConfiguration self, bool loginOnStartup)
+            this IGitHubManagerConfiguration self,
+            bool loginOnStartup
+        )
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 

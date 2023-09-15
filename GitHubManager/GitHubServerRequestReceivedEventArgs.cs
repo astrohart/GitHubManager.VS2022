@@ -1,11 +1,8 @@
-using System;
-using System.Net;
+﻿using System;
 
 namespace GitHubManager
 {
-    /// <summary>
-    /// Provides information for GitHubServerRequestReceived event handlers.
-    /// </summary>
+    /// <summary> Provides information for GitHubServerRequestReceived event handlers. </summary>
     public class GitHubServerRequestReceivedEventArgs : EventArgs
     {
         /// <summary>
@@ -23,8 +20,10 @@ namespace GitHubManager
         /// <see cref="T:System.Net.HttpListenerResponse" /> that contains the endpoint to
         /// use for sending responses.
         /// </param>
-        public GitHubServerRequestReceivedEventArgs(HttpListenerRequest request,
-            HttpListenerResponse response)
+        public GitHubServerRequestReceivedEventArgs(
+            HttpListenerRequest request,
+            HttpListenerResponse response
+        )
         {
             Request = request;
             Response = response;

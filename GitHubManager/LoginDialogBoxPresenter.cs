@@ -1,13 +1,9 @@
-using Alphaleonis.Win32.Filesystem;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace GitHubManager
 {
-    /// <summary>
-    /// This is the Presenter for the Login dialog box.
-    /// </summary>
+    /// <summary> This is the Presenter for the Login dialog box. </summary>
     public class LoginDialogBoxPresenter : ILoginDialogBoxPresenter
     {
         /// <summary>
@@ -41,8 +37,8 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Gets or sets a reference to a collection of strings that is the history of
-        /// navigated addresses.
+        /// Gets or sets a reference to a collection of strings that is the
+        /// history of navigated addresses.
         /// </summary>
         public IList<string> AddressHistoryList { get; private set; }
 
@@ -54,7 +50,8 @@ namespace GitHubManager
             => GetGitHubSession.SoleInstance();
 
         /// <summary>
-        /// Saves the address history to a file in the user's Local AppData directory.
+        /// Saves the address history to a file in the user's Local AppData
+        /// directory.
         /// </summary>
         public void SaveAddressHistoryList()
         {
@@ -88,7 +85,8 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Provides common initialization for all of this object's constructor overloads.
+        /// Provides common initialization for all of this object's constructor
+        /// overloads.
         /// </summary>
         private void CommonConstruct()
             => AddressHistoryList = new List<string>();

@@ -1,6 +1,4 @@
-using NUnit.Framework;
-
-namespace GitHubManager
+﻿namespace GitHubManager
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
@@ -9,9 +7,7 @@ namespace GitHubManager
     [TestFixture]
     public class ConvertGitHubManagerConfigurationTests
     {
-        /// <summary>
-        /// <see cref="T:System.String" /> containing sample JSON content.
-        /// </summary>
+        /// <summary> <see cref="T:System.String" /> containing sample JSON content. </summary>
         private const string CONFIGURATION_JSON =
             "{\r\n  \"loginOnStartup\": true\r\n}";
 

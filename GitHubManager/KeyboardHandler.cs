@@ -1,11 +1,6 @@
-using CefSharp;
-using System.Windows.Forms;
-
-namespace GitHubManager
+﻿namespace GitHubManager
 {
-    /// <summary>
-    /// Keyboard-handler object for the CefSharp WebBrowser control.
-    /// </summary>
+    /// <summary> Keyboard-handler object for the CefSharp WebBrowser control. </summary>
     /// <remarks>
     /// This object handles key presses etc. on the control, such the user
     /// pressing the <c>ESC</c> key triggering a close of the containing dialog box.
@@ -13,19 +8,19 @@ namespace GitHubManager
     public class KeyboardHandler : IKeyboardHandler
     {
         /// <summary>
-        /// Constructs a new instance of <see cref="T:GitHubManager.KeyboardHandler" /> and
-        /// returns a reference to it.
+        /// Constructs a new instance of
+        /// <see cref="T:GitHubManager.KeyboardHandler" /> and returns a reference to it.
         /// </summary>
         public KeyboardHandler()
             => Form = null;
 
         /// <summary>
-        /// Constructs a new instance of <see cref="T:GitHubManager.KeyboardHandler" /> and
-        /// returns a reference to it.
+        /// Constructs a new instance of
+        /// <see cref="T:GitHubManager.KeyboardHandler" /> and returns a reference to it.
         /// </summary>
         /// <param name="form">
-        /// (Required.) Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IForm" /> interface.
+        /// (Required.) Reference to an instance of an object that
+        /// implements the <see cref="T:GitHubManager.IForm" /> interface.
         /// </param>
         public KeyboardHandler(IForm form)
             => Form = form;
@@ -37,18 +32,18 @@ namespace GitHubManager
         private IForm Form { get; }
 
         /// <summary>
-        /// Called after the renderer and JavaScript in the page has had a chance to
-        /// handle the event. Return true if the keyboard event was handled or false
+        /// Called after the renderer and JavaScript in the page has had a chance
+        /// to handle the event. Return true if the keyboard event was handled or false
         /// otherwise.
         /// </summary>
         /// <param name="chromiumWebBrowser">the ChromiumWebBrowser control</param>
         /// <param name="browser">The browser instance.</param>
         /// <param name="type">Whether this was a key up/down/raw/etc...</param>
         /// <param name="windowsKeyCode">
-        /// The Windows key code for the key event. This value is used by the DOM
-        /// specification. Sometimes it comes directly from the event (i.e. on
-        /// Windows) and sometimes it's determined using a mapping function. See
-        /// WebCore/platform/chromium/KeyboardCodes.h for the list of values.
+        /// The Windows key code for the key event. This
+        /// value is used by the DOM specification. Sometimes it comes directly from the
+        /// event (i.e. on Windows) and sometimes it's determined using a mapping function.
+        /// See WebCore/platform/chromium/KeyboardCodes.h for the list of values.
         /// </param>
         /// <param name="nativeKeyCode">
         /// The native key code. On Windows this appears to be
@@ -59,13 +54,20 @@ namespace GitHubManager
         /// Shift/Control/Alt/OS X Command/etc...
         /// </param>
         /// <param name="isSystemKey">
-        /// Indicates whether the event is considered a "system key" event (see
-        /// http://msdn.microsoft.com/en-us/library/ms646286(VS.85).aspx for details).
+        /// Indicates whether the event is considered a "system
+        /// key" event (see http://msdn.microsoft.com/en-us/library/ms646286(VS.85).aspx
+        /// for details).
         /// </param>
         /// <returns>Return true if the keyboard event was handled or false otherwise.</returns>
-        public bool OnKeyEvent(IWebBrowser chromiumWebBrowser, IBrowser browser,
-            KeyType type, int windowsKeyCode, int nativeKeyCode,
-            CefEventFlags modifiers, bool isSystemKey)
+        public bool OnKeyEvent(
+            IWebBrowser chromiumWebBrowser,
+            IBrowser browser,
+            KeyType type,
+            int windowsKeyCode,
+            int nativeKeyCode,
+            CefEventFlags modifiers,
+            bool isSystemKey
+        )
         {
             if (Form == null)
                 return false;
@@ -94,22 +96,20 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Called before a keyboard event is sent to the renderer.
-        /// Return true if the event was handled or false
-        /// otherwise. If the event will be handled in
+        /// Called before a keyboard event is sent to the renderer. Return true if the
+        /// event was handled or false otherwise. If the event will be handled in
         /// <see
         ///     cref="M:CefSharp.IKeyboardHandler.OnKeyEvent(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.KeyType,System.Int32,System.Int32,CefSharp.CefEventFlags,System.Boolean)" />
-        /// as a keyboard
-        /// shortcut set isKeyboardShortcut to true and return false.
+        /// as a keyboard shortcut set isKeyboardShortcut to true and return false.
         /// </summary>
         /// <param name="chromiumWebBrowser">the ChromiumWebBrowser control</param>
         /// <param name="browser">The browser instance.</param>
         /// <param name="type">Whether this was a key up/down/raw/etc...</param>
         /// <param name="windowsKeyCode">
-        /// The Windows key code for the key event. This value is used by the DOM
-        /// specification. Sometimes it comes directly from the event (i.e. on
-        /// Windows) and sometimes it's determined using a mapping function. See
-        /// WebCore/platform/chromium/KeyboardCodes.h for the list of values.
+        /// The Windows key code for the key event. This
+        /// value is used by the DOM specification. Sometimes it comes directly from the
+        /// event (i.e. on Windows) and sometimes it's determined using a mapping function.
+        /// See WebCore/platform/chromium/KeyboardCodes.h for the list of values.
         /// </param>
         /// <param name="nativeKeyCode">
         /// The native key code. On Windows this appears to be
@@ -120,18 +120,25 @@ namespace GitHubManager
         /// Shift/Control/Alt/OS X Command/etc...
         /// </param>
         /// <param name="isSystemKey">
-        /// Indicates whether the event is considered a "system key" event (see
-        /// http://msdn.microsoft.com/en-us/library/ms646286(VS.85).aspx for details).
+        /// Indicates whether the event is considered a "system
+        /// key" event (see http://msdn.microsoft.com/en-us/library/ms646286(VS.85).aspx
+        /// for details).
         /// </param>
         /// <param name="isKeyboardShortcut">
         /// See the summary for an explanation of when to
         /// set this to true.
         /// </param>
         /// <returns>Returns true if the event was handled or false otherwise.</returns>
-        public bool OnPreKeyEvent(IWebBrowser chromiumWebBrowser,
-            IBrowser browser, KeyType type, int windowsKeyCode,
-            int nativeKeyCode, CefEventFlags modifiers, bool isSystemKey,
-            ref bool isKeyboardShortcut)
+        public bool OnPreKeyEvent(
+            IWebBrowser chromiumWebBrowser,
+            IBrowser browser,
+            KeyType type,
+            int windowsKeyCode,
+            int nativeKeyCode,
+            CefEventFlags modifiers,
+            bool isSystemKey,
+            ref bool isKeyboardShortcut
+        )
             => false;
     }
 }

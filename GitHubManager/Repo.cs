@@ -1,8 +1,8 @@
-namespace GitHubManager
+﻿namespace GitHubManager
 {
     /// <summary>
-    /// Defines the publicly-exposed methods and properties of a POCO that maintains
-    /// information about each Repository.
+    /// Defines the publicly-exposed methods and properties of a POCO that
+    /// maintains information about each Repository.
     /// </summary>
     public interface IRepo
     {
@@ -12,20 +12,14 @@ namespace GitHubManager
         /// </summary>
         string CloneUrl { get; set; }
 
-        /// <summary>
-        /// Gets or sets the repository's description.
-        /// </summary>
+        /// <summary> Gets or sets the repository's description. </summary>
         string Description { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the repository.
-        /// </summary>
+        /// <summary> Gets or sets the name of the repository. </summary>
         string Name { get; set; }
     }
 
-    /// <summary>
-    /// POCO to encapsulate a GitHub repository.
-    /// </summary>
+    /// <summary> POCO to encapsulate a GitHub repository. </summary>
     public class Repo : IRepo
     {
         /// <summary>
@@ -34,14 +28,10 @@ namespace GitHubManager
         /// </summary>
         public string CloneUrl { get; set; }
 
-        /// <summary>
-        /// Gets or sets the repository's description.
-        /// </summary>
+        /// <summary> Gets or sets the repository's description. </summary>
         public string Description { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the repository.
-        /// </summary>
+        /// <summary> Gets or sets the name of the repository. </summary>
         public string Name { get; set; }
     }
 }

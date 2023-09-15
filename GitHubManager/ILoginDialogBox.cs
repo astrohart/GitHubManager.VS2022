@@ -1,4 +1,4 @@
-namespace GitHubManager
+﻿namespace GitHubManager
 {
     public interface ILoginDialogBox : IForm
     {
@@ -10,8 +10,8 @@ namespace GitHubManager
         IGitHubLoginInfo GitHubLoginInfo { get; }
 
         /// <summary>
-        /// Occurs when important login and authorization information is received from
-        /// GitHub.
+        /// Occurs when important login and authorization information is received
+        /// from GitHub.
         /// </summary>
         event GitHubLoginInfoReceivedEventHandler GitHubLoginInfoReceived;
     }

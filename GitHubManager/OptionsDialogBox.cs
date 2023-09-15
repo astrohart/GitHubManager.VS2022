@@ -1,12 +1,10 @@
-using PostSharp.Patterns.Diagnostics;
-using System;
-using System.Windows.Forms;
+﻿using System;
 
 namespace GitHubManager
 {
     /// <summary>
-    /// Dialog box to allow the user to select from among options that alter the
-    /// behavior of the application.
+    /// Dialog box to allow the user to select from among options that alter
+    /// the behavior of the application.
     /// </summary>
     public partial class OptionsDialogBox : Form, IOptionsDialogBox
     {
@@ -18,8 +16,8 @@ namespace GitHubManager
         private readonly IOptionsDialogBoxPresenter Presenter;
 
         /// <summary>
-        /// Constructs a new instance of <see cref="T:GitHubManager.OptionsDialogBox" />
-        /// and returns a reference to it.
+        /// Constructs a new instance of
+        /// <see cref="T:GitHubManager.OptionsDialogBox" /> and returns a reference to it.
         /// </summary>
         public OptionsDialogBox()
         {
@@ -31,6 +29,13 @@ namespace GitHubManager
         }
 
         /// <summary>
+        /// Gets or sets a reference to an instance of an object that implements
+        /// the <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface that
+        /// serves as the configuration for the application.
+        /// </summary>
+        public IGitHubManagerConfiguration Configuration { get; set; }
+
+        /// <summary>
         /// Occurs when the user clicks the <strong>Apply</strong> button.
         /// <para />
         /// This notifies other parts of the application that the state may have been
@@ -39,14 +44,8 @@ namespace GitHubManager
         public event EventHandler Applied;
 
         /// <summary>
-        /// Gets or sets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface that
-        /// serves as the configuration for the application.
-        /// </summary>
-        public IGitHubManagerConfiguration Configuration { get; set; }
-
-        /// <summary>
-        /// Raises the <see cref="E:GitHubManager.OptionsDialogBox.Applied" /> event.
+        /// Raises the <see cref="E:GitHubManager.OptionsDialogBox.Applied" />
+        /// event.
         /// </summary>
         protected virtual void OnApplied()
             => Applied?.Invoke(this, EventArgs.Empty);
@@ -64,9 +63,10 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.CheckBox.CheckedChanged" /> event
-        /// raised by the <strong>Login on Startup</strong> checkbox when the user clicks
-        /// it to change its value..
+        /// Handles the
+        /// <see cref="E:System.Windows.Forms.CheckBox.CheckedChanged" /> event raised by
+        /// the <strong>Login on Startup</strong> checkbox when the user clicks it to
+        /// change its value..
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the
@@ -80,8 +80,10 @@ namespace GitHubManager
         /// The method responds by alerting the property sheet code that the data
         /// in the property sheet has been modified.
         /// </remarks>
-        private void OnCheckedChangedLoginOnStartupCheckBox(object sender,
-            EventArgs e)
+        private void OnCheckedChangedLoginOnStartupCheckBox(
+            object sender,
+            EventArgs e
+        )
             => Presenter.IsModified =
                 !Presenter
                     .IsModified; // toggle because the checkbox is a toggle
@@ -93,9 +95,7 @@ namespace GitHubManager
         private void OnUpdateCmdUI(object sender, EventArgs e)
             => applyButton.Enabled = Presenter.IsModified;
 
-        /// <summary>
-        /// Moves data from this dialog's controls to the configuration object.
-        /// </summary>
+        /// <summary> Moves data from this dialog's controls to the configuration object. </summary>
         /// <param name="bSaveAndValidate">
         /// (Required.) A <see cref="T:System.Boolean" />
         /// that specifies whether to save information from the screen into data variables.

@@ -1,5 +1,4 @@
-using System;
-using PostSharp.Patterns.Diagnostics;
+﻿using System;
 
 namespace GitHubManager
 {
@@ -25,7 +24,8 @@ namespace GitHubManager
         /// parameter, <paramref name="view" />, is passed a <see langword="null" /> value.
         /// </exception>
         public static IOptionsDialogBoxPresenter FromScratch(
-            IOptionsDialogBox view)
+            IOptionsDialogBox view
+        )
         {
             if (view == null) throw new ArgumentNullException(nameof(view));
             return new OptionsDialogBoxPresenter(view);
