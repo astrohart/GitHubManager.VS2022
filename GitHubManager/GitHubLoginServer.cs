@@ -1,4 +1,5 @@
-﻿using System;
+using PostSharp.Patterns.Model;
+using System;
 using System.Threading;
 
 namespace GitHubManager
@@ -48,6 +49,7 @@ namespace GitHubManager
         public bool IsStarted { get; private set; }
 
         /// <summary> Occurs when a request has been received from GitHub. </summary>
+        [WeakEvent]
         public event GitHubServerRequestReceivedEventHandler
             GitHubServerRequestReceived;
 
