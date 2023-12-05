@@ -1,4 +1,3 @@
-using PostSharp.Patterns.Model;
 using System;
 
 namespace GitHubManager
@@ -67,14 +66,12 @@ namespace GitHubManager
         public OauthToken Token { get; set; }
 
         /// <summary> Occurs when the user's GitHub account has been authenticated. </summary>
-        [WeakEvent]
         public event GitHubAuthenticatedEventHandler GitHubAuthenticated;
 
         /// <summary>
         /// Occurs when we are ready to have a client, e.g., form, navigate to
         /// the login page.
         /// </summary>
-        [WeakEvent]
         public event EventHandler<Uri> ReadyToNavigateToLoginPage;
 
         /// <summary> Associates this session object with a particular GitHub OAuth App. </summary>
