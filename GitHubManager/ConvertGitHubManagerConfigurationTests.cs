@@ -5,7 +5,7 @@ namespace GitHubManager
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:ConvertGitHubManagerConfiguration" /> class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class ConvertGitHubManagerConfigurationTests
     {
         /// <summary> <see cref="T:System.String" /> containing sample JSON content. </summary>
