@@ -1,10 +1,11 @@
-﻿namespace GitHubManager
+using PostSharp.Patterns.Threading;
+namespace GitHubManager
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:ConvertGitHubManagerConfiguration" /> class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class ConvertGitHubManagerConfigurationTests
     {
         /// <summary> <see cref="T:System.String" /> containing sample JSON content. </summary>
