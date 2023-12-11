@@ -1,9 +1,11 @@
-﻿using System;
+using PostSharp.Patterns.Threading;
+using System;
 using System.Collections.Generic;
 
 namespace GitHubManager
 {
     /// <summary> Provides information for GitHubAuthenticated event handlers. </summary>
+[ExplicitlySynchronized]
     public class GitHubAuthenticatedEventArgs : EventArgs
     {
         /// <summary>

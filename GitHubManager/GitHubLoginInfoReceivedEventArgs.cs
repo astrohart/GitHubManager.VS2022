@@ -1,8 +1,10 @@
-﻿using System;
+using PostSharp.Patterns.Threading;
+using System;
 
 namespace GitHubManager
 {
     /// <summary> Provides information for GitHubLoginInfoReceived event handlers. </summary>
+[ExplicitlySynchronized]
     public class GitHubLoginInfoReceivedEventArgs : EventArgs
     {
         /// <summary>
