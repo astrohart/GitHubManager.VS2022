@@ -1,4 +1,5 @@
-﻿using System;
+using PostSharp.Patterns.Threading;
+using System;
 using System.Globalization;
 
 namespace GitHubManager
@@ -7,6 +8,7 @@ namespace GitHubManager
     /// Methods to serialize and deserialize the application's configuration
     /// to and/or from JSON content.
     /// </summary>
+    [ExplicitlySynchronized]
     public static class ConvertGitHubManagerConfiguration
     {
         /// <summary>
