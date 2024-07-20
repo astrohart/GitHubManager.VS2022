@@ -1,4 +1,4 @@
-﻿namespace GitHubManager
+namespace GitHubManager
 {
     /// <summary> Represents a handler for a GitHubLoginInfoReceived event. </summary>
     /// <param name="sender">

@@ -1,4 +1,4 @@
-﻿
+
 namespace GitHubManager
 {
     partial class OptionsDialogBox

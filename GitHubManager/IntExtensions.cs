@@ -1,4 +1,4 @@
-﻿namespace GitHubManager
+namespace GitHubManager
 {
     /// <summary> Helper methods for integer variables. </summary>
     public static class IntExtensions
