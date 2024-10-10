@@ -1,5 +1,4 @@
-
-namespace GitHubManager
+﻿namespace GitHubManager
 {
     partial class LoginDialogBox
     {

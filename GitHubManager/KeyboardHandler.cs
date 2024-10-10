@@ -1,4 +1,4 @@
-namespace GitHubManager
+﻿namespace GitHubManager
 {
     /// <summary> Keyboard-handler object for the CefSharp WebBrowser control. </summary>
     /// <remarks>

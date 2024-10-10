@@ -1,4 +1,4 @@
-namespace GitHubManager
+﻿namespace GitHubManager
 
 using PostSharp.Patterns.Diagnostics;
 {
