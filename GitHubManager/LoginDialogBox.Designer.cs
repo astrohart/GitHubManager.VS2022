@@ -28,7 +28,6 @@
             // webBrowser
             // 
             this.webBrowser.ActivateBrowserOnCreation = false;
-// TODO: code generation for '' failed because of Exception 'Invalid Primitive Type: System.IntPtr. Consider using CodeObjectCreateExpression.'.
             this.webBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowser.Location = new System.Drawing.Point(0, 0);
             this.webBrowser.Name = "webBrowser";
