@@ -22,7 +22,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginDialogBox));
             this.webBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
-            this.cancelButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // webBrowser
@@ -70,6 +70,6 @@
         #endregion
 
         private CefSharp.WinForms.ChromiumWebBrowser webBrowser;
-        private xyLOGIX.UI.Dark.Controls.DarkButton cancelButton;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
