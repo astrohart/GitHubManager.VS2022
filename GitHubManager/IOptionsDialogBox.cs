@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using xyLOGIX.UI.Dark.Forms;
 
 namespace GitHubManager
 {
@@ -6,7 +7,7 @@ namespace GitHubManager
     /// Defines the publicly-exposed methods and properties of an object that
     /// represents the Options dialog box.
     /// </summary>
-    public interface IOptionsDialogBox : IForm
+    public interface IOptionsDialogBox : IDarkForm
     {
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements

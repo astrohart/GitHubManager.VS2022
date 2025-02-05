@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using xyLOGIX.UI.Dark.Forms;
 
 namespace GitHubManager
 {
@@ -7,7 +8,7 @@ namespace GitHubManager
     /// Defines the publicly-exposed methods and properties of the main
     /// application window.
     /// </summary>
-    public interface IMainWindow : IForm
+    public interface IMainWindow : IDarkForm
     {
         /// <summary> Gets or sets a value indicating whether the user is signed in. </summary>
         /// <remarks>

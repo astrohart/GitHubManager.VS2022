@@ -21,12 +21,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsDialogBox));
-            this.okayButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
-            this.cancelButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
-            this.applyButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
-            this.tabs = new xyLOGIX.UI.Dark.Controls.DarkTabControl();
+            this.okayButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.applyButton = new System.Windows.Forms.Button();
+            this.tabs = new System.Windows.Forms.TabControl();
             this.startupPage = new System.Windows.Forms.TabPage();
-            this.loginOnStartupCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
+            this.loginOnStartupCheckBox = new System.Windows.Forms.CheckBox();
             this.tabs.SuspendLayout();
             this.startupPage.SuspendLayout();
             this.SuspendLayout();
@@ -121,11 +121,11 @@
 
         #endregion
 
-        private xyLOGIX.UI.Dark.Controls.DarkButton okayButton;
-        private xyLOGIX.UI.Dark.Controls.DarkButton cancelButton;
-        private xyLOGIX.UI.Dark.Controls.DarkButton applyButton;
-        private xyLOGIX.UI.Dark.Controls.DarkTabControl tabs;
+        private System.Windows.Forms.Button okayButton;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button applyButton;
+        private System.Windows.Forms.TabControl tabs;
         private System.Windows.Forms.TabPage startupPage;
-        private xyLOGIX.UI.Dark.Controls.DarkCheckBox loginOnStartupCheckBox;
+        private System.Windows.Forms.CheckBox loginOnStartupCheckBox;
     }
 }

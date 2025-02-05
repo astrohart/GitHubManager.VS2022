@@ -1,8 +1,9 @@
 ﻿using System.Diagnostics;
+using xyLOGIX.UI.Dark.Forms;
 
 namespace GitHubManager
 {
-    public interface ILoginDialogBox : IForm
+    public interface ILoginDialogBox : IDarkForm
     {
         /// <summary>
         /// Gets a reference to an instance of an object that implements the

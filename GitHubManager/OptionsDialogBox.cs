@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using xyLOGIX.UI.Dark.Forms;
 
 namespace GitHubManager
 {
@@ -9,7 +10,7 @@ namespace GitHubManager
     /// Dialog box to allow the user to select from among options that alter
     /// the behavior of the application.
     /// </summary>
-    public partial class OptionsDialogBox : Form, IOptionsDialogBox
+    public partial class OptionsDialogBox : DarkForm, IOptionsDialogBox
     {
         /// <summary>
         /// Reference to an instance of an object that implements the

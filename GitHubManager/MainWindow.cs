@@ -4,23 +4,40 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
+using xyLOGIX.Core.Dialogs.Progress.Factories;
+using xyLOGIX.Core.Dialogs.Progress.Interfaces;
+using xyLOGIX.Core.Extensions;
+using xyLOGIX.UI.Dark.Controls.Actions;
+using xyLOGIX.UI.Dark.Forms;
 
 namespace GitHubManager
 {
     /// <summary> Main window of the application. </summary>
-    public partial class MainWindow : Form, IMainWindow
+    public partial class MainWindow : DarkForm, IMainWindow
     {
+        /// <summary> Flag indicating whether the application is signed-in. </summary>
+        private bool _isSignedIn;
+
+        /// <summary>
+        /// Reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.ILoginDialogBox" /> interface.
+        /// </summary>
+        private ILoginDialogBox _loginDialogBox;
+
+        /// <summary>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:xyLOGIX.Core.Dialogs.Progress.Interfaces.IMarqueeProgressDialogBox" />
+        /// interface that represents the <b>Marquee Progress Dialog Box</b> used to keep
+        /// the user entertained while a long process, having indeterminate duration, runs.
+        /// </summary>
+        private IMarqueeProgressDialogBox _progressDialog;
+
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see cref="T:GitHubManager.IMainWindowPresenter" /> interface.
         /// </summary>
         private readonly IMainWindowPresenter Presenter;
-
-        /// <summary> Flag indicating whether the application is signed-in. </summary>
-        private bool _isSignedIn;
-
-        /// <summary> </summary>
-        private IMarqueeProgressDialogBox _progressDialog;
 
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this
@@ -55,7 +72,8 @@ namespace GitHubManager
         /// Gets a reference to the one and only instance of
         /// <see cref="T:GitHubManager.MainWindow" />.
         /// </summary>
-        public static IMainWindow Instance { [DebuggerStepThrough] get; } = new MainWindow();
+        public static IMainWindow Instance { [DebuggerStepThrough] get; } =
+            new MainWindow();
 
         /// <summary> Gets or sets a value indicating whether the user is signed in. </summary>
         /// <remarks>
@@ -89,43 +107,34 @@ namespace GitHubManager
         /// </summary>
         public event EventHandler SignedInChanged;
 
-        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
-        /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event
-        /// data.
-        /// </param>
-        protected override void OnLoad(EventArgs e)
+        private void CloseLoginDialogBox()
         {
-            base.OnLoad(e);
+            if (_loginDialogBox == null) return;
+            if (_loginDialogBox.IsDisposed) return;
 
-            // obscure the (as yet unfilled) DataGridView behind a panel
-            workspacePanel.Show();
-            workspacePanel.BringToFront();
-
-            _progressDialog?.DestroyWindow();
-            _progressDialog = null;
+            _loginDialogBox.DoIfNotDisposed(
+                () =>
+                {
+                    _loginDialogBox.Hide();
+                    _loginDialogBox.Dispose();
+                    _loginDialogBox = null;
+                }
+            );
         }
 
-        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
-        /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
-        /// data.
-        /// </param>
-        protected override void OnShown(EventArgs e)
+        private void CloseProgressDialog()
         {
-            base.OnShown(e);
+            if (_progressDialog == null) return;
 
-            if (GitHubManagerConfigurationProvider.CurrentConfiguration
-                                                  .LoginOnStartup)
-                fileLogin.PerformClick();
+            _progressDialog.DoIfNotDisposed(
+                () =>
+                {
+                    _progressDialog.Close();
+                    _progressDialog.Dispose();
+                    _progressDialog = null;
+                }
+            );
         }
-
-        /// <summary>
-        /// Raises the <see cref="E:GitHubManager.MainWindow.SignedInChanged" />
-        /// event.
-        /// </summary>
-        protected virtual void OnSignedInChanged()
-            => SignedInChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Handles the
@@ -213,27 +222,9 @@ namespace GitHubManager
         /// </remarks>
         private void OnFileLogin(object sender, EventArgs e)
         {
-            using (var dialogBox = MakeNewLoginDialogBox.FromScratch())
-            {
-                IsSignedIn = DialogResult.OK == dialogBox.ShowDialog(this);
+            _loginDialogBox = MakeNewLoginDialogBox.FromScratch();
 
-                /*
-                 * The rest of the process of signing in to GitHub is not
-                 * as interactive as normally would be; we show a marquee-
-                 * style progress dialog here so that the user knows we are
-                 * working.
-                 */
-
-                if (IsSignedIn)
-                {
-                    _progressDialog = MakeNewMarqueeProgressDialogBox
-                                      .FromScratch()
-                                      .HavingMessage(
-                                          "Retrieving repositories..."
-                                      );
-                    _progressDialog.Show(this);
-                }
-            }
+            _loginDialogBox.Show(this);
         }
 
         /// <summary>
@@ -285,6 +276,14 @@ namespace GitHubManager
                     // ReSharper disable once AsyncVoidLambda
                     async () =>
                     {
+                        CloseLoginDialogBox();
+
+                        _progressDialog = MakeNewDarkMarqueeProgressDialogBox.FromScratch()
+                            .HavingStatusText("Retrieving repositories...");
+                        _progressDialog.StartPosition =
+                            FormStartPosition.CenterScreen;
+                        _progressDialog.Show(this);
+
                         reposListBindingSource.DataSource = null;
                         reposListBindingSource.DataSource =
                             new BindingList<IRepo>(await Presenter.GetRepos());
@@ -297,11 +296,49 @@ namespace GitHubManager
 
                         Text = $"Repositories - {Application.ProductName}";
 
-                        _progressDialog?.DestroyWindow();
-                        _progressDialog = null;
+                        CloseProgressDialog();
                     }
                 )
             );
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            Set.ExplorerDarkTheme(reposDataGridView.Handle);
+
+            // obscure the (as yet unfilled) DataGridView behind a panel
+            workspacePanel.Show();
+            workspacePanel.BringToFront();
+
+            CloseProgressDialog();
+        }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            if (GitHubManagerConfigurationProvider.CurrentConfiguration
+                                                  .LoginOnStartup)
+                fileLogin.PerformClick();
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:GitHubManager.MainWindow.SignedInChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnSignedInChanged()
+            => SignedInChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />

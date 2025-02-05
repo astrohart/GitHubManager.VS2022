@@ -1,13 +1,16 @@
 ﻿using CefSharp;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
+using xyLOGIX.Core.Extensions;
+using xyLOGIX.UI.Dark.Forms;
 
 namespace GitHubManager
 {
     /// <summary> Dialog box that helps the user log in to GitHub. </summary>
-    public partial class LoginDialogBox : Form, ILoginDialogBox
+    public partial class LoginDialogBox : DarkForm, ILoginDialogBox
     {
         /// <summary>
         /// Reference to an instance of an object that implements the
@@ -16,9 +19,24 @@ namespace GitHubManager
         private readonly ILoginDialogBoxPresenter Presenter;
 
         /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:GitHubManager.LoginDialogBox" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static LoginDialogBox() { }
+
+        /// <summary>
         /// Constructs a new instance of
         /// <see cref="T:GitHubManager.LoginDialogBox" /> and returns a reference to it.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public LoginDialogBox()
         {
             InitializeComponent();
@@ -33,7 +51,11 @@ namespace GitHubManager
         /// <see cref="T:GitHubManager.IGitHubLoginInfo" /> interface that plays the role
         /// of an object that contains important login information.
         /// </summary>
-        public IGitHubLoginInfo GitHubLoginInfo { [DebuggerStepThrough] get; [DebuggerStepThrough] private set; }
+        public IGitHubLoginInfo GitHubLoginInfo
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] private set;
+        }
 
         /// <summary>
         /// Occurs when important login and authorization information is received
@@ -41,6 +63,20 @@ namespace GitHubManager
         /// </summary>
         public event GitHubLoginInfoReceivedEventHandler
             GitHubLoginInfoReceived;
+
+        /// <summary>
+        /// Sets up the properties and event handlers of the internal Web browser
+        /// control.
+        /// </summary>
+        private void InitializeWebBrowser()
+        {
+            webBrowser.GetDevToolsClient().Emulation.SetAutoDarkModeOverrideAsync(true);
+            webBrowser.KeyboardHandler = new KeyboardHandler(this);
+            webBrowser.AddressChanged += OnWebBrowserAddressChanged;
+            webBrowser.IsBrowserInitializedChanged +=
+                OnWebBrowserInitializedChanged;
+            webBrowser.LoadingStateChanged += OnWebBrowserLoadingStateChanged;
+        }
 
         /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" />
@@ -70,33 +106,6 @@ namespace GitHubManager
         )
             => GitHubLoginInfoReceived?.Invoke(this, e);
 
-        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
-        /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
-        /// data.
-        /// </param>
-        protected override void OnShown(EventArgs e)
-        {
-            base.OnShown(e);
-
-            Presenter.Session.ReadyToNavigateToLoginPage +=
-                OnReadyToNavigateToLoginPage;
-            Presenter.Session.InitiateOauthFlow();
-        }
-
-        /// <summary>
-        /// Sets up the properties and event handlers of the internal Web browser
-        /// control.
-        /// </summary>
-        private void InitializeWebBrowser()
-        {
-            webBrowser.KeyboardHandler = new KeyboardHandler(this);
-            webBrowser.AddressChanged += OnWebBrowserAddressChanged;
-            webBrowser.IsBrowserInitializedChanged +=
-                OnWebBrowserInitializedChanged;
-            webBrowser.LoadingStateChanged += OnWebBrowserLoadingStateChanged;
-        }
-
         /// <summary>
         /// Handles the
         /// <see cref="E:GitHubManager.LoginDialogBox.OnReadyToNavigateToLoginPage" />
@@ -120,6 +129,20 @@ namespace GitHubManager
             Thread.Sleep(500);
 
             webBrowser.Focus();
+        }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            Presenter.Session.ReadyToNavigateToLoginPage +=
+                OnReadyToNavigateToLoginPage;
+            Presenter.Session.InitiateOauthFlow();
         }
 
         /// <summary>

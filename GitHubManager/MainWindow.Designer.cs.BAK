@@ -1,73 +1,11 @@
 ﻿namespace GitHubManager
 {
-    public partial class MainWindow
+    partial class MainWindow
     {
-        private System.Windows.Forms.ToolStripButton addNewButton;
-
-        private System.Windows.Forms.DataGridViewTextBoxColumn cloneUrlDataGridViewTextBoxColumn;
-
-        ///  <summary> Required designer variable. </summary>
+///  <summary> Required designer variable. </summary>
         private System.ComponentModel.IContainer components = null;
 
-        private System.Windows.Forms.ToolStripLabel countLabel;
-
-        private System.Windows.Forms.ToolStripButton deleteButton;
-
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem fileExit;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem fileLogin;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem fileMenu;
-
-        private xyLOGIX.UI.Dark.Controls.DarkMenuStrip mainMenu;
-
-        private System.Windows.Forms.ToolStripButton moveFirstButton;
-
-        private System.Windows.Forms.ToolStripButton moveLastButton;
-
-        private System.Windows.Forms.ToolStripButton moveNextButton;
-
-        private System.Windows.Forms.ToolStripButton movePreviousButton;
-
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStrip navigateToolBar;
-
-        private System.Windows.Forms.ToolStripTextBox positionTextBox;
-
-        private System.Windows.Forms.DataGridView reposDataGridView;
-
-        private System.Windows.Forms.BindingSource reposListBindingSource;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator sep1;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator sep2;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator sep3;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator sep4;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator sep5;
-
-        private xyLOGIX.UI.Dark.Controls.DarkStatusStrip statusBar;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem toolsMenu;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem toolsOptions;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem viewMenu;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem viewNavigateToolbar;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem viewStatusBar;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem viewToolbarsMenu;
-
-        private System.Windows.Forms.Panel workspacePanel;
-
-        ///  <summary> Clean up any resources being used. </summary> <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+///  <summary> Clean up any resources being used. </summary> <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -77,47 +15,45 @@
             base.Dispose(disposing);
         }
 
-        ///  <summary> Required method for Designer support - do not modify the contents of this method with the code editor. </summary>
+        #region Windows Form Designer generated code
+
+///  <summary> Required method for Designer support - do not modify the contents of this method with the code editor. </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.mainMenu = new xyLOGIX.UI.Dark.Controls.DarkMenuStrip();
-            this.fileMenu = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
-            this.fileLogin = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
-            this.sep4 = new xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator();
-            this.fileExit = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
-            this.viewMenu = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
-            this.viewToolbarsMenu = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
-            this.viewNavigateToolbar = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
-            this.sep5 = new xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator();
-            this.viewStatusBar = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
-            this.toolsMenu = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
-            this.toolsOptions = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
-            this.statusBar = new xyLOGIX.UI.Dark.Controls.DarkStatusStrip();
-            this.navigateToolBar = new xyLOGIX.UI.Dark.Controls.DarkToolStrip();
+            this.mainMenu = new System.Windows.Forms.MenuStrip();
+            this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileLogin = new System.Windows.Forms.ToolStripMenuItem();
+            this.sep4 = new System.Windows.Forms.ToolStripSeparator();
+            this.fileExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolbarsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewNavigateToolbar = new System.Windows.Forms.ToolStripMenuItem();
+            this.sep5 = new System.Windows.Forms.ToolStripSeparator();
+            this.viewStatusBar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsOptions = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusBar = new System.Windows.Forms.StatusStrip();
+            this.navigateToolBar = new System.Windows.Forms.ToolStrip();
             this.moveFirstButton = new System.Windows.Forms.ToolStripButton();
             this.movePreviousButton = new System.Windows.Forms.ToolStripButton();
-            this.sep1 = new xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator();
+            this.sep1 = new System.Windows.Forms.ToolStripSeparator();
             this.positionTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.countLabel = new System.Windows.Forms.ToolStripLabel();
-            this.sep2 = new xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator();
+            this.sep2 = new System.Windows.Forms.ToolStripSeparator();
             this.moveNextButton = new System.Windows.Forms.ToolStripButton();
             this.moveLastButton = new System.Windows.Forms.ToolStripButton();
-            this.sep3 = new xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator();
+            this.sep3 = new System.Windows.Forms.ToolStripSeparator();
             this.deleteButton = new System.Windows.Forms.ToolStripButton();
             this.addNewButton = new System.Windows.Forms.ToolStripButton();
             this.reposDataGridView = new System.Windows.Forms.DataGridView();
-            this.workspacePanel = new System.Windows.Forms.Panel();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cloneUrlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reposListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.workspacePanel = new System.Windows.Forms.Panel();
             this.mainMenu.SuspendLayout();
             this.navigateToolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reposDataGridView)).BeginInit();
@@ -126,29 +62,22 @@
             // 
             // mainMenu
             // 
-            this.mainMenu.BackColor = System.Drawing.Color.Transparent;
-            this.mainMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.mainMenu.IsDarkTheme = false;
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.viewMenu,
             this.toolsMenu});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Padding = new System.Windows.Forms.Padding(3, 2, 0, 2);
             this.mainMenu.Size = new System.Drawing.Size(858, 24);
             this.mainMenu.TabIndex = 0;
             this.mainMenu.Text = "menuStrip1";
-            this.mainMenu.ToggleUppercase = false;
             // 
             // fileMenu
             // 
-            this.fileMenu.BackColor = System.Drawing.Color.Transparent;
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileLogin,
             this.sep4,
             this.fileExit});
-            this.fileMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.fileMenu.Name = "fileMenu";
             this.fileMenu.Size = new System.Drawing.Size(37, 20);
             this.fileMenu.Text = "&File";
@@ -156,7 +85,6 @@
             // 
             // fileLogin
             // 
-            this.fileLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.fileLogin.Name = "fileLogin";
             this.fileLogin.Size = new System.Drawing.Size(113, 22);
             this.fileLogin.Text = "&Login...";
@@ -169,7 +97,6 @@
             // 
             // fileExit
             // 
-            this.fileExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.fileExit.Name = "fileExit";
             this.fileExit.Size = new System.Drawing.Size(113, 22);
             this.fileExit.Text = "E&xit";
@@ -177,12 +104,10 @@
             // 
             // viewMenu
             // 
-            this.viewMenu.BackColor = System.Drawing.Color.Transparent;
             this.viewMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewToolbarsMenu,
             this.sep5,
             this.viewStatusBar});
-            this.viewMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.viewMenu.Name = "viewMenu";
             this.viewMenu.Size = new System.Drawing.Size(44, 20);
             this.viewMenu.Text = "&View";
@@ -190,7 +115,6 @@
             // 
             // viewToolbarsMenu
             // 
-            this.viewToolbarsMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.viewToolbarsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewNavigateToolbar});
             this.viewToolbarsMenu.Name = "viewToolbarsMenu";
@@ -200,7 +124,6 @@
             // 
             // viewNavigateToolbar
             // 
-            this.viewNavigateToolbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.viewNavigateToolbar.Checked = true;
             this.viewNavigateToolbar.CheckOnClick = true;
             this.viewNavigateToolbar.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -216,7 +139,6 @@
             // 
             // viewStatusBar
             // 
-            this.viewStatusBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.viewStatusBar.Checked = true;
             this.viewStatusBar.CheckOnClick = true;
             this.viewStatusBar.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -227,17 +149,14 @@
             // 
             // toolsMenu
             // 
-            this.toolsMenu.BackColor = System.Drawing.Color.Transparent;
             this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolsOptions});
-            this.toolsMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.toolsMenu.Name = "toolsMenu";
             this.toolsMenu.Size = new System.Drawing.Size(46, 20);
             this.toolsMenu.Text = "&Tools";
             // 
             // toolsOptions
             // 
-            this.toolsOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.toolsOptions.Name = "toolsOptions";
             this.toolsOptions.Size = new System.Drawing.Size(116, 22);
             this.toolsOptions.Text = "&Options";
@@ -245,23 +164,15 @@
             // 
             // statusBar
             // 
-            this.statusBar.AutoSize = false;
-            this.statusBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.statusBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.statusBar.IsDarkTheme = true;
             this.statusBar.Location = new System.Drawing.Point(0, 580);
             this.statusBar.Name = "statusBar";
-            this.statusBar.PrimaryBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.statusBar.SecondaryBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.statusBar.Size = new System.Drawing.Size(858, 22);
             this.statusBar.TabIndex = 1;
             this.statusBar.Text = "statusStrip1";
             // 
             // navigateToolBar
             // 
-            this.navigateToolBar.BackColor = System.Drawing.Color.Transparent;
             this.navigateToolBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.navigateToolBar.IsDarkTheme = false;
             this.navigateToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.moveFirstButton,
             this.movePreviousButton,
@@ -276,16 +187,13 @@
             this.addNewButton});
             this.navigateToolBar.Location = new System.Drawing.Point(0, 24);
             this.navigateToolBar.Name = "navigateToolBar";
-            this.navigateToolBar.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
             this.navigateToolBar.Size = new System.Drawing.Size(858, 25);
             this.navigateToolBar.TabIndex = 2;
             this.navigateToolBar.Text = "toolStrip1";
             // 
             // moveFirstButton
             // 
-            this.moveFirstButton.BackColor = System.Drawing.Color.Transparent;
             this.moveFirstButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.moveFirstButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.moveFirstButton.Image = ((System.Drawing.Image)(resources.GetObject("moveFirstButton.Image")));
             this.moveFirstButton.Name = "moveFirstButton";
             this.moveFirstButton.RightToLeftAutoMirrorImage = true;
@@ -294,9 +202,7 @@
             // 
             // movePreviousButton
             // 
-            this.movePreviousButton.BackColor = System.Drawing.Color.Transparent;
             this.movePreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.movePreviousButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.movePreviousButton.Image = ((System.Drawing.Image)(resources.GetObject("movePreviousButton.Image")));
             this.movePreviousButton.Name = "movePreviousButton";
             this.movePreviousButton.RightToLeftAutoMirrorImage = true;
@@ -305,8 +211,6 @@
             // 
             // sep1
             // 
-            this.sep1.BackColor = System.Drawing.Color.Transparent;
-            this.sep1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.sep1.Name = "sep1";
             this.sep1.Size = new System.Drawing.Size(6, 25);
             // 
@@ -314,9 +218,6 @@
             // 
             this.positionTextBox.AccessibleName = "Position";
             this.positionTextBox.AutoSize = false;
-            this.positionTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.positionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.positionTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.positionTextBox.Name = "positionTextBox";
             this.positionTextBox.Size = new System.Drawing.Size(50, 23);
             this.positionTextBox.Text = "0";
@@ -324,8 +225,6 @@
             // 
             // countLabel
             // 
-            this.countLabel.BackColor = System.Drawing.Color.Transparent;
-            this.countLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.countLabel.Name = "countLabel";
             this.countLabel.Size = new System.Drawing.Size(35, 22);
             this.countLabel.Text = "of {0}";
@@ -333,16 +232,12 @@
             // 
             // sep2
             // 
-            this.sep2.BackColor = System.Drawing.Color.Transparent;
-            this.sep2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.sep2.Name = "sep2";
             this.sep2.Size = new System.Drawing.Size(6, 25);
             // 
             // moveNextButton
             // 
-            this.moveNextButton.BackColor = System.Drawing.Color.Transparent;
             this.moveNextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.moveNextButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.moveNextButton.Image = ((System.Drawing.Image)(resources.GetObject("moveNextButton.Image")));
             this.moveNextButton.Name = "moveNextButton";
             this.moveNextButton.RightToLeftAutoMirrorImage = true;
@@ -351,9 +246,7 @@
             // 
             // moveLastButton
             // 
-            this.moveLastButton.BackColor = System.Drawing.Color.Transparent;
             this.moveLastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.moveLastButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.moveLastButton.Image = ((System.Drawing.Image)(resources.GetObject("moveLastButton.Image")));
             this.moveLastButton.Name = "moveLastButton";
             this.moveLastButton.RightToLeftAutoMirrorImage = true;
@@ -362,16 +255,12 @@
             // 
             // sep3
             // 
-            this.sep3.BackColor = System.Drawing.Color.Transparent;
-            this.sep3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.sep3.Name = "sep3";
             this.sep3.Size = new System.Drawing.Size(6, 25);
             // 
             // deleteButton
             // 
-            this.deleteButton.BackColor = System.Drawing.Color.Transparent;
             this.deleteButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.deleteButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.RightToLeftAutoMirrorImage = true;
@@ -380,9 +269,7 @@
             // 
             // addNewButton
             // 
-            this.addNewButton.BackColor = System.Drawing.Color.Transparent;
             this.addNewButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.addNewButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.addNewButton.Image = ((System.Drawing.Image)(resources.GetObject("addNewButton.Image")));
             this.addNewButton.Name = "addNewButton";
             this.addNewButton.RightToLeftAutoMirrorImage = true;
@@ -394,68 +281,22 @@
             this.reposDataGridView.AllowUserToAddRows = false;
             this.reposDataGridView.AllowUserToDeleteRows = false;
             this.reposDataGridView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             this.reposDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.reposDataGridView.AutoGenerateColumns = false;
             this.reposDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.reposDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.reposDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.reposDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.reposDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.reposDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
             this.cloneUrlDataGridViewTextBoxColumn});
             this.reposDataGridView.DataSource = this.reposListBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.reposDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.reposDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reposDataGridView.EnableHeadersVisualStyles = false;
-            this.reposDataGridView.GridColor = System.Drawing.SystemColors.WindowFrame;
             this.reposDataGridView.Location = new System.Drawing.Point(0, 49);
             this.reposDataGridView.Name = "reposDataGridView";
             this.reposDataGridView.ReadOnly = true;
-            this.reposDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.reposDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.reposDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.reposDataGridView.Size = new System.Drawing.Size(858, 531);
             this.reposDataGridView.TabIndex = 3;
-            // 
-            // workspacePanel
-            // 
-            this.workspacePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.workspacePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.workspacePanel.Location = new System.Drawing.Point(0, 49);
-            this.workspacePanel.Name = "workspacePanel";
-            this.workspacePanel.Size = new System.Drawing.Size(858, 531);
-            this.workspacePanel.TabIndex = 4;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -481,6 +322,16 @@
             // reposListBindingSource
             // 
             this.reposListBindingSource.DataSource = typeof(GitHubManager.Repo);
+            // 
+            // workspacePanel
+            // 
+            this.workspacePanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.workspacePanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.workspacePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.workspacePanel.Location = new System.Drawing.Point(0, 49);
+            this.workspacePanel.Name = "workspacePanel";
+            this.workspacePanel.Size = new System.Drawing.Size(858, 531);
+            this.workspacePanel.TabIndex = 4;
             // 
             // MainWindow
             // 
@@ -508,5 +359,39 @@
             this.PerformLayout();
 
         }
+
+        #endregion
+
+        private System.Windows.Forms.MenuStrip mainMenu;
+        private System.Windows.Forms.StatusStrip statusBar;
+        private System.Windows.Forms.ToolStrip navigateToolBar;
+        private System.Windows.Forms.ToolStripButton moveFirstButton;
+        private System.Windows.Forms.ToolStripButton movePreviousButton;
+        private System.Windows.Forms.ToolStripSeparator sep1;
+        private System.Windows.Forms.ToolStripTextBox positionTextBox;
+        private System.Windows.Forms.ToolStripLabel countLabel;
+        private System.Windows.Forms.ToolStripSeparator sep2;
+        private System.Windows.Forms.ToolStripButton moveNextButton;
+        private System.Windows.Forms.ToolStripButton moveLastButton;
+        private System.Windows.Forms.ToolStripSeparator sep3;
+        private System.Windows.Forms.ToolStripButton deleteButton;
+        private System.Windows.Forms.ToolStripButton addNewButton;
+        private System.Windows.Forms.ToolStripMenuItem fileMenu;
+        private System.Windows.Forms.ToolStripMenuItem fileExit;
+        private System.Windows.Forms.ToolStripMenuItem fileLogin;
+        private System.Windows.Forms.ToolStripSeparator sep4;
+        private System.Windows.Forms.ToolStripMenuItem viewMenu;
+        private System.Windows.Forms.ToolStripMenuItem viewToolbarsMenu;
+        private System.Windows.Forms.ToolStripMenuItem viewNavigateToolbar;
+        private System.Windows.Forms.ToolStripSeparator sep5;
+        private System.Windows.Forms.ToolStripMenuItem viewStatusBar;
+        private System.Windows.Forms.DataGridView reposDataGridView;
+        private System.Windows.Forms.BindingSource reposListBindingSource;
+        private System.Windows.Forms.ToolStripMenuItem toolsMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolsOptions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cloneUrlDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel workspacePanel;
     }
 }

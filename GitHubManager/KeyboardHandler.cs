@@ -1,6 +1,7 @@
 ﻿using CefSharp;
 using System.Diagnostics;
 using System.Windows.Forms;
+using xyLOGIX.UI.Dark.Forms;
 
 namespace GitHubManager
 {
@@ -24,16 +25,16 @@ namespace GitHubManager
         /// </summary>
         /// <param name="form">
         /// (Required.) Reference to an instance of an object that
-        /// implements the <see cref="T:GitHubManager.IForm" /> interface.
+        /// implements the <see cref="T:xyLOGIX.UI.Dark.Forms.IDarkForm" /> interface.
         /// </param>
-        public KeyboardHandler(IForm form)
+        public KeyboardHandler(IDarkForm form)
             => Form = form;
 
         /// <summary>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IForm" /> interface.
+        /// <see cref="T:xyLOGIX.UI.Dark.Forms.IDarkForm" /> interface.
         /// </summary>
-        private IForm Form { [DebuggerStepThrough] get; }
+        private IDarkForm Form { [DebuggerStepThrough] get; }
 
         /// <summary>
         /// Called after the renderer and JavaScript in the page has had a chance

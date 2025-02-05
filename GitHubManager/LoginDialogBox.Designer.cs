@@ -1,11 +1,15 @@
 ﻿namespace GitHubManager
 {
-    partial class LoginDialogBox
+    public partial class LoginDialogBox
     {
-///  <summary> Required designer variable. </summary>
+        private xyLOGIX.UI.Dark.Controls.DarkButton cancelButton;
+
+        ///  <summary> Required designer variable. </summary>
         private System.ComponentModel.IContainer components = null;
 
-///  <summary> Clean up any resources being used. </summary> <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        private CefSharp.WinForms.ChromiumWebBrowser webBrowser;
+
+        ///  <summary> Clean up any resources being used. </summary> <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -15,9 +19,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-///  <summary> Required method for Designer support - do not modify the contents of this method with the code editor. </summary>
+        ///  <summary> Required method for Designer support - do not modify the contents of this method with the code editor. </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginDialogBox));
@@ -36,13 +38,16 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.AcceptBorderColor = System.Drawing.SystemColors.Highlight;
+            this.cancelButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.IsDarkTheme = true;
             this.cancelButton.Location = new System.Drawing.Point(285, 728);
             this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Padding = new System.Windows.Forms.Padding(5);
             this.cancelButton.Size = new System.Drawing.Size(87, 27);
             this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Visible = false;
             // 
             // LoginDialogBox
@@ -61,15 +66,10 @@
             this.Name = "LoginDialogBox";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
 
         }
-
-        #endregion
-
-        private CefSharp.WinForms.ChromiumWebBrowser webBrowser;
-        private xyLOGIX.UI.Dark.Controls.DarkButton cancelButton;
     }
 }
