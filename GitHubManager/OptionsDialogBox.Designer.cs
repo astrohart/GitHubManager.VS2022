@@ -33,63 +33,82 @@
             // 
             // okayButton
             // 
+            this.okayButton.AcceptBorderColor = System.Drawing.SystemColors.Highlight;
+            this.okayButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.okayButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.okayButton.IsDarkTheme = true;
             this.okayButton.Location = new System.Drawing.Point(84, 419);
             this.okayButton.Name = "okayButton";
+            this.okayButton.Padding = new System.Windows.Forms.Padding(5);
             this.okayButton.Size = new System.Drawing.Size(87, 27);
             this.okayButton.TabIndex = 1;
             this.okayButton.Text = "OK";
-            this.okayButton.UseVisualStyleBackColor = true;
             this.okayButton.Click += new System.EventHandler(this.OnClickOK);
             // 
             // cancelButton
             // 
+            this.cancelButton.AcceptBorderColor = System.Drawing.SystemColors.Highlight;
+            this.cancelButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.IsDarkTheme = true;
             this.cancelButton.Location = new System.Drawing.Point(177, 419);
             this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Padding = new System.Windows.Forms.Padding(5);
             this.cancelButton.Size = new System.Drawing.Size(87, 27);
             this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // applyButton
             // 
+            this.applyButton.AcceptBorderColor = System.Drawing.SystemColors.Highlight;
+            this.applyButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.applyButton.Enabled = false;
+            this.applyButton.IsDarkTheme = true;
             this.applyButton.Location = new System.Drawing.Point(270, 419);
             this.applyButton.Name = "applyButton";
+            this.applyButton.Padding = new System.Windows.Forms.Padding(5);
             this.applyButton.Size = new System.Drawing.Size(87, 27);
             this.applyButton.TabIndex = 3;
             this.applyButton.Text = "&Apply";
-            this.applyButton.UseVisualStyleBackColor = true;
             // 
             // tabs
             // 
+            this.tabs.ActiveTabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.tabs.ActiveTabTextColor = System.Drawing.SystemColors.Highlight;
             this.tabs.Controls.Add(this.startupPage);
+            this.tabs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.tabs.InactiveTabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.tabs.InactiveTabTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.tabs.IsDarkTheme = true;
+            this.tabs.ItemSize = new System.Drawing.Size(0, 18);
             this.tabs.Location = new System.Drawing.Point(13, 13);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
             this.tabs.Size = new System.Drawing.Size(344, 400);
+            this.tabs.TabBorderColor = System.Drawing.SystemColors.WindowFrame;
             this.tabs.TabIndex = 0;
+            this.tabs.TabWellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             // 
             // startupPage
             // 
+            this.startupPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.startupPage.Controls.Add(this.loginOnStartupCheckBox);
-            this.startupPage.Location = new System.Drawing.Point(4, 24);
+            this.startupPage.Location = new System.Drawing.Point(4, 22);
             this.startupPage.Name = "startupPage";
             this.startupPage.Padding = new System.Windows.Forms.Padding(3);
-            this.startupPage.Size = new System.Drawing.Size(336, 372);
+            this.startupPage.Size = new System.Drawing.Size(336, 374);
             this.startupPage.TabIndex = 0;
             this.startupPage.Text = "Startup";
-            this.startupPage.UseVisualStyleBackColor = true;
             // 
             // loginOnStartupCheckBox
             // 
+            this.loginOnStartupCheckBox.IsDarkTheme = false;
             this.loginOnStartupCheckBox.Location = new System.Drawing.Point(6, 6);
             this.loginOnStartupCheckBox.Name = "loginOnStartupCheckBox";
             this.loginOnStartupCheckBox.Size = new System.Drawing.Size(324, 26);
             this.loginOnStartupCheckBox.TabIndex = 0;
             this.loginOnStartupCheckBox.Text = "&Login on startup";
-            this.loginOnStartupCheckBox.UseVisualStyleBackColor = true;
+            this.loginOnStartupCheckBox.UseVisualStyleBackColor = false;
             this.loginOnStartupCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckedChangedLoginOnStartupCheckBox);
             // 
             // OptionsDialogBox
