@@ -278,8 +278,11 @@ namespace GitHubManager
                     {
                         CloseLoginDialogBox();
 
-                        _progressDialog = MakeNewDarkMarqueeProgressDialogBox.FromScratch()
-                            .HavingStatusText("Retrieving repositories...");
+                        _progressDialog = MakeNewDarkMarqueeProgressDialogBox
+                                          .FromScratch()
+                                          .HavingStatusText(
+                                              "Retrieving repositories..."
+                                          );
                         _progressDialog.StartPosition =
                             FormStartPosition.CenterScreen;
                         _progressDialog.Show(this);
@@ -378,7 +381,7 @@ namespace GitHubManager
         /// </remarks>
         [Log(AttributeExclude = true)]
         private void OnUpdateCmdUI(object sender, EventArgs e)
-            => navigateToolBar.Enabled = false;
+            => navigateToolBar.Enabled = reposDataGridView.RowCount > 0;
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
