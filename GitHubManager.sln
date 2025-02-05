@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHubManager-Sample-Application", "GitHubManager-Sample-Application\GitHubManager-Sample-Application.csproj", "{0995BF88-2F2C-4D98-9F6F-08165CF63F30}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHubManager", "GitHubManager\GitHubManager.csproj", "{0995BF88-2F2C-4D98-9F6F-08165CF63F30}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7CE168AA-B50E-4B13-88E2-CEC975F67D59}"
 	ProjectSection(SolutionItems) = preProject
@@ -31,3 +31,4 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
+	
