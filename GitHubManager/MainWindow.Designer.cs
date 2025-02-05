@@ -2,7 +2,6 @@
 {
     public partial class MainWindow
     {
-        private System.Windows.Forms.ToolStripButton addNewButton;
 
         private System.Windows.Forms.DataGridViewTextBoxColumn cloneUrlDataGridViewTextBoxColumn;
 
@@ -10,8 +9,6 @@
         private System.ComponentModel.IContainer components = null;
 
         private System.Windows.Forms.ToolStripLabel countLabel;
-
-        private System.Windows.Forms.ToolStripButton deleteButton;
 
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
 
@@ -33,7 +30,7 @@
 
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
 
-        private xyLOGIX.UI.Dark.Controls.DarkToolStrip navigateToolBar;
+        private xyLOGIX.UI.Dark.Controls.DarkBindingNavigator navigateToolBar;
 
         private System.Windows.Forms.ToolStripTextBox positionTextBox;
 
@@ -44,8 +41,6 @@
         private xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator sep1;
 
         private xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator sep2;
-
-        private xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator sep3;
 
         private xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator sep4;
 
@@ -100,28 +95,26 @@
             this.toolsMenu = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
             this.toolsOptions = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
             this.statusBar = new xyLOGIX.UI.Dark.Controls.DarkStatusStrip();
-            this.navigateToolBar = new xyLOGIX.UI.Dark.Controls.DarkToolStrip();
+            this.navigateToolBar = new xyLOGIX.UI.Dark.Controls.DarkBindingNavigator(this.components);
+            this.reposListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.countLabel = new System.Windows.Forms.ToolStripLabel();
             this.moveFirstButton = new System.Windows.Forms.ToolStripButton();
             this.movePreviousButton = new System.Windows.Forms.ToolStripButton();
             this.sep1 = new xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator();
             this.positionTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.countLabel = new System.Windows.Forms.ToolStripLabel();
             this.sep2 = new xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator();
             this.moveNextButton = new System.Windows.Forms.ToolStripButton();
             this.moveLastButton = new System.Windows.Forms.ToolStripButton();
-            this.sep3 = new xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator();
-            this.deleteButton = new System.Windows.Forms.ToolStripButton();
-            this.addNewButton = new System.Windows.Forms.ToolStripButton();
             this.reposDataGridView = new System.Windows.Forms.DataGridView();
-            this.workspacePanel = new System.Windows.Forms.Panel();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cloneUrlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reposListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.workspacePanel = new System.Windows.Forms.Panel();
             this.mainMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.navigateToolBar)).BeginInit();
             this.navigateToolBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.reposDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -259,7 +252,11 @@
             // 
             // navigateToolBar
             // 
-            this.navigateToolBar.BackColor = System.Drawing.Color.Transparent;
+            this.navigateToolBar.AddNewItem = null;
+            this.navigateToolBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.navigateToolBar.BindingSource = this.reposListBindingSource;
+            this.navigateToolBar.CountItem = this.countLabel;
+            this.navigateToolBar.DeleteItem = null;
             this.navigateToolBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.navigateToolBar.IsDarkTheme = false;
             this.navigateToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -270,20 +267,35 @@
             this.countLabel,
             this.sep2,
             this.moveNextButton,
-            this.moveLastButton,
-            this.sep3,
-            this.deleteButton,
-            this.addNewButton});
+            this.moveLastButton});
             this.navigateToolBar.Location = new System.Drawing.Point(0, 24);
+            this.navigateToolBar.MoveFirstItem = this.moveFirstButton;
+            this.navigateToolBar.MoveLastItem = this.moveLastButton;
+            this.navigateToolBar.MoveNextItem = this.moveNextButton;
+            this.navigateToolBar.MovePreviousItem = this.movePreviousButton;
             this.navigateToolBar.Name = "navigateToolBar";
             this.navigateToolBar.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
+            this.navigateToolBar.PositionItem = this.positionTextBox;
             this.navigateToolBar.Size = new System.Drawing.Size(858, 25);
             this.navigateToolBar.TabIndex = 2;
             this.navigateToolBar.Text = "toolStrip1";
             // 
+            // reposListBindingSource
+            // 
+            this.reposListBindingSource.DataSource = typeof(GitHubManager.Repo);
+            // 
+            // countLabel
+            // 
+            this.countLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.countLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.countLabel.Name = "countLabel";
+            this.countLabel.Size = new System.Drawing.Size(35, 22);
+            this.countLabel.Text = "of {0}";
+            this.countLabel.ToolTipText = "Total number of items";
+            // 
             // moveFirstButton
             // 
-            this.moveFirstButton.BackColor = System.Drawing.Color.Transparent;
+            this.moveFirstButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.moveFirstButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.moveFirstButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.moveFirstButton.Image = ((System.Drawing.Image)(resources.GetObject("moveFirstButton.Image")));
@@ -294,7 +306,7 @@
             // 
             // movePreviousButton
             // 
-            this.movePreviousButton.BackColor = System.Drawing.Color.Transparent;
+            this.movePreviousButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.movePreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.movePreviousButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.movePreviousButton.Image = ((System.Drawing.Image)(resources.GetObject("movePreviousButton.Image")));
@@ -305,7 +317,7 @@
             // 
             // sep1
             // 
-            this.sep1.BackColor = System.Drawing.Color.Transparent;
+            this.sep1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.sep1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.sep1.Name = "sep1";
             this.sep1.Size = new System.Drawing.Size(6, 25);
@@ -322,25 +334,16 @@
             this.positionTextBox.Text = "0";
             this.positionTextBox.ToolTipText = "Current position";
             // 
-            // countLabel
-            // 
-            this.countLabel.BackColor = System.Drawing.Color.Transparent;
-            this.countLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.countLabel.Name = "countLabel";
-            this.countLabel.Size = new System.Drawing.Size(35, 22);
-            this.countLabel.Text = "of {0}";
-            this.countLabel.ToolTipText = "Total number of items";
-            // 
             // sep2
             // 
-            this.sep2.BackColor = System.Drawing.Color.Transparent;
+            this.sep2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.sep2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.sep2.Name = "sep2";
             this.sep2.Size = new System.Drawing.Size(6, 25);
             // 
             // moveNextButton
             // 
-            this.moveNextButton.BackColor = System.Drawing.Color.Transparent;
+            this.moveNextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.moveNextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.moveNextButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.moveNextButton.Image = ((System.Drawing.Image)(resources.GetObject("moveNextButton.Image")));
@@ -351,7 +354,7 @@
             // 
             // moveLastButton
             // 
-            this.moveLastButton.BackColor = System.Drawing.Color.Transparent;
+            this.moveLastButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.moveLastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.moveLastButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.moveLastButton.Image = ((System.Drawing.Image)(resources.GetObject("moveLastButton.Image")));
@@ -359,35 +362,6 @@
             this.moveLastButton.RightToLeftAutoMirrorImage = true;
             this.moveLastButton.Size = new System.Drawing.Size(23, 22);
             this.moveLastButton.Text = "Move last";
-            // 
-            // sep3
-            // 
-            this.sep3.BackColor = System.Drawing.Color.Transparent;
-            this.sep3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.sep3.Name = "sep3";
-            this.sep3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.BackColor = System.Drawing.Color.Transparent;
-            this.deleteButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.deleteButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.RightToLeftAutoMirrorImage = true;
-            this.deleteButton.Size = new System.Drawing.Size(23, 22);
-            this.deleteButton.Text = "Delete";
-            // 
-            // addNewButton
-            // 
-            this.addNewButton.BackColor = System.Drawing.Color.Transparent;
-            this.addNewButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.addNewButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.addNewButton.Image = ((System.Drawing.Image)(resources.GetObject("addNewButton.Image")));
-            this.addNewButton.Name = "addNewButton";
-            this.addNewButton.RightToLeftAutoMirrorImage = true;
-            this.addNewButton.Size = new System.Drawing.Size(23, 22);
-            this.addNewButton.Text = "Add new";
             // 
             // reposDataGridView
             // 
@@ -448,15 +422,6 @@
             this.reposDataGridView.Size = new System.Drawing.Size(858, 531);
             this.reposDataGridView.TabIndex = 3;
             // 
-            // workspacePanel
-            // 
-            this.workspacePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.workspacePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.workspacePanel.Location = new System.Drawing.Point(0, 49);
-            this.workspacePanel.Name = "workspacePanel";
-            this.workspacePanel.Size = new System.Drawing.Size(858, 531);
-            this.workspacePanel.TabIndex = 4;
-            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
@@ -478,9 +443,14 @@
             this.cloneUrlDataGridViewTextBoxColumn.Name = "cloneUrlDataGridViewTextBoxColumn";
             this.cloneUrlDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // reposListBindingSource
+            // workspacePanel
             // 
-            this.reposListBindingSource.DataSource = typeof(GitHubManager.Repo);
+            this.workspacePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.workspacePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.workspacePanel.Location = new System.Drawing.Point(0, 49);
+            this.workspacePanel.Name = "workspacePanel";
+            this.workspacePanel.Size = new System.Drawing.Size(858, 531);
+            this.workspacePanel.TabIndex = 4;
             // 
             // MainWindow
             // 
@@ -500,10 +470,11 @@
             this.Text = "xyLOGIX GitHub Manager";
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.navigateToolBar)).EndInit();
             this.navigateToolBar.ResumeLayout(false);
             this.navigateToolBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.reposDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reposListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reposDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
