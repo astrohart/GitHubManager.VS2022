@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Octokit;
+using System;
 
 namespace GitHubManagerSampleApplication
 {

@@ -1,4 +1,7 @@
-﻿namespace GitHubManagerSampleApplication
+﻿using CefSharp;
+using System.Windows.Forms;
+
+namespace GitHubManagerSampleApplication
 {
     /// <summary> Keyboard-handler object for the CefSharp WebBrowser control. </summary>
     /// <remarks>

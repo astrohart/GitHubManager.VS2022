@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
+using System.Windows.Forms;
 
 namespace GitHubManagerSampleApplication
 {
@@ -8,6 +10,20 @@ namespace GitHubManagerSampleApplication
     /// </summary>
     public static class FormExtensions
     {
+        /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:GitHubManagerSampleApplication.FormExtensions" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static FormExtensions() { }
+
         /// <summary>
         /// Carries out the action called for by the specified
         /// <paramref name="delegate" /> if the <paramref name="form" /> is not disposed.
@@ -32,9 +48,9 @@ namespace GitHubManagerSampleApplication
         /// value.
         /// </exception>
         public static void DoIfNotDisposed(
-            this IForm form,
-            Delegate @delegate,
-            params object[] args
+            [NotLogged] this IForm form,
+            [NotLogged] Delegate @delegate,
+            [NotLogged] params object[] args
         )
         {
             if (form == null || !form.IsHandleCreated || form.IsDisposed)
@@ -74,9 +90,9 @@ namespace GitHubManagerSampleApplication
         /// <paramref name="delegate" />, are passed a <see langword="null" /> value.
         /// </exception>
         public static void InvokeIfRequired(
-            this Control control,
-            Delegate @delegate,
-            params object[] args
+            [NotLogged] this Control control,
+            [NotLogged] Delegate @delegate,
+            [NotLogged] params object[] args
         )
         {
             if (control == null)
