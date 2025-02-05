@@ -86,19 +86,19 @@
             // fileLogin
             // 
             this.fileLogin.Name = "fileLogin";
-            this.fileLogin.Size = new System.Drawing.Size(180, 22);
+            this.fileLogin.Size = new System.Drawing.Size(113, 22);
             this.fileLogin.Text = "&Login...";
             this.fileLogin.Click += new System.EventHandler(this.OnFileLogin);
             // 
             // sep4
             // 
             this.sep4.Name = "sep4";
-            this.sep4.Size = new System.Drawing.Size(177, 6);
+            this.sep4.Size = new System.Drawing.Size(110, 6);
             // 
             // fileExit
             // 
             this.fileExit.Name = "fileExit";
-            this.fileExit.Size = new System.Drawing.Size(180, 22);
+            this.fileExit.Size = new System.Drawing.Size(113, 22);
             this.fileExit.Text = "E&xit";
             this.fileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
@@ -321,7 +321,7 @@
             // 
             // reposListBindingSource
             // 
-            this.reposListBindingSource.DataSource = typeof(Repo);
+            this.reposListBindingSource.DataSource = typeof(GitHubManager.Repo);
             // 
             // workspacePanel
             // 
