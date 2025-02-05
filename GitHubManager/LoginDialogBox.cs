@@ -16,7 +16,7 @@ namespace GitHubManager
         /// Reference to an instance of an object that implements the
         /// <see cref="T:GitHubManager.ILoginDialogBoxPresenter" /> interface.
         /// </summary>
-        private readonly ILoginDialogBoxPresenter Presenter;
+        private ILoginDialogBoxPresenter Presenter;
 
         /// <summary>
         /// Initializes static data or performs actions that need to be performed once only
@@ -43,7 +43,7 @@ namespace GitHubManager
 
             InitializeWebBrowser();
 
-            Presenter = new LoginDialogBoxPresenter(this);
+            InitializePresenter();
         }
 
         /// <summary>
@@ -64,13 +64,15 @@ namespace GitHubManager
         public event GitHubLoginInfoReceivedEventHandler
             GitHubLoginInfoReceived;
 
+        private void InitializePresenter()
+            => Presenter = new LoginDialogBoxPresenter(this);
+
         /// <summary>
         /// Sets up the properties and event handlers of the internal Web browser
         /// control.
         /// </summary>
         private void InitializeWebBrowser()
         {
-            webBrowser.GetDevToolsClient().Emulation.SetAutoDarkModeOverrideAsync(true);
             webBrowser.KeyboardHandler = new KeyboardHandler(this);
             webBrowser.AddressChanged += OnWebBrowserAddressChanged;
             webBrowser.IsBrowserInitializedChanged +=
@@ -127,6 +129,9 @@ namespace GitHubManager
             webBrowser.Load(e.AbsoluteUri);
 
             Thread.Sleep(500);
+
+            webBrowser.GetDevToolsClient()
+                      .Emulation.SetAutoDarkModeOverrideAsync(true);
 
             webBrowser.Focus();
         }
@@ -255,7 +260,16 @@ namespace GitHubManager
             if (!source.Contains(
                     "You are being redirected to the authorized application."
                 ))
+            {
+                this.InvokeIfRequired(
+                    () =>
+                    {
+                        Show();
+                        browserCoverPanel.Hide();
+                    }
+                );
                 return;
+            }
 
             Thread.Sleep(500);
 
