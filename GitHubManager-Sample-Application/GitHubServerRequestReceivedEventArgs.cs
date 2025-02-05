@@ -1,6 +1,9 @@
-﻿using System;
+﻿using PostSharp.Patterns.Threading;
+using System;
+using System.Diagnostics;
+using System.Net;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary> Provides information for GitHubServerRequestReceived event handlers. </summary>
 [ExplicitlySynchronized]
@@ -8,7 +11,7 @@ namespace GitHubManagerSampleApplication
     {
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManagerSampleApplication.GitHubServerRequestReceivedEventArgs" /> and returns
+        /// <see cref="T:GitHubManager.GitHubServerRequestReceivedEventArgs" /> and returns
         /// a reference to it.
         /// </summary>
         /// <param name="request">
@@ -35,13 +38,13 @@ namespace GitHubManagerSampleApplication
         /// <see cref="T:System.Net.HttpListenerRequest" /> that contains the information
         /// about the request that has been received.
         /// </summary>
-        public HttpListenerRequest Request { get; }
+        public HttpListenerRequest Request { [DebuggerStepThrough] get; }
 
         /// <summary>
         /// Gets a reference to an instance of
         /// <see cref="T:System.Net.HttpListenerResponse" /> that contains the endpoint to
         /// use for sending responses.
         /// </summary>
-        public HttpListenerResponse Response { get; }
+        public HttpListenerResponse Response { [DebuggerStepThrough] get; }
     }
 }

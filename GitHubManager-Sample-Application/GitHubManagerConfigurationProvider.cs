@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Alphaleonis.Win32.Filesystem;
+using PostSharp.Patterns.Diagnostics;
+using System;
+using System.Diagnostics;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Methods and properties for loading, accessing, and saving the
@@ -32,18 +35,18 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Gets or sets a reference to the instance of an object implementing
-        /// the <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" /> interface that
+        /// the <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface that
         /// represents the currently-loaded configuration.
         /// </summary>
-        public IGitHubManagerConfiguration CurrentConfiguration { get; set; }
+        public IGitHubManagerConfiguration CurrentConfiguration { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that
         /// implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfigurationProvider" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubManagerConfigurationProvider" /> interface.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static IGitHubManagerConfigurationProvider Instance { get; } =
+        public static IGitHubManagerConfigurationProvider Instance { [DebuggerStepThrough] get; } =
             new GitHubManagerConfigurationProvider();
 
         /// <summary>
@@ -52,7 +55,7 @@ namespace GitHubManagerSampleApplication
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" /> interface, whose
+        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface, whose
         /// properties have been initialized from the values in the application's default
         /// configuration file.
         /// </returns>

@@ -1,4 +1,6 @@
-﻿namespace GitHubManagerSampleApplication
+﻿using System.Diagnostics;
+
+namespace GitHubManager
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a
@@ -8,10 +10,10 @@
     {
         /// <summary>
         /// Gets or sets a reference to the instance of an object implementing
-        /// the <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" /> interface that
+        /// the <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface that
         /// represents the currently-loaded configuration.
         /// </summary>
-        IGitHubManagerConfiguration CurrentConfiguration { get; set; }
+        IGitHubManagerConfiguration CurrentConfiguration { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Loads the configuration from the default configuration file, and
@@ -19,7 +21,7 @@
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" /> interface, whose
+        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface, whose
         /// properties have been initialized from the values in the application's default
         /// configuration file.
         /// </returns>

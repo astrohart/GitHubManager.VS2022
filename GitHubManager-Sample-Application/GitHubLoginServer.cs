@@ -1,7 +1,10 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
+using System.Diagnostics;
+using System.Net;
 using System.Threading;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Simple HTTP server that catches the action of receiving login
@@ -25,12 +28,14 @@ namespace GitHubManagerSampleApplication
         /// Empty, static constructor to prohibit direct allocation of this
         /// class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         static GitHubLoginServer() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this
         /// class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected GitHubLoginServer()
         {
             _httpListener = new HttpListener();
@@ -39,13 +44,13 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:GitHubManagerSampleApplication.GitHubLoginServer" />.
+        /// <see cref="T:GitHubManager.GitHubLoginServer" />.
         /// </summary>
-        public static IGitHubLoginServer Instance { get; } =
-            new GitHubLoginServer();
+        public static IGitHubLoginServer
+            Instance { [DebuggerStepThrough] get; } = new GitHubLoginServer();
 
         /// <summary> Gets a value indicating whether the server has been started. </summary>
-        public bool IsStarted { get; private set; }
+        public bool IsStarted { [DebuggerStepThrough] get; [DebuggerStepThrough] private set; }
 
         /// <summary> Occurs when a request has been received from GitHub. </summary>
         public event GitHubServerRequestReceivedEventHandler
@@ -94,32 +99,6 @@ namespace GitHubManagerSampleApplication
             _requestContextThread.Start();
         }
 
-        /// <summary>
-        /// Stops this GitHub login server instance from acknowledging any
-        /// further requests.
-        /// </summary>
-        public void Stop()
-        {
-            IsStarted = false;
-
-            _requestContextThread?.Abort();
-        }
-
-        /// <summary>
-        /// Raises the
-        /// <see cref="E:GitHubManagerSampleApplication.GitHubLoginServer.GitHubServerRequestReceived" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A
-        /// <see cref="T:GitHubManagerSampleApplication.GitHubServerRequestReceivedEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        protected virtual void OnGitHubServerRequestReceived(
-            GitHubServerRequestReceivedEventArgs e
-        )
-            => GitHubServerRequestReceived?.Invoke(this, e);
-
         /// <summary> Method that is called when a new HTTP request comes in from a client. </summary>
         /// <param name="ar">
         /// (Required.) Reference to an instance of an object that
@@ -149,6 +128,21 @@ namespace GitHubManagerSampleApplication
         }
 
         /// <summary>
+        /// Raises the
+        /// <see cref="E:GitHubManager.GitHubLoginServer.GitHubServerRequestReceived" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:GitHubManager.GitHubServerRequestReceivedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnGitHubServerRequestReceived(
+            GitHubServerRequestReceivedEventArgs e
+        )
+            => GitHubServerRequestReceived?.Invoke(this, e);
+
+        /// <summary>
         /// Background thread that listens for new requests and then calls a
         /// callback method when they come in.
         /// </summary>
@@ -162,6 +156,17 @@ namespace GitHubManagerSampleApplication
             var context = _httpListener.BeginGetContext(
                 GetContextCallback, null
             );
+        }
+
+        /// <summary>
+        /// Stops this GitHub login server instance from acknowledging any
+        /// further requests.
+        /// </summary>
+        public void Stop()
+        {
+            IsStarted = false;
+
+            _requestContextThread?.Abort();
         }
     }
 }

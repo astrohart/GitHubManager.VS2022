@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Helper methods for working with Windows Forms and their child
@@ -12,7 +12,7 @@ namespace GitHubManagerSampleApplication
     {
         /// <summary>
         /// Initializes static data or performs actions that need to be performed once only
-        /// for the <see cref="T:GitHubManagerSampleApplication.FormExtensions" /> class.
+        /// for the <see cref="T:GitHubManager.FormExtensions" /> class.
         /// </summary>
         /// <remarks>
         /// This constructor is called automatically prior to the first instance being
@@ -32,7 +32,7 @@ namespace GitHubManagerSampleApplication
         /// </summary>
         /// <param name="form">
         /// (Required.) Reference to an instance of an object that
-        /// implements the <see cref="T:GitHubManagerSampleApplication.IForm" /> interface.
+        /// implements the <see cref="T:GitHubManager.IForm" /> interface.
         /// </param>
         /// <param name="delegate">
         /// (Required.) Reference to a

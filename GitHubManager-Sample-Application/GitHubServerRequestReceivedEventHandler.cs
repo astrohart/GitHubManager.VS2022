@@ -1,4 +1,4 @@
-﻿namespace GitHubManagerSampleApplication
+﻿namespace GitHubManager
 {
     /// <summary> Represents a handler for a GitHubServerRequestReceived event. </summary>
     /// <param name="sender">
@@ -7,7 +7,7 @@
     /// </param>
     /// <param name="e">
     /// A
-    /// <see cref="T:GitHubManagerSampleApplication.GitHubServerRequestReceivedEventArgs" /> that
+    /// <see cref="T:GitHubManager.GitHubServerRequestReceivedEventArgs" /> that
     /// contains the event data.
     /// </param>
     /// <remarks>

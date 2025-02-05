@@ -1,8 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a Windows
@@ -13,18 +14,18 @@ namespace GitHubManagerSampleApplication
         /// <summary>
         /// Gets or sets a <see cref="T:System.Windows.Forms.DialogResult" />
         /// value that indicates how the user closed this form if it was shown as a dialog
-        /// box using the <see cref="M:GitHubManagerSampleApplication.IForm.ShowDialog" /> method.
+        /// box using the <see cref="M:GitHubManager.IForm.ShowDialog" /> method.
         /// </summary>
-        DialogResult DialogResult { get; set; }
+        DialogResult DialogResult { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary> Gets a value indicating whether this form has been disposed. </summary>
-        bool IsDisposed { get; }
+        bool IsDisposed { [DebuggerStepThrough] get; }
 
         /// <summary>
         /// Gets a value indicating whether this form's window handle has been
         /// created.
         /// </summary>
-        bool IsHandleCreated { get; }
+        bool IsHandleCreated { [DebuggerStepThrough] get; }
 
         /// <summary> Occurs when this form is first loaded into memory. </summary>
         event EventHandler Load;

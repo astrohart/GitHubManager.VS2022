@@ -1,14 +1,18 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Threading;
+using System.Windows.Forms;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary> Main window of the application. </summary>
     public partial class MainWindow : Form, IMainWindow
     {
         /// <summary>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IMainWindowPresenter" /> interface.
+        /// <see cref="T:GitHubManager.IMainWindowPresenter" /> interface.
         /// </summary>
         private readonly IMainWindowPresenter Presenter;
 
@@ -41,7 +45,7 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfigurationProvider" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubManagerConfigurationProvider" /> interface.
         /// </summary>
         private static IGitHubManagerConfigurationProvider
             GitHubManagerConfigurationProvider
@@ -49,14 +53,14 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:GitHubManagerSampleApplication.MainWindow" />.
+        /// <see cref="T:GitHubManager.MainWindow" />.
         /// </summary>
-        public static IMainWindow Instance { get; } = new MainWindow();
+        public static IMainWindow Instance { [DebuggerStepThrough] get; } = new MainWindow();
 
         /// <summary> Gets or sets a value indicating whether the user is signed in. </summary>
         /// <remarks>
         /// When this property's value is changed, the
-        /// <see cref="E:GitHubManagerSampleApplication.MainWindow.SignedInChanged" /> event is raised.
+        /// <see cref="E:GitHubManager.MainWindow.SignedInChanged" /> event is raised.
         /// </remarks>
         public bool IsSignedIn
         {
@@ -74,14 +78,14 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubSession" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubSession" /> interface.
         /// </summary>
         private static IGitHubSession Session
             => GetGitHubSession.SoleInstance();
 
         /// <summary>
         /// Occurs when the value of the
-        /// <see cref="P:GitHubManagerSampleApplication.IMainWindow.IsSignedIn" /> property changes.
+        /// <see cref="P:GitHubManager.IMainWindow.IsSignedIn" /> property changes.
         /// </summary>
         public event EventHandler SignedInChanged;
 
@@ -117,7 +121,7 @@ namespace GitHubManagerSampleApplication
         }
 
         /// <summary>
-        /// Raises the <see cref="E:GitHubManagerSampleApplication.MainWindow.SignedInChanged" />
+        /// Raises the <see cref="E:GitHubManager.MainWindow.SignedInChanged" />
         /// event.
         /// </summary>
         protected virtual void OnSignedInChanged()
@@ -256,7 +260,7 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Handles the
-        /// <see cref="E:GitHubManagerSampleApplication.IGitHubSession.GitHubAuthenticated" /> event raised
+        /// <see cref="E:GitHubManager.IGitHubSession.GitHubAuthenticated" /> event raised
         /// by the GitHub Session Object when the OAuth flow is complete.
         /// </summary>
         /// <param name="sender">
@@ -264,7 +268,7 @@ namespace GitHubManagerSampleApplication
         /// event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:GitHubManagerSampleApplication.GitHubAuthenticatedEventArgs" />
+        /// A <see cref="T:GitHubManager.GitHubAuthenticatedEventArgs" />
         /// that contains the event data.
         /// </param>
         /// <remarks>

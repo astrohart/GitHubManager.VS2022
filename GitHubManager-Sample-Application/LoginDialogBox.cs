@@ -1,20 +1,23 @@
-﻿using System;
+﻿using CefSharp;
+using System;
+using System.Diagnostics;
 using System.Threading;
+using System.Windows.Forms;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary> Dialog box that helps the user log in to GitHub. </summary>
     public partial class LoginDialogBox : Form, ILoginDialogBox
     {
         /// <summary>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.ILoginDialogBoxPresenter" /> interface.
+        /// <see cref="T:GitHubManager.ILoginDialogBoxPresenter" /> interface.
         /// </summary>
         private readonly ILoginDialogBoxPresenter Presenter;
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManagerSampleApplication.LoginDialogBox" /> and returns a reference to it.
+        /// <see cref="T:GitHubManager.LoginDialogBox" /> and returns a reference to it.
         /// </summary>
         public LoginDialogBox()
         {
@@ -27,10 +30,10 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubLoginInfo" /> interface that plays the role
+        /// <see cref="T:GitHubManager.IGitHubLoginInfo" /> interface that plays the role
         /// of an object that contains important login information.
         /// </summary>
-        public IGitHubLoginInfo GitHubLoginInfo { get; private set; }
+        public IGitHubLoginInfo GitHubLoginInfo { [DebuggerStepThrough] get; [DebuggerStepThrough] private set; }
 
         /// <summary>
         /// Occurs when important login and authorization information is received
@@ -55,11 +58,11 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:GitHubManagerSampleApplication.LoginDialogBox.GitHubLoginInfoReceived" /> event.
+        /// <see cref="E:GitHubManager.LoginDialogBox.GitHubLoginInfoReceived" /> event.
         /// </summary>
         /// <param name="e">
         /// A
-        /// <see cref="T:GitHubManagerSampleApplication.GitHubLoginInfoReceivedEventArgs" /> that contains
+        /// <see cref="T:GitHubManager.GitHubLoginInfoReceivedEventArgs" /> that contains
         /// the event data.
         /// </param>
         protected virtual void OnGitHubLoginInfoReceived(

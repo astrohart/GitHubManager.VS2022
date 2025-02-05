@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Diagnostics;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Settings that are user-configurable and that alter the behavior of
@@ -10,7 +12,7 @@ namespace GitHubManagerSampleApplication
     {
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManagerSampleApplication.GitHubManagerConfiguration" /> and returns a
+        /// <see cref="T:GitHubManager.GitHubManagerConfiguration" /> and returns a
         /// reference to it.
         /// </summary>
         [JsonConstructor]
@@ -26,27 +28,27 @@ namespace GitHubManagerSampleApplication
         /// we want to utilize with this application.
         /// </summary>
         [JsonProperty("clientId")]
-        public string ClientId { get; set; }
+        public string ClientId { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Gets or sets a string containing the Client Secret of the OAuth App
         /// to bind to this application.
         /// </summary>
         [JsonProperty("clientSecret")]
-        public string ClientSecret { get; set; }
+        public string ClientSecret { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Gets or sets a value that determines whether the application logs in
         /// to GitHub on startup.
         /// </summary>
         [JsonProperty("loginOnStartup")]
-        public bool LoginOnStartup { get; set; }
+        public bool LoginOnStartup { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Get or sets a collection of strings that defines the scopes to be
         /// used with this application.
         /// </summary>
         [JsonProperty("scopes")]
-        public IList<string> Scopes { get; set; }
+        public IList<string> Scopes { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
     }
 }

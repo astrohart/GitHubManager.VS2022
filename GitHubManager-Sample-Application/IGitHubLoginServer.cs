@@ -1,9 +1,11 @@
-﻿namespace GitHubManagerSampleApplication
+﻿using System.Diagnostics;
+
+namespace GitHubManager
 {
     public interface IGitHubLoginServer
     {
         /// <summary> Gets a value indicating whether the server has been started. </summary>
-        bool IsStarted { get; }
+        bool IsStarted { [DebuggerStepThrough] get; }
 
         /// <summary> Occurs when a request has been received from GitHub. </summary>
         event GitHubServerRequestReceivedEventHandler

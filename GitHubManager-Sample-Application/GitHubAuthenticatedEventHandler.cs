@@ -1,4 +1,4 @@
-﻿namespace GitHubManagerSampleApplication
+﻿namespace GitHubManager
 {
     /// <summary> Represents a handler for a GitHubAuthenticated event. </summary>
     /// <param name="sender">
@@ -6,7 +6,7 @@
     /// event.
     /// </param>
     /// <param name="e">
-    /// A <see cref="T:GitHubManagerSampleApplication.GitHubAuthenticatedEventArgs" />
+    /// A <see cref="T:GitHubManager.GitHubAuthenticatedEventArgs" />
     /// that contains the event data.
     /// </param>
     /// <remarks>

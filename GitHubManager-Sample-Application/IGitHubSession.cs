@@ -1,7 +1,8 @@
 ﻿using Octokit;
 using System;
+using System.Diagnostics;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a session of
@@ -10,28 +11,28 @@ namespace GitHubManagerSampleApplication
     public interface IGitHubSession
     {
         /// <summary> Gets a value that determines whether the session is authenticated. </summary>
-        bool Authenticated { get; }
+        bool Authenticated { [DebuggerStepThrough] get; }
 
         /// <summary>
         /// Reference to an instance of <see cref="T:Octokit.GitHubClient" />
         /// that allows communication with the GitHub server.
         /// </summary>
-        GitHubClient Client { get; }
+        GitHubClient Client { [DebuggerStepThrough] get; }
 
         /// <summary> Gets a string containing the Client ID of this session. </summary>
-        string ClientId { get; }
+        string ClientId { [DebuggerStepThrough] get; }
 
         /// <summary> Gets a string containing the Client Secret of this session. </summary>
-        string ClientSecet { get; }
+        string ClientSecet { [DebuggerStepThrough] get; }
 
         /// <summary> Gets or sets a random string that uniquely identifies this session. </summary>
-        string CsrfId { get; }
+        string CsrfId { [DebuggerStepThrough] get; }
 
         /// <summary>
         /// Gets or sets a <see cref="T:Octokit.OauthToken" /> to be used for API
         /// calls.
         /// </summary>
-        OauthToken Token { get; set; }
+        OauthToken Token { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary> Occurs when the user's GitHub account has been authenticated. </summary>
         event GitHubAuthenticatedEventHandler GitHubAuthenticated;

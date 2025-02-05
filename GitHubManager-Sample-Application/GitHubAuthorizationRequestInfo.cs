@@ -1,28 +1,32 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
+using System.Diagnostics;
 using System.IO;
+using System.Net;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary> Contains information about an authorization request. </summary>
     public class GitHubAuthorizationRequestInfo
     {
         /// <summary> Gets or sets the body of the request. </summary>
-        public string Body { get; set; }
+        public string Body { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary> Gets or sets the authorization code. </summary>
-        public string code { get; set; }
+        public string code { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary> Gets or sets the authorization state. </summary>
-        public string state { get; set; }
+        public string state { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Gets or sets the URL of the request, as an instance of
         /// <see cref="T:System.Uri" />.
         /// </summary>
-        public Uri Url { get; set; }
+        public Uri Url { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
+        [return: NotLogged]
         public static GitHubAuthorizationRequestInfo FromRequest(
-            HttpListenerRequest request
+            [NotLogged] HttpListenerRequest request
         )
         {
             if (request == null)

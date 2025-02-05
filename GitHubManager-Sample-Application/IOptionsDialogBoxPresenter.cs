@@ -1,4 +1,6 @@
-﻿namespace GitHubManagerSampleApplication
+﻿using System.Diagnostics;
+
+namespace GitHubManager
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a Presenter
@@ -10,6 +12,6 @@
         /// Gets or sets a value that indicates whether any of the settings on
         /// the property sheet have been modified.
         /// </summary>
-        bool IsModified { get; set; }
+        bool IsModified { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
     }
 }

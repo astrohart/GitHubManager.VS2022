@@ -1,4 +1,6 @@
-﻿namespace GitHubManagerSampleApplication
+﻿using System.Web;
+
+namespace GitHubManager
 {
     public static class QueryStringHelpers
     {

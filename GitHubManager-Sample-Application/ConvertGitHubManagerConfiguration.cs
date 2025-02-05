@@ -5,7 +5,7 @@ using PostSharp.Patterns.Threading;
 using System;
 using System.Globalization;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Methods to serialize and deserialize the application's configuration
@@ -24,7 +24,7 @@ namespace GitHubManagerSampleApplication
         /// <summary>
         /// Initializes static data or performs actions that need to be performed once only
         /// for the
-        /// <see cref="T:GitHubManagerSampleApplication.ConvertGitHubManagerConfiguration" />
+        /// <see cref="T:GitHubManager.ConvertGitHubManagerConfiguration" />
         /// class.
         /// </summary>
         /// <remarks>
@@ -54,14 +54,14 @@ namespace GitHubManagerSampleApplication
         /// <summary>
         /// Parses the specified <paramref name="json" /> content and, if
         /// successful, initializes an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" />
+        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" />
         /// interface and
         /// returns a reference to it.
         /// </summary>
         /// <param name="json">(Required.) String containing the JSON content to be parsed.</param>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" />
+        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" />
         /// interface whose
         /// properties are initialized from the JSON provided..
         /// </returns>
@@ -86,14 +86,14 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Serializes an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" />
+        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" />
         /// interface to JSON
         /// and returns this data in the form of a <see cref="T:System.String" />.
         /// </summary>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object
         /// that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" />
+        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" />
         /// interface.
         /// </param>
         /// <returns>

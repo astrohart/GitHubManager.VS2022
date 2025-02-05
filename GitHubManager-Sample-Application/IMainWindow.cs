@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of the main
@@ -11,13 +12,13 @@ namespace GitHubManagerSampleApplication
         /// <summary> Gets or sets a value indicating whether the user is signed in. </summary>
         /// <remarks>
         /// When this property's value is changed, the
-        /// <see cref="E:GitHubManagerSampleApplication.MainWindow.SignedInChanged" /> event is raised.
+        /// <see cref="E:GitHubManager.MainWindow.SignedInChanged" /> event is raised.
         /// </remarks>
-        bool IsSignedIn { get; }
+        bool IsSignedIn { [DebuggerStepThrough] get; }
 
         /// <summary>
         /// Occurs when the value of the
-        /// <see cref="P:GitHubManagerSampleApplication.IMainWindow.IsSignedIn" /> property changes.
+        /// <see cref="P:GitHubManager.IMainWindow.IsSignedIn" /> property changes.
         /// </summary>
         event EventHandler SignedInChanged;
     }

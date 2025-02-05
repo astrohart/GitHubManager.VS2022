@@ -1,17 +1,18 @@
 ﻿using System;
+using System.Diagnostics;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     public interface IGitHubLoginInfo
     {
         /// <summary> Gets or sets a string containing the ID of the client. </summary>
-        string client_id { get; set; }
+        string client_id { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary> Gets or sets a string containing a comma-separated list of scopes. </summary>
-        string scope { get; set; }
+        string scope { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary> Gets or sets a string containing a state value. </summary>
-        string state { get; set; }
+        string state { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
     }
 
     /// <summary>
@@ -21,23 +22,23 @@ namespace GitHubManagerSampleApplication
     public class GitHubLoginInfo : IGitHubLoginInfo
     {
         /// <summary> Gets or sets a string containing the ID of the client. </summary>
-        public string client_id { get; set; }
+        public string client_id { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary> Gets or sets a string containing a comma-separated list of scopes. </summary>
-        public string scope { get; set; }
+        public string scope { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary> Gets or sets a string containing a state value. </summary>
-        public string state { get; set; }
+        public string state { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Parses the query string of the specified <paramref name="url" /> and
-        /// returns a new instance of <see cref="T:GitHubManagerSampleApplication.GitHubLoginInfo" /> whose
+        /// returns a new instance of <see cref="T:GitHubManager.GitHubLoginInfo" /> whose
         /// properties are initialized with the results.
         /// </summary>
         /// <param name="url">(Required.) String that contains a URL that begins with the </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubLoginInfo" /> interface whose properties are
+        /// <see cref="T:GitHubManager.IGitHubLoginInfo" /> interface whose properties are
         /// initialized to the values that are parsed from the provided
         /// <paramref name="url" />, or <see langword="null" /> if this is not feasible.
         /// </returns>

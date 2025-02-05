@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Windows.Forms;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary> Progress dialog for a long-running operation of indeterminate length. </summary>
     public partial class MarqueeProgressDialogBox : Form,
@@ -8,7 +9,7 @@ namespace GitHubManagerSampleApplication
     {
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManagerSampleApplication.MarqueeProgressDialogBox" /> and returns a reference
+        /// <see cref="T:GitHubManager.MarqueeProgressDialogBox" /> and returns a reference
         /// to it.
         /// </summary>
         public MarqueeProgressDialogBox()

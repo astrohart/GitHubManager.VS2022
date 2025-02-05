@@ -1,6 +1,7 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Creates new instances of objects that implement the
@@ -24,15 +25,15 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Builder extension method that initializes the
-        /// <see cref="P:GitHubManagerSampleApplication.IOptionsDialogBox.Configuration" /> property.
+        /// <see cref="P:GitHubManager.IOptionsDialogBox.Configuration" /> property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that
-        /// implements the <see cref="T:GitHubManagerSampleApplication.IOptionsDialogBox" /> interface.
+        /// implements the <see cref="T:GitHubManager.IOptionsDialogBox" /> interface.
         /// </param>
         /// <param name="configuration">
         /// (Required.) Reference to an instance of an object
-        /// that implements the <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" />
+        /// that implements the <see cref="T:GitHubManager.IGitHubManagerConfiguration" />
         /// interface.
         /// </param>
         /// <returns>

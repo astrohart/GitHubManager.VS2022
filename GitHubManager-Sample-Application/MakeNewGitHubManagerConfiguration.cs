@@ -1,10 +1,11 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Creates new instances of objects that implement the
-    /// <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" /> interface, and
+    /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface, and
     /// returns references to them.
     /// </summary>
     [Log(AttributeExclude = true)]
@@ -12,24 +13,24 @@ namespace GitHubManagerSampleApplication
     {
         /// <summary>
         /// Creates a new instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" /> interface and
+        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface and
         /// returns a reference to it.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface.
         /// </returns>
         public static IGitHubManagerConfiguration FromScratch()
             => new GitHubManagerConfiguration();
 
         /// <summary>
         /// Builder extension method that initializes the
-        /// <see cref="P:GitHubManagerSampleApplication.IGitHubManagerConfiguration.LoginOnStartup" />
+        /// <see cref="P:GitHubManager.IGitHubManagerConfiguration.LoginOnStartup" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that
-        /// implements the <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" />
+        /// implements the <see cref="T:GitHubManager.IGitHubManagerConfiguration" />
         /// interface.
         /// </param>
         /// <param name="loginOnStartup">

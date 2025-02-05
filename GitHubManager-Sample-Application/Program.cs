@@ -1,13 +1,18 @@
-﻿using System;
+﻿using CefSharp;
+using CefSharp.WinForms;
+using PostSharp.Patterns.Diagnostics;
+using PostSharp.Patterns.Diagnostics.Backends.Console;
+using System;
+using System.Windows.Forms;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary> Defines the behaviors of the application. </summary>
     public static class Program
     {
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" /> interface that
+        /// the <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface that
         /// represents the currently-loaded configuration.
         /// </summary>
         private static IGitHubManagerConfiguration CurrentConfiguration
@@ -15,7 +20,7 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfigurationProvider" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubManagerConfigurationProvider" /> interface.
         /// </summary>
         private static IGitHubManagerConfigurationProvider
             GitHubManagerConfigurationProvider
@@ -23,7 +28,7 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubSession" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubSession" /> interface.
         /// </summary>
         private static IGitHubSession Session
             => GetGitHubSession.SoleInstance();

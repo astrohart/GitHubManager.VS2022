@@ -1,22 +1,35 @@
-﻿using System;
+﻿using Alphaleonis.Win32.Filesystem;
+using Newtonsoft.Json;
+using PostSharp.Patterns.Diagnostics;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary> This is the Presenter for the Login dialog box. </summary>
     public class LoginDialogBoxPresenter : ILoginDialogBoxPresenter
     {
         /// <summary>
-        /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.ILoginDialogBox" /> interface.
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:GitHubManager.LoginDialogBoxPresenter" /> class.
         /// </summary>
-        private ILoginDialogBox View;
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static LoginDialogBoxPresenter() { }
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManagerSampleApplication.LoginDialogBoxPresenter" /> and returns a reference
+        /// <see cref="T:GitHubManager.LoginDialogBoxPresenter" /> and returns a reference
         /// to it.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public LoginDialogBoxPresenter()
         {
             View = null;
@@ -26,9 +39,10 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManagerSampleApplication.LoginDialogBoxPresenter" /> and returns a reference
+        /// <see cref="T:GitHubManager.LoginDialogBoxPresenter" /> and returns a reference
         /// to it.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public LoginDialogBoxPresenter(ILoginDialogBox view)
         {
             View = view;
@@ -40,14 +54,24 @@ namespace GitHubManagerSampleApplication
         /// Gets or sets a reference to a collection of strings that is the
         /// history of navigated addresses.
         /// </summary>
-        public IList<string> AddressHistoryList { get; private set; }
+        public IList<string> AddressHistoryList
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] private set;
+        }
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubSession" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubSession" /> interface.
         /// </summary>
         public IGitHubSession Session
             => GetGitHubSession.SoleInstance();
+
+        /// <summary>
+        /// Reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.ILoginDialogBox" /> interface.
+        /// </summary>
+        public ILoginDialogBox View { [DebuggerStepThrough] get; }
 
         /// <summary>
         /// Saves the address history to a file in the user's Local AppData

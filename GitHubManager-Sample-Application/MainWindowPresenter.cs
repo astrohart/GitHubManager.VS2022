@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Presenter object that defines the behaviors of the main application
@@ -11,14 +13,14 @@ namespace GitHubManagerSampleApplication
     {
         /// <summary>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IMainWindow" /> interface.
+        /// <see cref="T:GitHubManager.IMainWindow" /> interface.
         /// </summary>
         /// <remarks>This object serves as the View for this Presenter.</remarks>
         private readonly IMainWindow View;
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManagerSampleApplication.MainWindowPresenter" /> and returns a reference to
+        /// <see cref="T:GitHubManager.MainWindowPresenter" /> and returns a reference to
         /// it.
         /// </summary>
         public MainWindowPresenter()
@@ -26,12 +28,12 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManagerSampleApplication.MainWindowPresenter" /> and returns a reference to
+        /// <see cref="T:GitHubManager.MainWindowPresenter" /> and returns a reference to
         /// it.
         /// </summary>
         /// <param name="view">
         /// (Required.) Reference to an instance of an object that
-        /// implements the <see cref="T:GitHubManagerSampleApplication.IMainWindow" /> interface that plays
+        /// implements the <see cref="T:GitHubManager.IMainWindow" /> interface that plays
         /// the role of the main application window.
         /// </param>
         public MainWindowPresenter(IMainWindow view)
@@ -39,14 +41,14 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface.
         /// </summary>
         private static IGitHubManagerConfiguration CurrentConfiguration
             => GitHubManagerConfigurationProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfigurationProvider" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubManagerConfigurationProvider" /> interface.
         /// </summary>
         private static IGitHubManagerConfigurationProvider
             GitHubManagerConfigurationProvider
@@ -54,7 +56,7 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubSession" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubSession" /> interface.
         /// </summary>
         private static IGitHubSession Session
             => GetGitHubSession.SoleInstance();
@@ -77,7 +79,7 @@ namespace GitHubManagerSampleApplication
         /// <para />
         /// </summary>
         /// <returns>
-        /// Collection of instances of <see cref="T:GitHubManagerSampleApplication.Repo" />
+        /// Collection of instances of <see cref="T:GitHubManager.Repo" />
         /// objects that contain the data for all of the repositories for the current user.
         /// </returns>
         public async Task<IList<IRepo>> GetRepos()

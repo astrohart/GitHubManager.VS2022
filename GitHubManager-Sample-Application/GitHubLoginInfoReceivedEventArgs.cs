@@ -1,6 +1,8 @@
-﻿using System;
+﻿using PostSharp.Patterns.Threading;
+using System;
+using System.Diagnostics;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary> Provides information for GitHubLoginInfoReceived event handlers. </summary>
 [ExplicitlySynchronized]
@@ -8,7 +10,7 @@ namespace GitHubManagerSampleApplication
     {
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManagerSampleApplication.GitHubLoginInfoReceivedEventArgs" /> and returns a
+        /// <see cref="T:GitHubManager.GitHubLoginInfoReceivedEventArgs" /> and returns a
         /// reference to it.
         /// </summary>
         /// <param name="address">
@@ -17,7 +19,7 @@ namespace GitHubManagerSampleApplication
         /// </param>
         /// <param name="loginInfo">
         /// (Required.) Reference to an instance of an object that
-        /// implements the <see cref="T:GitHubManagerSampleApplication.IGitHubLoginInfo" /> interface that
+        /// implements the <see cref="T:GitHubManager.IGitHubLoginInfo" /> interface that
         /// plays the role of an object that contains important login information.
         /// </param>
         public GitHubLoginInfoReceivedEventArgs(
@@ -30,13 +32,13 @@ namespace GitHubManagerSampleApplication
         }
 
         /// <summary> URL from GitHub that delivered the authorization information. </summary>
-        public string Address { get; }
+        public string Address { [DebuggerStepThrough] get; }
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubLoginInfo" /> interface that plays the role
+        /// <see cref="T:GitHubManager.IGitHubLoginInfo" /> interface that plays the role
         /// of an object that contains important login information.
         /// </summary>
-        public IGitHubLoginInfo LoginInfo { get; }
+        public IGitHubLoginInfo LoginInfo { [DebuggerStepThrough] get; }
     }
 }

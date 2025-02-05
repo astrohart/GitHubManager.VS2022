@@ -1,10 +1,11 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Creates new instances of objects that implement the
-    /// <see cref="T:GitHubManagerSampleApplication.IOptionsDialogBoxPresenter" /> interface, and
+    /// <see cref="T:GitHubManager.IOptionsDialogBoxPresenter" /> interface, and
     /// returns references to them.
     /// </summary>
     [Log(AttributeExclude = true)]
@@ -12,12 +13,12 @@ namespace GitHubManagerSampleApplication
     {
         /// <summary>
         /// Creates a new instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IOptionsDialogBoxPresenter" /> interface and returns
+        /// <see cref="T:GitHubManager.IOptionsDialogBoxPresenter" /> interface and returns
         /// a reference to it.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IOptionsDialogBoxPresenter" /> interface.
+        /// <see cref="T:GitHubManager.IOptionsDialogBoxPresenter" /> interface.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required

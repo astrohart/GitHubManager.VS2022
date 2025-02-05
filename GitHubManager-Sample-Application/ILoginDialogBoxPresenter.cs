@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of the Presenter
@@ -12,13 +13,13 @@ namespace GitHubManagerSampleApplication
         /// Gets or sets a reference to a collection of strings that is the
         /// history of navigated addresses.
         /// </summary>
-        IList<string> AddressHistoryList { get; }
+        IList<string> AddressHistoryList { [DebuggerStepThrough] get; }
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubSession" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubSession" /> interface.
         /// </summary>
-        IGitHubSession Session { get; }
+        IGitHubSession Session { [DebuggerStepThrough] get; }
 
         /// <summary>
         /// Saves the address history to a file in the user's Local AppData

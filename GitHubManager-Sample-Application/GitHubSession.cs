@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Octokit;
+using System;
+using System.Diagnostics;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary> Manages all interaction with GitHub. </summary>
     public class GitHubSession : IGitHubSession
@@ -13,7 +15,7 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManagerSampleApplication.GitHubSession" /> and returns a reference to it.
+        /// <see cref="T:GitHubManager.GitHubSession" /> and returns a reference to it.
         /// </summary>
         protected GitHubSession()
             => CsrfId = Guid.NewGuid()
@@ -27,43 +29,43 @@ namespace GitHubManagerSampleApplication
         /// Reference to an instance of <see cref="T:Octokit.GitHubClient" />
         /// that allows communication with the GitHub server.
         /// </summary>
-        public GitHubClient Client { get; } = new GitHubClient(
+        public GitHubClient Client { [DebuggerStepThrough] get; } = new GitHubClient(
             new ProductHeaderValue("xyLOGIX-GitHub-Manager")
         );
 
         /// <summary> Gets a string containing the Client ID of this session. </summary>
-        public string ClientId { get; private set; }
+        public string ClientId { [DebuggerStepThrough] get; [DebuggerStepThrough] private set; }
 
         /// <summary> Gets a string containing the Client Secret of this session. </summary>
-        public string ClientSecet { get; private set; }
+        public string ClientSecet { [DebuggerStepThrough] get; [DebuggerStepThrough] private set; }
 
         /// <summary> Gets or sets a random string that uniquely identifies this session. </summary>
-        public string CsrfId { get; }
+        public string CsrfId { [DebuggerStepThrough] get; }
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IGitHubLoginServer" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubLoginServer" /> interface.
         /// </summary>
         private static IGitHubLoginServer GitHubLoginServer
             => GetGitHubLoginServer.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:GitHubManagerSampleApplication.GitHubSession" />.
+        /// <see cref="T:GitHubManager.GitHubSession" />.
         /// </summary>
-        public static IGitHubSession Instance { get; } = new GitHubSession();
+        public static IGitHubSession Instance { [DebuggerStepThrough] get; } = new GitHubSession();
 
         /// <summary>
         /// Gets or sets a <see cref="T:Octokit.OauthLoginRequest" /> that
         /// represents the OAuth Flow.
         /// </summary>
-        private OauthLoginRequest Request { get; set; }
+        private OauthLoginRequest Request { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Gets or sets a <see cref="T:Octokit.OauthToken" /> to be used for API
         /// calls.
         /// </summary>
-        public OauthToken Token { get; set; }
+        public OauthToken Token { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary> Occurs when the user's GitHub account has been authenticated. </summary>
         public event GitHubAuthenticatedEventHandler GitHubAuthenticated;
@@ -125,10 +127,10 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:GitHubManagerSampleApplication.GitHubSession.GitHubAuthenticated" /> event.
+        /// <see cref="E:GitHubManager.GitHubSession.GitHubAuthenticated" /> event.
         /// </summary>
         /// <param name="e">
-        /// A <see cref="T:GitHubManagerSampleApplication.GitHubAuthenticatedEventArgs" />
+        /// A <see cref="T:GitHubManager.GitHubAuthenticatedEventArgs" />
         /// that contains the event data.
         /// </param>
         protected virtual void OnGitHubAuthenticated(
@@ -145,7 +147,7 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Handles the
-        /// <see cref="E:GitHubManagerSampleApplication.IGitHubLoginServer.GitHubServerRequestReceived" />
+        /// <see cref="E:GitHubManager.IGitHubLoginServer.GitHubServerRequestReceived" />
         /// event raised by the server object we depend upon.
         /// </summary>
         /// <param name="sender">
@@ -154,7 +156,7 @@ namespace GitHubManagerSampleApplication
         /// </param>
         /// <param name="e">
         /// A
-        /// <see cref="T:GitHubManagerSampleApplication.GitHubServerRequestReceivedEventArgs" /> that
+        /// <see cref="T:GitHubManager.GitHubServerRequestReceivedEventArgs" /> that
         /// contains the event data.
         /// </param>
         /// <remarks>
@@ -188,7 +190,7 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:GitHubManagerSampleApplication.GitHubSession.ReadyToNavigateToLoginPage" /> event.
+        /// <see cref="E:GitHubManager.GitHubSession.ReadyToNavigateToLoginPage" /> event.
         /// </summary>
         /// <param name="uri">
         /// (Required.) A <see cref="T:System.Uri" /> containing the

@@ -1,4 +1,6 @@
-﻿namespace GitHubManagerSampleApplication
+﻿using System.Diagnostics;
+
+namespace GitHubManager
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of the Marquee
@@ -7,7 +9,7 @@
     public interface IMarqueeProgressDialogBox : IForm
     {
         /// <summary> Gets or sets the text of the <strong>Message</strong> label. </summary>
-        string Message { get; set; }
+        string Message { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Removes this dialog box from the screen and releases the associated

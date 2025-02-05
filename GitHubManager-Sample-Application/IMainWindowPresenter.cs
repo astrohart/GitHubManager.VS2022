@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of the
@@ -21,7 +21,7 @@ namespace GitHubManagerSampleApplication
         /// <para />
         /// </summary>
         /// <returns>
-        /// Collection of instances of <see cref="T:GitHubManagerSampleApplication.Repo" />
+        /// Collection of instances of <see cref="T:GitHubManager.Repo" />
         /// objects that contain the data for all of the repositories for the current user.
         /// </returns>
         Task<IList<IRepo>> GetRepos();

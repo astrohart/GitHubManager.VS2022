@@ -1,7 +1,8 @@
 ﻿using CefSharp;
+using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary> Keyboard-handler object for the CefSharp WebBrowser control. </summary>
     /// <remarks>
@@ -12,27 +13,27 @@ namespace GitHubManagerSampleApplication
     {
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManagerSampleApplication.KeyboardHandler" /> and returns a reference to it.
+        /// <see cref="T:GitHubManager.KeyboardHandler" /> and returns a reference to it.
         /// </summary>
         public KeyboardHandler()
             => Form = null;
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManagerSampleApplication.KeyboardHandler" /> and returns a reference to it.
+        /// <see cref="T:GitHubManager.KeyboardHandler" /> and returns a reference to it.
         /// </summary>
         /// <param name="form">
         /// (Required.) Reference to an instance of an object that
-        /// implements the <see cref="T:GitHubManagerSampleApplication.IForm" /> interface.
+        /// implements the <see cref="T:GitHubManager.IForm" /> interface.
         /// </param>
         public KeyboardHandler(IForm form)
             => Form = form;
 
         /// <summary>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IForm" /> interface.
+        /// <see cref="T:GitHubManager.IForm" /> interface.
         /// </summary>
-        private IForm Form { get; }
+        private IForm Form { [DebuggerStepThrough] get; }
 
         /// <summary>
         /// Called after the renderer and JavaScript in the page has had a chance

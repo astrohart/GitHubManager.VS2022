@@ -1,4 +1,4 @@
-﻿namespace GitHubManagerSampleApplication
+﻿namespace GitHubManager
 {
     /// <summary> ASCII character codes for keyboard keys. </summary>
     public static class KeyChars

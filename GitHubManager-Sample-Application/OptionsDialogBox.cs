@@ -1,6 +1,9 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
+using System.Diagnostics;
+using System.Windows.Forms;
 
-namespace GitHubManagerSampleApplication
+namespace GitHubManager
 {
     /// <summary>
     /// Dialog box to allow the user to select from among options that alter
@@ -10,14 +13,14 @@ namespace GitHubManagerSampleApplication
     {
         /// <summary>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManagerSampleApplication.IOptionsDialogBoxPresenter" /> interface.
+        /// <see cref="T:GitHubManager.IOptionsDialogBoxPresenter" /> interface.
         /// </summary>
         /// <remarks>This object plays the role of this dialog box's Presenter.</remarks>
         private readonly IOptionsDialogBoxPresenter Presenter;
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManagerSampleApplication.OptionsDialogBox" /> and returns a reference to it.
+        /// <see cref="T:GitHubManager.OptionsDialogBox" /> and returns a reference to it.
         /// </summary>
         public OptionsDialogBox()
         {
@@ -30,10 +33,10 @@ namespace GitHubManagerSampleApplication
 
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:GitHubManagerSampleApplication.IGitHubManagerConfiguration" /> interface that
+        /// the <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface that
         /// serves as the configuration for the application.
         /// </summary>
-        public IGitHubManagerConfiguration Configuration { get; set; }
+        public IGitHubManagerConfiguration Configuration { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Occurs when the user clicks the <strong>Apply</strong> button.
@@ -44,7 +47,7 @@ namespace GitHubManagerSampleApplication
         public event EventHandler Applied;
 
         /// <summary>
-        /// Raises the <see cref="E:GitHubManagerSampleApplication.OptionsDialogBox.Applied" />
+        /// Raises the <see cref="E:GitHubManager.OptionsDialogBox.Applied" />
         /// event.
         /// </summary>
         protected virtual void OnApplied()

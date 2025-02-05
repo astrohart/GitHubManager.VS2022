@@ -1,4 +1,6 @@
-﻿namespace GitHubManagerSampleApplication
+﻿using System.Diagnostics;
+
+namespace GitHubManager
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a POCO that
@@ -10,13 +12,13 @@
         /// Gets or sets the Clone URL (URL ending in <c>.git</c>) from which the
         /// repository can be cloned.
         /// </summary>
-        string CloneUrl { get; set; }
+        string CloneUrl { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary> Gets or sets the repository's description. </summary>
-        string Description { get; set; }
+        string Description { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary> Gets or sets the name of the repository. </summary>
-        string Name { get; set; }
+        string Name { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
     }
 
     /// <summary> POCO to encapsulate a GitHub repository. </summary>
@@ -26,12 +28,12 @@
         /// Gets or sets the Clone URL (URL ending in <c>.git</c>) from which the
         /// repository can be cloned.
         /// </summary>
-        public string CloneUrl { get; set; }
+        public string CloneUrl { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary> Gets or sets the repository's description. </summary>
-        public string Description { get; set; }
+        public string Description { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary> Gets or sets the name of the repository. </summary>
-        public string Name { get; set; }
+        public string Name { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
     }
 }

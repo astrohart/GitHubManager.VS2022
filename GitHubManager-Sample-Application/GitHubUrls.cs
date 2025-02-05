@@ -1,4 +1,4 @@
-﻿namespace GitHubManagerSampleApplication
+﻿namespace GitHubManager
 {
     public static class GitHubUrls
     {
