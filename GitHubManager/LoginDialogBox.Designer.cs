@@ -25,6 +25,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginDialogBox));
             this.webBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
             this.cancelButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.browserCoverPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // webBrowser
@@ -50,12 +51,21 @@
             this.cancelButton.Text = "Cancel";
             this.cancelButton.Visible = false;
             // 
+            // browserCoverPanel
+            // 
+            this.browserCoverPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.browserCoverPanel.Location = new System.Drawing.Point(0, 0);
+            this.browserCoverPanel.Name = "browserCoverPanel";
+            this.browserCoverPanel.Size = new System.Drawing.Size(384, 767);
+            this.browserCoverPanel.TabIndex = 2;
+            // 
             // LoginDialogBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(384, 767);
+            this.Controls.Add(this.browserCoverPanel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.webBrowser);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -71,5 +81,7 @@
             this.ResumeLayout(false);
 
         }
+
+        private System.Windows.Forms.Panel browserCoverPanel;
     }
 }
