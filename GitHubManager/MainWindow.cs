@@ -62,11 +62,11 @@ namespace GitHubManager
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfigurationProvider" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubManagerConfigProvider" /> interface.
         /// </summary>
-        private static IGitHubManagerConfigurationProvider
-            GitHubManagerConfigurationProvider
-            => GetGitHubManagerConfigurationProvider.SoleInstance();
+        private static IGitHubManagerConfigProvider
+            GitHubManagerConfigProvider
+            => GetGitHubManagerConfigProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -331,7 +331,7 @@ namespace GitHubManager
         {
             base.OnShown(e);
 
-            if (GitHubManagerConfigurationProvider.CurrentConfiguration
+            if (GitHubManagerConfigProvider.CurrentConfig
                                                   .LoginOnStartup)
                 fileLogin.PerformClick();
         }

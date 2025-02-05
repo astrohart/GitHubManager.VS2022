@@ -1,5 +1,9 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using CefSharp;
+using CefSharp.WinForms;
+using GitHubManager;
 using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Assemblies.Info;
@@ -14,6 +18,32 @@ namespace DemoApp
     public static class Program
     {
         /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.IGitHubManagerConfigProvider" /> interface.
+        /// </summary>
+        private static IGitHubManagerConfigProvider ConfigProvider
+        {
+            [DebuggerStepThrough] get;
+        } = GetGitHubManagerConfigProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface that represents
+        /// the currently-loaded application configuration.
+        /// </summary>
+        private static IGitHubManagerConfig CurrentConfig
+        {
+            [DebuggerStepThrough] get => ConfigProvider.CurrentConfig;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:GitHubManager.IGitHubSession" /> interface.
+        /// </summary>
+        private static IGitHubSession Session { [DebuggerStepThrough] get; } =
+            GetGitHubSession.SoleInstance();
+
+        /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
@@ -26,6 +56,14 @@ namespace DemoApp
                 applicationName: Get.ApplicationProductName()
             );
 
+            Cef.Initialize(new CefSettings());
+
+            ConfigProvider.Load();
+
+            Session.AssociateWithApp(
+                CurrentConfig.ClientId, CurrentConfig.ClientSecret
+            );
+
             Application.SetUnhandledExceptionMode(
                 UnhandledExceptionMode.CatchException
             );
@@ -35,6 +73,8 @@ namespace DemoApp
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run((Form)GetMainWindow.SoleInstance());
+
+            ConfigProvider.Save();
         }
 
         /// <summary>

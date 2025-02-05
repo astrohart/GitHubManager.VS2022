@@ -34,10 +34,10 @@ namespace GitHubManager
 
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface that
-        /// serves as the configuration for the application.
+        /// the <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface that
+        /// serves as the config for the application.
         /// </summary>
-        public IGitHubManagerConfiguration Configuration { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
+        public IGitHubManagerConfig Config { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Occurs when the user clicks the <strong>Apply</strong> button.
@@ -99,7 +99,7 @@ namespace GitHubManager
         private void OnUpdateCmdUI(object sender, EventArgs e)
             => applyButton.Enabled = Presenter.IsModified;
 
-        /// <summary> Moves data from this dialog's controls to the configuration object. </summary>
+        /// <summary> Moves data from this dialog's controls to the config object. </summary>
         /// <param name="bSaveAndValidate">
         /// (Required.) A <see cref="T:System.Boolean" />
         /// that specifies whether to save information from the screen into data variables.
@@ -108,9 +108,9 @@ namespace GitHubManager
         private void UpdateData(bool bSaveAndValidate = true)
         {
             if (bSaveAndValidate)
-                Configuration.LoginOnStartup = loginOnStartupCheckBox.Checked;
+                Config.LoginOnStartup = loginOnStartupCheckBox.Checked;
             else
-                loginOnStartupCheckBox.Checked = Configuration.LoginOnStartup;
+                loginOnStartupCheckBox.Checked = Config.LoginOnStartup;
 
             Presenter.IsModified = false; // always set this to false here
         }

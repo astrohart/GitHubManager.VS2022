@@ -25,15 +25,15 @@ namespace GitHubManager
 
         /// <summary>
         /// Builder extension method that initializes the
-        /// <see cref="P:GitHubManager.IOptionsDialogBox.Configuration" /> property.
+        /// <see cref="P:GitHubManager.IOptionsDialogBox.Config" /> property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that
         /// implements the <see cref="T:GitHubManager.IOptionsDialogBox" /> interface.
         /// </param>
-        /// <param name="configuration">
+        /// <param name="config">
         /// (Required.) Reference to an instance of an object
-        /// that implements the <see cref="T:GitHubManager.IGitHubManagerConfiguration" />
+        /// that implements the <see cref="T:GitHubManager.IGitHubManagerConfig" />
         /// interface.
         /// </param>
         /// <returns>
@@ -46,12 +46,12 @@ namespace GitHubManager
         /// </exception>
         public static IOptionsDialogBox HavingConfiguration(
             this IOptionsDialogBox self,
-            IGitHubManagerConfiguration configuration
+            IGitHubManagerConfig config
         )
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
-            self.Configuration = configuration;
+            self.Config = config;
             return self;
         }
     }

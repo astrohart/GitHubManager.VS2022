@@ -21,35 +21,35 @@ namespace GitHubManager
         /// <see
         ///     cref="F:GitHubManager.ConvertGitHubManagerConfigurationTests.CONFIGURATION_JSON" />
         /// and returns a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface.
         /// </summary>
         [Test]
         public void Test_FromJson_Works()
         {
-            IGitHubManagerConfiguration configuration = default;
+            IGitHubManagerConfig config = default;
 
             Assert.DoesNotThrow(
-                () => configuration =
+                () => config =
                     ConvertGitHubManagerConfiguration.FromJson(
                         CONFIGURATION_JSON
                     )
             );
 
-            Assert.That(configuration, Is.Not.Null);
-            Assert.That(configuration.LoginOnStartup, Is.EqualTo(true));
+            Assert.That(config, Is.Not.Null);
+            Assert.That(config.LoginOnStartup, Is.EqualTo(true));
         }
 
         /// <summary>
         /// Asserts that the
         /// <see cref="M:GitHubManager.ConvertGitHubManagerConfiguration.ToJson" /> method
         /// correctly turns an instance of
-        /// <see cref="T:GitHubManager.GitHubManagerConfiguration" /> into JSON content.
+        /// <see cref="T:GitHubManager.GitHubManagerConfig" /> into JSON content.
         /// </summary>
         [Test]
         public void Test_ToJson_Works()
         {
             var configuration =
-                new GitHubManagerConfiguration { LoginOnStartup = true };
+                new GitHubManagerConfig { LoginOnStartup = true };
 
             Assert.That(configuration.ToJson(), Is.EqualTo(CONFIGURATION_JSON));
         }

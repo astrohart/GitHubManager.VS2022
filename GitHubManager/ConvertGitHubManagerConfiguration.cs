@@ -8,7 +8,7 @@ using System.Globalization;
 namespace GitHubManager
 {
     /// <summary>
-    /// Methods to serialize and deserialize the application's configuration
+    /// Methods to serialize and deserialize the application's config
     /// to and/or from JSON content.
     /// </summary>
     [ExplicitlySynchronized]
@@ -17,7 +17,7 @@ namespace GitHubManager
         /// <summary>
         /// Reference to an instance of
         /// <see cref="T:Newtonsoft.Json.JsonSerializerSettings" /> that specifies JSON
-        /// configuration settings.
+        /// config settings.
         /// </summary>
         public static readonly JsonSerializerSettings Settings;
 
@@ -54,14 +54,14 @@ namespace GitHubManager
         /// <summary>
         /// Parses the specified <paramref name="json" /> content and, if
         /// successful, initializes an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" />
+        /// <see cref="T:GitHubManager.IGitHubManagerConfig" />
         /// interface and
         /// returns a reference to it.
         /// </summary>
         /// <param name="json">(Required.) String containing the JSON content to be parsed.</param>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" />
+        /// <see cref="T:GitHubManager.IGitHubManagerConfig" />
         /// interface whose
         /// properties are initialized from the JSON provided..
         /// </returns>
@@ -71,7 +71,7 @@ namespace GitHubManager
         /// for a value.
         /// </exception>
         [return: NotLogged]
-        public static IGitHubManagerConfiguration FromJson(
+        public static IGitHubManagerConfig FromJson(
             [NotLogged] string json
         )
         {
@@ -79,21 +79,21 @@ namespace GitHubManager
                 throw new ArgumentException(
                     "Value cannot be null or whitespace.", nameof(json)
                 );
-            return JsonConvert.DeserializeObject<GitHubManagerConfiguration>(
+            return JsonConvert.DeserializeObject<GitHubManagerConfig>(
                 json, Settings
             );
         }
 
         /// <summary>
         /// Serializes an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" />
+        /// <see cref="T:GitHubManager.IGitHubManagerConfig" />
         /// interface to JSON
         /// and returns this data in the form of a <see cref="T:System.String" />.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="config">
         /// (Required.) Reference to an instance of an object
         /// that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" />
+        /// <see cref="T:GitHubManager.IGitHubManagerConfig" />
         /// interface.
         /// </param>
         /// <returns>
@@ -102,18 +102,18 @@ namespace GitHubManager
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required
-        /// parameter, <paramref name="configuration" />, is passed a
+        /// parameter, <paramref name="config" />, is passed a
         /// <see langword="null" /> value.
         /// </exception>
         [return: NotLogged]
         public static string ToJson(
-            [NotLogged] this IGitHubManagerConfiguration configuration
+            [NotLogged] this IGitHubManagerConfig config
         )
         {
-            if (configuration == null)
-                throw new ArgumentNullException(nameof(configuration));
+            if (config == null)
+                throw new ArgumentNullException(nameof(config));
 
-            return JsonConvert.SerializeObject(configuration, Settings);
+            return JsonConvert.SerializeObject(config, Settings);
         }
     }
 }

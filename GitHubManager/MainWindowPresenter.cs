@@ -41,18 +41,18 @@ namespace GitHubManager
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface.
         /// </summary>
-        private static IGitHubManagerConfiguration CurrentConfiguration
-            => GitHubManagerConfigurationProvider.CurrentConfiguration;
+        private static IGitHubManagerConfig CurrentConfig
+            => GitHubManagerConfigProvider.CurrentConfig;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfigurationProvider" /> interface.
+        /// <see cref="T:GitHubManager.IGitHubManagerConfigProvider" /> interface.
         /// </summary>
-        private static IGitHubManagerConfigurationProvider
-            GitHubManagerConfigurationProvider
-            => GetGitHubManagerConfigurationProvider.SoleInstance();
+        private static IGitHubManagerConfigProvider
+            GitHubManagerConfigProvider
+            => GetGitHubManagerConfigProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -65,11 +65,11 @@ namespace GitHubManager
         /// Shows the user a dialog that allows the user to set the options that
         /// change the program's behavior.
         /// </summary>
-        /// <remarks>The options are persisted to and from the configuration.</remarks>
+        /// <remarks>The options are persisted to and from the config.</remarks>
         public void ConfigureOptions()
         {
             using (var dialogBox = MakeNewOptionsDialogBox.FromScratch()
-                       .HavingConfiguration(CurrentConfiguration))
+                       .HavingConfiguration(CurrentConfig))
                 if (DialogResult.Cancel == dialogBox.ShowDialog(View))
                     return;
         }

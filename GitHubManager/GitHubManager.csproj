@@ -151,7 +151,7 @@
     <Compile Include="ConvertGitHubManagerConfiguration.cs" />
     <Compile Include="ConvertGitHubManagerConfigurationTests.cs" />
     <Compile Include="GetGitHubLoginServer.cs" />
-    <Compile Include="GetGitHubManagerConfigurationProvider.cs" />
+    <Compile Include="GetGitHubManagerConfigProvider.cs" />
     <Compile Include="GetGitHubSession.cs" />
     <Compile Include="GitHubAuthenticatedEventArgs.cs" />
     <Compile Include="GitHubAuthenticatedEventHandler.cs" />
@@ -160,16 +160,16 @@
     <Compile Include="GitHubLoginInfoReceivedEventArgs.cs" />
     <Compile Include="GitHubLoginInfoReceivedEventHandler.cs" />
     <Compile Include="GitHubLoginServer.cs" />
-    <Compile Include="GitHubManagerConfiguration.cs" />
-    <Compile Include="GitHubManagerConfigurationProvider.cs" />
+    <Compile Include="GitHubManagerConfig.cs" />
+    <Compile Include="GitHubManagerConfigProvider.cs" />
     <Compile Include="GitHubServerRequestReceivedEventArgs.cs" />
     <Compile Include="GitHubServerRequestReceivedEventHandler.cs" />
     <Compile Include="GitHubSession.cs" />
     <Compile Include="GitHubUrls.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="IGitHubLoginServer.cs" />
-    <Compile Include="IGitHubManagerConfiguration.cs" />
-    <Compile Include="IGitHubManagerConfigurationProvider.cs" />
+    <Compile Include="IGitHubManagerConfig.cs" />
+    <Compile Include="IGitHubManagerConfigProvider.cs" />
     <Compile Include="IGitHubSession.cs" />
     <Compile Include="ILoginDialogBox.cs" />
     <Compile Include="ILoginDialogBoxPresenter.cs" />
@@ -195,7 +195,7 @@
     </Compile>
     <Compile Include="MainWindowPresenter.cs" />
     <Compile Include="MakeNewGitHubLoginInfo.cs" />
-    <Compile Include="MakeNewGitHubManagerConfiguration.cs" />
+    <Compile Include="MakeNewGitHubManagerConfig.cs" />
     <Compile Include="MakeNewLoginDialogBox.cs" />
     <Compile Include="MakeNewOptionsDialogBox.cs" />
     <Compile Include="MakeNewOptionsDialogBoxPresenter.cs" />

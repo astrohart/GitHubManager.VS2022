@@ -11,9 +11,9 @@ namespace GitHubManager
     {
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:GitHubManager.IGitHubManagerConfiguration" /> interface that
-        /// serves as the configuration for the application.
+        /// the <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface that
+        /// serves as the config for the application.
         /// </summary>
-        IGitHubManagerConfiguration Configuration { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
+        IGitHubManagerConfig Config { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
     }
 }

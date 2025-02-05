@@ -13,7 +13,7 @@ namespace GitHubManager
         /// Shows the user a dialog that allows the user to set the options that
         /// change the program's behavior.
         /// </summary>
-        /// <remarks>The options are persisted to and from the configuration.</remarks>
+        /// <remarks>The options are persisted to and from the config.</remarks>
         void ConfigureOptions();
 
         /// <summary>
