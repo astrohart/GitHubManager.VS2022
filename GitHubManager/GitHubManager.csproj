@@ -173,7 +173,6 @@
     <Compile Include="IGitHubSession.cs" />
     <Compile Include="ILoginDialogBox.cs" />
     <Compile Include="ILoginDialogBoxPresenter.cs" />
-    <Compile Include="IMainWindow.cs" />
     <Compile Include="IMainWindowPresenter.cs" />
     <Compile Include="IntExtensions.cs" />
     <Compile Include="IOptionsDialogBox.cs" />
@@ -187,12 +186,6 @@
       <DependentUpon>LoginDialogBox.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginDialogBoxPresenter.cs" />
-    <Compile Include="MainWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainWindow.Designer.cs">
-      <DependentUpon>MainWindow.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainWindowPresenter.cs" />
     <Compile Include="MakeNewGitHubLoginInfo.cs" />
     <Compile Include="MakeNewGitHubManagerConfig.cs" />
@@ -212,9 +205,6 @@
     <Compile Include="Repo.cs" />
     <EmbeddedResource Include="LoginDialogBox.resx">
       <DependentUpon>LoginDialogBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainWindow.resx">
-      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsDialogBox.resx">
       <DependentUpon>OptionsDialogBox.cs</DependentUpon>
