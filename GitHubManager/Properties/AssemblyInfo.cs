@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
 [assembly: AssemblyProduct("xyLOGIX GitHub Manager Sample Application")]
 [assembly: AssemblyCopyright("Copyright © 2021-25 by xyLOGIX, LLC.  All rights reserved.")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("This software component is a part of the xyLOGIX GitHubManager software system.  GitHubManager is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.  All other trademarks appearing in this software system's code or its user interface belong to their respective owners.")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
