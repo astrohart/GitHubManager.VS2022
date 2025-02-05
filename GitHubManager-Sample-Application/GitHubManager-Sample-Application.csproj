@@ -70,14 +70,66 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="ConvertGitHubManagerConfiguration.cs" />
+    <Compile Include="ConvertGitHubManagerConfigurationTests.cs" />
+    <Compile Include="FormExtensions.cs" />
+    <Compile Include="GetGitHubLoginServer.cs" />
+    <Compile Include="GetGitHubManagerConfigurationProvider.cs" />
+    <Compile Include="GetGitHubSession.cs" />
+    <Compile Include="GitHubAuthenticatedEventArgs.cs" />
+    <Compile Include="GitHubAuthenticatedEventHandler.cs" />
+    <Compile Include="GitHubAuthorizationRequestInfo.cs" />
+    <Compile Include="GitHubLoginInfo.cs" />
+    <Compile Include="GitHubLoginInfoReceivedEventArgs.cs" />
+    <Compile Include="GitHubLoginInfoReceivedEventHandler.cs" />
+    <Compile Include="GitHubLoginServer.cs" />
+    <Compile Include="GitHubManagerConfiguration.cs" />
+    <Compile Include="GitHubManagerConfigurationProvider.cs" />
+    <Compile Include="GitHubServerRequestReceivedEventArgs.cs" />
+    <Compile Include="GitHubServerRequestReceivedEventHandler.cs" />
+    <Compile Include="GitHubSession.cs" />
+    <Compile Include="GitHubUrls.cs" />
+    <Compile Include="GlobalAspects.cs" />
+    <Compile Include="IForm.cs" />
+    <Compile Include="IGitHubLoginServer.cs" />
+    <Compile Include="IGitHubManagerConfiguration.cs" />
+    <Compile Include="IGitHubManagerConfigurationProvider.cs" />
+    <Compile Include="IGitHubSession.cs" />
+    <Compile Include="ILoginDialogBox.cs" />
+    <Compile Include="ILoginDialogBoxPresenter.cs" />
+    <Compile Include="IMainWindow.cs" />
+    <Compile Include="IMainWindowPresenter.cs" />
+    <Compile Include="IMarqueeProgressDialogBox.cs" />
+    <Compile Include="IntExtensions.cs" />
+    <Compile Include="IOptionsDialogBox.cs" />
+    <Compile Include="IOptionsDialogBoxPresenter.cs" />
+    <Compile Include="KeyboardHandler.cs" />
+    <Compile Include="KeyChars.cs" />
+    <Compile Include="LoginDialogBox.cs" />
+    <Compile Include="LoginDialogBox.Designer.cs" />
+    <Compile Include="LoginDialogBoxPresenter.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="MainWindow.Designer.cs" />
+    <Compile Include="MainWindowPresenter.cs" />
+    <Compile Include="MakeNewGitHubLoginInfo.cs" />
+    <Compile Include="MakeNewGitHubManagerConfiguration.cs" />
+    <Compile Include="MakeNewLoginDialogBox.cs" />
+    <Compile Include="MakeNewMarqueeProgressDialogBox.cs" />
+    <Compile Include="MakeNewOptionsDialogBox.cs" />
+    <Compile Include="MakeNewOptionsDialogBoxPresenter.cs" />
+    <Compile Include="MarqueeProgressDialogBox.cs" />
+    <Compile Include="MarqueeProgressDialogBox.Designer.cs" />
+    <Compile Include="OptionsDialogBox.cs" />
+    <Compile Include="OptionsDialogBox.Designer.cs" />
+    <Compile Include="OptionsDialogBoxPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryStringHelpers.cs" />
+    <Compile Include="Repo.cs" />
+    <EmbeddedResource Include="LoginDialogBox.resx" />
+    <EmbeddedResource Include="MainWindow.resx" />
+    <EmbeddedResource Include="MarqueeProgressDialogBox.resx" />
+    <EmbeddedResource Include="OptionsDialogBox.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
