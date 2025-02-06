@@ -6,7 +6,11 @@ namespace GitHubManager
     public interface IGitHubLoginInfo
     {
         /// <summary> Gets or sets a string containing the ID of the client. </summary>
-        string client_id { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
+        string client_id
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        }
 
         /// <summary> Gets or sets a string containing a comma-separated list of scopes. </summary>
         string scope { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
@@ -22,13 +26,25 @@ namespace GitHubManager
     public class GitHubLoginInfo : IGitHubLoginInfo
     {
         /// <summary> Gets or sets a string containing the ID of the client. </summary>
-        public string client_id { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
+        public string client_id
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        }
 
         /// <summary> Gets or sets a string containing a comma-separated list of scopes. </summary>
-        public string scope { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
+        public string scope
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        }
 
         /// <summary> Gets or sets a string containing a state value. </summary>
-        public string state { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
+        public string state
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        }
 
         /// <summary>
         /// Parses the query string of the specified <paramref name="url" /> and
