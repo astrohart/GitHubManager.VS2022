@@ -48,5 +48,10 @@ namespace GHM.Config.Interfaces
             [DebuggerStepThrough] get;
             [DebuggerStepThrough] set;
         }
+
+        /// <summary>
+        /// Sets the value(s) of the property(ies) of this object to their default(s).
+        /// </summary>
+        void Reset();
     }
 }
