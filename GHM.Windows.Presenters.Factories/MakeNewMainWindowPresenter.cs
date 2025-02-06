@@ -1,6 +1,7 @@
 ﻿using GHM.Windows.Interfaces;
 using GHM.Windows.Presenters.Interfaces;
 using PostSharp.Patterns.Diagnostics;
+using System;
 
 namespace GHM.Windows.Presenters.Factories
 {
@@ -39,7 +40,13 @@ namespace GHM.Windows.Presenters.Factories
         /// <see cref="T:GHM.Windows.Presenters.Interfaces.IMainWindowPresenter" />
         /// interface.
         /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required
+        /// parameter, <paramref name="view" />, is passed a <see langword="null" /> value.
+        /// </exception>
         public static IMainWindowPresenter ForView(IMainWindow view)
-            => new MainWindowPresenter(view);
+            => new MainWindowPresenter(
+                view ?? throw new ArgumentNullException(nameof(view))
+            );
     }
 }
