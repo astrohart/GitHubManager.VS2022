@@ -1,4 +1,4 @@
-﻿namespace GitHubManager
+﻿namespace GHM.Dialogs.Helpers
 {
     /// <summary> ASCII character codes for keyboard keys. </summary>
     public static class KeyChars

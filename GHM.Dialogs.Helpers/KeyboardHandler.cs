@@ -1,9 +1,6 @@
-﻿using CefSharp;
-using System.Diagnostics;
-using System.Windows.Forms;
-using xyLOGIX.UI.Dark.Forms;
+﻿using System.Diagnostics;
 
-namespace GitHubManager
+namespace GHM.Dialogs.Helpers
 {
     /// <summary> Keyboard-handler object for the CefSharp WebBrowser control. </summary>
     /// <remarks>
@@ -14,7 +11,7 @@ namespace GitHubManager
     {
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManager.KeyboardHandler" /> and returns a reference to it.
+        /// <see cref="T:GHM.Dialogs.Helpers.KeyboardHandler" /> and returns a reference to it.
         /// </summary>
         public KeyboardHandler()
             => Form = null;
