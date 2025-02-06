@@ -1,4 +1,6 @@
-﻿using GHM.Dialogs.Interfaces;
+﻿using CefSharp;
+using GHM.Dialogs.Helpers;
+using GHM.Dialogs.Interfaces;
 using GHM.Dialogs.Presenters.Factories;
 using GHM.Dialogs.Presenters.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -7,6 +9,10 @@ using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.OAuth.GitHub.Events;
+using xyLOGIX.OAuth.GitHub.Models.Factories;
+using xyLOGIX.OAuth.GitHub.Models.Interfaces;
+using xyLOGIX.OAuth.GitHub.Servers.Constants;
 using xyLOGIX.UI.Dark.Forms;
 
 namespace GHM.Dialogs
@@ -16,7 +22,8 @@ namespace GHM.Dialogs
     {
         /// <summary>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GHM.Dialogs.Presenters.Interfaces.ILoginDialogBoxPresenter" /> interface.
+        /// <see cref="T:GHM.Dialogs.Presenters.Interfaces.ILoginDialogBoxPresenter" />
+        /// interface.
         /// </summary>
         private ILoginDialogBoxPresenter Presenter;
 
@@ -50,7 +57,8 @@ namespace GHM.Dialogs
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubLoginInfo" /> interface that plays the role
+        /// <see cref="T:xyLOGIX.OAuth.GitHub.Models.Interfaces.IGitHubLoginInfo" />
+        /// interface that plays the role
         /// of an object that contains important login information.
         /// </summary>
         public IGitHubLoginInfo GitHubLoginInfo
@@ -126,9 +134,17 @@ namespace GHM.Dialogs
         /// <remarks>
         /// This method responds by navigating the embedded web browser to the
         /// page specified in the <paramref name="e" /> parameter. </rema
-        private void OnReadyToNavigateToLoginPage(object sender, Uri e)
+        private void OnReadyToNavigateToLoginPage(
+            object sender,
+            ReadyToNavigateToLoginPageEventArgs e
+        )
         {
-            webBrowser.Load(e.AbsoluteUri);
+            if (e.Uri == null) return;
+
+            if (webBrowser == null) return;
+            if (webBrowser.IsDisposed) return;
+
+            webBrowser.Load(e.Uri.AbsoluteUri);
 
             Thread.Sleep(500);
 
@@ -299,8 +315,6 @@ namespace GHM.Dialogs
         /// hosted by this dialog, and does so in a thread-safe manner.
         /// </summary>
         private void SetFocusToWebBrowser()
-            => this.InvokeIfRequired(
-                new MethodInvoker(() => webBrowser.Focus())
-            );
+            => this.InvokeIfRequired(() => webBrowser.Focus());
     }
 }
