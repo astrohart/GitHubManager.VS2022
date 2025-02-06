@@ -1,5 +1,8 @@
-﻿using PostSharp.Patterns.Diagnostics;
+﻿using GHM.Config.Interfaces;
+using GHM.Dialogs.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Diagnostics;
 
 namespace GHM.Dialogs.Factories
 {
@@ -12,6 +15,20 @@ namespace GHM.Dialogs.Factories
     public static class MakeNewOptionsDialogBox
     {
         /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:GHM.Dialogs.Factories.MakeNewOptionsDialogBox" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static MakeNewOptionsDialogBox() { }
+
+        /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see cref="T:GitHubManager.IOptionsDialog" /> interface and returns a reference
         /// to it.
@@ -20,6 +37,8 @@ namespace GHM.Dialogs.Factories
         /// Reference to an instance of an object that implements the
         /// <see cref="T:GitHubManager.IOptionsDialog" /> interface.
         /// </returns>
+        [DebuggerStepThrough]
+        [return: NotLogged]
         public static IOptionsDialogBox FromScratch()
             => new OptionsDialogBox();
 
@@ -33,7 +52,7 @@ namespace GHM.Dialogs.Factories
         /// </param>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object
-        /// that implements the <see cref="T:GitHubManager.IGitHubManagerConfig" />
+        /// that implements the <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" />
         /// interface.
         /// </param>
         /// <returns>
@@ -44,14 +63,16 @@ namespace GHM.Dialogs.Factories
         /// Thrown if the required
         /// parameter, <paramref name="self" />, is passed a <see langword="null" /> value.
         /// </exception>
+        [DebuggerStepThrough]
+        [return: NotLogged]
         public static IOptionsDialogBox HavingConfiguration(
-            this IOptionsDialogBox self,
-            IGitHubManagerConfig config
+            [NotLogged] this IOptionsDialogBox self,
+            [NotLogged] IGitHubManagerConfig config
         )
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
-            self.Config = config;
+            self.CurrentConfig = config;
             return self;
         }
     }
