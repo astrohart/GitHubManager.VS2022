@@ -154,7 +154,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConvertGitHubManagerConfigTests.cs" />
     <Compile Include="GetGitHubLoginServer.cs" />
     <Compile Include="GetGitHubSession.cs" />
     <Compile Include="GitHubAuthenticatedEventArgs.cs" />

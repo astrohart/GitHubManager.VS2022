@@ -5,7 +5,7 @@ using PostSharp.Patterns.Threading;
 using System;
 using System.Globalization;
 
-namespace GitHubManager
+namespace GHM.Config.Converters
 {
     /// <summary>
     /// Methods to serialize and deserialize the application's config
@@ -24,7 +24,7 @@ namespace GitHubManager
         /// <summary>
         /// Initializes static data or performs actions that need to be performed once only
         /// for the
-        /// <see cref="T:GitHubManager.ConvertGitHubManagerConfig" />
+        /// <see cref="T:GHM.Config.Converters.ConvertGitHubManagerConfig" />
         /// class.
         /// </summary>
         /// <remarks>

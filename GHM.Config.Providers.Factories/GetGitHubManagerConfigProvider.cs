@@ -1,7 +1,7 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System.Diagnostics;
 
-namespace GitHubManager
+namespace GHM.Config.Providers.Factories
 
 {
     /// <summary>
@@ -13,7 +13,7 @@ namespace GitHubManager
     {
         /// <summary>
         /// Initializes static data or performs actions that need to be performed once only
-        /// for the <see cref="T:GitHubManager.GetGitHubManagerConfigProvider" />
+        /// for the <see cref="T:GHM.Config.Providers.Factories.GetGitHubManagerConfigProvider" />
         /// class.
         /// </summary>
         /// <remarks>

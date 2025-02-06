@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using PostSharp.Patterns.Threading;
 
-namespace GitHubManager
+namespace GHM.Config.Converters.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
