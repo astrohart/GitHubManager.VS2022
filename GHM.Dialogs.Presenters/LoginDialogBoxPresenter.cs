@@ -1,18 +1,20 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using GHM.Dialogs.Interfaces;
+using GHM.Dialogs.Presenters.Interfaces;
 using Newtonsoft.Json;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace GitHubManager
+namespace GHM.Dialogs.Presenters
 {
     /// <summary> This is the Presenter for the Login dialog box. </summary>
     public class LoginDialogBoxPresenter : ILoginDialogBoxPresenter
     {
         /// <summary>
         /// Initializes static data or performs actions that need to be performed once only
-        /// for the <see cref="T:GitHubManager.LoginDialogBoxPresenter" /> class.
+        /// for the <see cref="T:GHM.Dialogs.Presenters.LoginDialogBoxPresenter" /> class.
         /// </summary>
         /// <remarks>
         /// This constructor is called automatically prior to the first instance being
@@ -26,7 +28,8 @@ namespace GitHubManager
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManager.LoginDialogBoxPresenter" /> and returns a reference
+        /// <see cref="T:GHM.Dialogs.Presenters.LoginDialogBoxPresenter" /> and returns a
+        /// reference
         /// to it.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -39,9 +42,15 @@ namespace GitHubManager
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManager.LoginDialogBoxPresenter" /> and returns a reference
+        /// <see cref="T:GHM.Dialogs.Presenters.LoginDialogBoxPresenter" /> and returns a
+        /// reference
         /// to it.
         /// </summary>
+        /// <param name="view">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:GHM.Dialogs.Interfaces.ILoginDialogBox" /> interface that
+        /// represents the view.
+        /// </param>
         [Log(AttributeExclude = true)]
         public LoginDialogBoxPresenter(ILoginDialogBox view)
         {

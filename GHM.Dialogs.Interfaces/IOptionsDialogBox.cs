@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
-using xyLOGIX.UI.Dark.Forms;
 
-namespace GitHubManager
+namespace GHM.Dialogs.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an object that
@@ -14,6 +13,6 @@ namespace GitHubManager
         /// the <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface that
         /// serves as the config for the application.
         /// </summary>
-        IGitHubManagerConfig Config { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
+        IGitHubManagerConfig CurrentConfig { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
     }
 }

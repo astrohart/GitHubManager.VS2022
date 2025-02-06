@@ -1,4 +1,4 @@
-﻿namespace GitHubManager
+﻿namespace GHM.Dialogs
 {
     partial class OptionsDialogBox
     {

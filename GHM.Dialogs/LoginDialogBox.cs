@@ -1,4 +1,6 @@
-﻿using CefSharp;
+﻿using GHM.Dialogs.Interfaces;
+using GHM.Dialogs.Presenters.Factories;
+using GHM.Dialogs.Presenters.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
@@ -7,20 +9,20 @@ using System.Windows.Forms;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.UI.Dark.Forms;
 
-namespace GitHubManager
+namespace GHM.Dialogs
 {
     /// <summary> Dialog box that helps the user log in to GitHub. </summary>
     public partial class LoginDialogBox : DarkForm, ILoginDialogBox
     {
         /// <summary>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.ILoginDialogBoxPresenter" /> interface.
+        /// <see cref="T:GHM.Dialogs.Presenters.Interfaces.ILoginDialogBoxPresenter" /> interface.
         /// </summary>
         private ILoginDialogBoxPresenter Presenter;
 
         /// <summary>
         /// Initializes static data or performs actions that need to be performed once only
-        /// for the <see cref="T:GitHubManager.LoginDialogBox" /> class.
+        /// for the <see cref="T:GHM.Dialogs.LoginDialogBox" /> class.
         /// </summary>
         /// <remarks>
         /// This constructor is called automatically prior to the first instance being
@@ -34,7 +36,7 @@ namespace GitHubManager
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManager.LoginDialogBox" /> and returns a reference to it.
+        /// <see cref="T:GHM.Dialogs.LoginDialogBox" /> and returns a reference to it.
         /// </summary>
         [Log(AttributeExclude = true)]
         public LoginDialogBox()
@@ -65,7 +67,7 @@ namespace GitHubManager
             GitHubLoginInfoReceived;
 
         private void InitializePresenter()
-            => Presenter = new LoginDialogBoxPresenter(this);
+            => Presenter = MakeNewLoginDialogBoxPresenter.ForView(this);
 
         /// <summary>
         /// Sets up the properties and event handlers of the internal Web browser

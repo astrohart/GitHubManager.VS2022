@@ -1,7 +1,7 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System;
 
-namespace GitHubManager
+namespace GHM.Dialogs.Factories
 {
     /// <summary>
     /// Creates new instances of objects that implement the

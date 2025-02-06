@@ -1,10 +1,13 @@
-﻿using PostSharp.Patterns.Diagnostics;
+﻿using GHM.Dialogs.Interfaces;
+using GHM.Dialogs.Presenters.Factories;
+using GHM.Dialogs.Presenters.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 using xyLOGIX.UI.Dark.Forms;
 
-namespace GitHubManager
+namespace GHM.Dialogs
 {
     /// <summary>
     /// Dialog box to allow the user to select from among options that alter
@@ -14,20 +17,20 @@ namespace GitHubManager
     {
         /// <summary>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IOptionsDialogBoxPresenter" /> interface.
+        /// <see cref="T:GHM.Dialogs.Presenters.Interfaces.IOptionsDialogBoxPresenter" /> interface.
         /// </summary>
         /// <remarks>This object plays the role of this dialog box's Presenter.</remarks>
         private readonly IOptionsDialogBoxPresenter Presenter;
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManager.OptionsDialogBox" /> and returns a reference to it.
+        /// <see cref="T:GHM.Dialogs.OptionsDialogBox" /> and returns a reference to it.
         /// </summary>
         public OptionsDialogBox()
         {
             InitializeComponent();
 
-            Presenter = MakeNewOptionsDialogBoxPresenter.FromScratch(this);
+            Presenter = MakeNewOptionsDialogBoxPresenter.ForView(this);
 
             Application.Idle += OnUpdateCmdUI;
         }
@@ -37,7 +40,7 @@ namespace GitHubManager
         /// the <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface that
         /// serves as the config for the application.
         /// </summary>
-        public IGitHubManagerConfig Config { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
+        public IGitHubManagerConfig CurrentConfig { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         /// <summary>
         /// Occurs when the user clicks the <strong>Apply</strong> button.
@@ -48,7 +51,7 @@ namespace GitHubManager
         public event EventHandler Applied;
 
         /// <summary>
-        /// Raises the <see cref="E:GitHubManager.OptionsDialogBox.Applied" />
+        /// Raises the <see cref="E:GHM.Dialogs.OptionsDialogBox.Applied" />
         /// event.
         /// </summary>
         protected virtual void OnApplied()
@@ -108,9 +111,9 @@ namespace GitHubManager
         private void UpdateData(bool bSaveAndValidate = true)
         {
             if (bSaveAndValidate)
-                Config.LoginOnStartup = loginOnStartupCheckBox.Checked;
+                CurrentConfig.LoginOnStartup = loginOnStartupCheckBox.Checked;
             else
-                loginOnStartupCheckBox.Checked = Config.LoginOnStartup;
+                loginOnStartupCheckBox.Checked = CurrentConfig.LoginOnStartup;
 
             Presenter.IsModified = false; // always set this to false here
         }

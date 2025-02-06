@@ -1,7 +1,7 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System.Diagnostics;
 
-namespace GitHubManager
+namespace GHM.Dialogs.Factories
 {
     /// <summary>
     /// Creates new instances of objects that implement the
@@ -12,7 +12,7 @@ namespace GitHubManager
     {
         /// <summary>
         /// Initializes static data or performs actions that need to be performed once only
-        /// for the <see cref="T:GitHubManager.MakeNewLoginDialogBox" /> class.
+        /// for the <see cref="T:GHM.Dialogs.Factories.MakeNewLoginDialogBox" /> class.
         /// </summary>
         /// <remarks>
         /// This constructor is called automatically prior to the first instance being

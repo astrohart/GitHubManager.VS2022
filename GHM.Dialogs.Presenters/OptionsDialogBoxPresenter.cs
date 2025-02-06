@@ -1,6 +1,8 @@
-﻿using System.Diagnostics;
+﻿using GHM.Dialogs.Interfaces;
+using GHM.Dialogs.Presenters.Interfaces;
+using System.Diagnostics;
 
-namespace GitHubManager
+namespace GHM.Dialogs.Presenters
 {
     /// <summary> Serves as the Presenter for the Options dialog box. </summary>
     public class OptionsDialogBoxPresenter : IOptionsDialogBoxPresenter
@@ -14,7 +16,7 @@ namespace GitHubManager
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManager.OptionsDialogBoxPresenter" /> and returns a
+        /// <see cref="T:GHM.Dialogs.Presenters.OptionsDialogBoxPresenter" /> and returns a
         /// reference to it.
         /// </summary>
         public OptionsDialogBoxPresenter()

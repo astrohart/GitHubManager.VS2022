@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace GitHubManager
+namespace GHM.Dialogs.Presenters.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a Presenter

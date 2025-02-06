@@ -1,4 +1,4 @@
-﻿namespace GitHubManager
+﻿namespace GHM.Dialogs
 {
     public partial class LoginDialogBox
     {

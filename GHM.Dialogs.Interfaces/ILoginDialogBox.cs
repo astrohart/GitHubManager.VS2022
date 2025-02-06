@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
-using xyLOGIX.UI.Dark.Forms;
 
-namespace GitHubManager
+namespace GHM.Dialogs.Interfaces
 {
     public interface ILoginDialogBox : IDarkForm
     {
