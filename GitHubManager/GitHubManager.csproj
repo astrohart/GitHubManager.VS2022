@@ -175,8 +175,6 @@
     <Compile Include="IGitHubSession.cs" />
     <Compile Include="IntExtensions.cs" />
     <Compile Include="IRepo.cs" />
-    <Compile Include="KeyboardHandler.cs" />
-    <Compile Include="KeyChars.cs" />
     <Compile Include="MakeNewGitHubLoginInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
