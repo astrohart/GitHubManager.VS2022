@@ -1,4 +1,5 @@
-﻿using PostSharp.Patterns.Diagnostics;
+﻿using GHM.Config.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
 
@@ -6,7 +7,7 @@ namespace GHM.Config.Factories
 {
     /// <summary>
     /// Creates new instances of objects that implement the
-    /// <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface, and
+    /// <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" /> interface, and
     /// returns references to them.
     /// </summary>
     public static class MakeNewGitHubManagerConfig
@@ -27,12 +28,12 @@ namespace GHM.Config.Factories
 
         /// <summary>
         /// Creates a new instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface and
+        /// <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" /> interface and
         /// returns a reference to it.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface.
+        /// <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" /> interface.
         /// </returns>
         [DebuggerStepThrough]
         [return: NotLogged]
@@ -46,7 +47,7 @@ namespace GHM.Config.Factories
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that
-        /// implements the <see cref="T:GitHubManager.IGitHubManagerConfig" />
+        /// implements the <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" />
         /// interface.
         /// </param>
         /// <param name="loginOnStartup">
