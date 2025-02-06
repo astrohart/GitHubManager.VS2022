@@ -157,7 +157,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GitHubAuthorizationRequestInfo.cs" />
     <Compile Include="GitHubLoginInfo.cs" />
     <Compile Include="GitHubLoginInfoReceivedEventArgs.cs" />
     <Compile Include="GitHubLoginInfoReceivedEventHandler.cs" />
