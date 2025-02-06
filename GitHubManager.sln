@@ -140,6 +140,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHM.Config.Providers.Factor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHM.Config.Providers.Interfaces", "GHM.Config.Providers.Interfaces\GHM.Config.Providers.Interfaces.csproj", "{DDD70868-6DC9-49AA-96A0-84D40B4FA711}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHM.Dialogs.Helpers", "GHM.Dialogs.Helpers\GHM.Dialogs.Helpers.csproj", "{4116E2E8-369A-4198-A743-7EA97A4EC45D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -676,6 +678,14 @@ Global
 		{DDD70868-6DC9-49AA-96A0-84D40B4FA711}.Release|x64.Build.0 = Release|x64
 		{DDD70868-6DC9-49AA-96A0-84D40B4FA711}.Release|x86.ActiveCfg = Release|x86
 		{DDD70868-6DC9-49AA-96A0-84D40B4FA711}.Release|x86.Build.0 = Release|x86
+		{4116E2E8-369A-4198-A743-7EA97A4EC45D}.Debug|x64.ActiveCfg = Debug|x64
+		{4116E2E8-369A-4198-A743-7EA97A4EC45D}.Debug|x64.Build.0 = Debug|x64
+		{4116E2E8-369A-4198-A743-7EA97A4EC45D}.Debug|x86.ActiveCfg = Debug|x86
+		{4116E2E8-369A-4198-A743-7EA97A4EC45D}.Debug|x86.Build.0 = Debug|x86
+		{4116E2E8-369A-4198-A743-7EA97A4EC45D}.Release|x64.ActiveCfg = Release|x64
+		{4116E2E8-369A-4198-A743-7EA97A4EC45D}.Release|x64.Build.0 = Release|x64
+		{4116E2E8-369A-4198-A743-7EA97A4EC45D}.Release|x86.ActiveCfg = Release|x86
+		{4116E2E8-369A-4198-A743-7EA97A4EC45D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
