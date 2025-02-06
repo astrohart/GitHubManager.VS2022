@@ -122,6 +122,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHM.Dialogs.Presenters.Fact
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHM.Dialogs.Presenters.Interfaces", "GHM.Dialogs.Presenters.Interfaces\GHM.Dialogs.Presenters.Interfaces.csproj", "{6D56B9CC-AAD9-4A66-8F52-C3CA0DAF5BD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHM.Config.Converters", "GHM.Config.Converters\GHM.Config.Converters.csproj", "{F90ACCB0-9529-4A89-9924-48DE33E773EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHM.Config.Converters.Interfaces", "GHM.Config.Converters.Interfaces\GHM.Config.Converters.Interfaces.csproj", "{89A56F55-2545-4DAE-877C-9FB56E619A45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHM.Config.Converters.Tests", "GHM.Config.Converters.Tests\GHM.Config.Converters.Tests.csproj", "{E91E99B2-EF51-451D-83D0-21205FB4224F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -586,6 +592,30 @@ Global
 		{6D56B9CC-AAD9-4A66-8F52-C3CA0DAF5BD9}.Release|x64.Build.0 = Release|x64
 		{6D56B9CC-AAD9-4A66-8F52-C3CA0DAF5BD9}.Release|x86.ActiveCfg = Release|x86
 		{6D56B9CC-AAD9-4A66-8F52-C3CA0DAF5BD9}.Release|x86.Build.0 = Release|x86
+		{F90ACCB0-9529-4A89-9924-48DE33E773EE}.Debug|x64.ActiveCfg = Debug|x64
+		{F90ACCB0-9529-4A89-9924-48DE33E773EE}.Debug|x64.Build.0 = Debug|x64
+		{F90ACCB0-9529-4A89-9924-48DE33E773EE}.Debug|x86.ActiveCfg = Debug|x86
+		{F90ACCB0-9529-4A89-9924-48DE33E773EE}.Debug|x86.Build.0 = Debug|x86
+		{F90ACCB0-9529-4A89-9924-48DE33E773EE}.Release|x64.ActiveCfg = Release|x64
+		{F90ACCB0-9529-4A89-9924-48DE33E773EE}.Release|x64.Build.0 = Release|x64
+		{F90ACCB0-9529-4A89-9924-48DE33E773EE}.Release|x86.ActiveCfg = Release|x86
+		{F90ACCB0-9529-4A89-9924-48DE33E773EE}.Release|x86.Build.0 = Release|x86
+		{89A56F55-2545-4DAE-877C-9FB56E619A45}.Debug|x64.ActiveCfg = Debug|x64
+		{89A56F55-2545-4DAE-877C-9FB56E619A45}.Debug|x64.Build.0 = Debug|x64
+		{89A56F55-2545-4DAE-877C-9FB56E619A45}.Debug|x86.ActiveCfg = Debug|x86
+		{89A56F55-2545-4DAE-877C-9FB56E619A45}.Debug|x86.Build.0 = Debug|x86
+		{89A56F55-2545-4DAE-877C-9FB56E619A45}.Release|x64.ActiveCfg = Release|x64
+		{89A56F55-2545-4DAE-877C-9FB56E619A45}.Release|x64.Build.0 = Release|x64
+		{89A56F55-2545-4DAE-877C-9FB56E619A45}.Release|x86.ActiveCfg = Release|x86
+		{89A56F55-2545-4DAE-877C-9FB56E619A45}.Release|x86.Build.0 = Release|x86
+		{E91E99B2-EF51-451D-83D0-21205FB4224F}.Debug|x64.ActiveCfg = Debug|x64
+		{E91E99B2-EF51-451D-83D0-21205FB4224F}.Debug|x64.Build.0 = Debug|x64
+		{E91E99B2-EF51-451D-83D0-21205FB4224F}.Debug|x86.ActiveCfg = Debug|x86
+		{E91E99B2-EF51-451D-83D0-21205FB4224F}.Debug|x86.Build.0 = Debug|x86
+		{E91E99B2-EF51-451D-83D0-21205FB4224F}.Release|x64.ActiveCfg = Release|x64
+		{E91E99B2-EF51-451D-83D0-21205FB4224F}.Release|x64.Build.0 = Release|x64
+		{E91E99B2-EF51-451D-83D0-21205FB4224F}.Release|x86.ActiveCfg = Release|x86
+		{E91E99B2-EF51-451D-83D0-21205FB4224F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
