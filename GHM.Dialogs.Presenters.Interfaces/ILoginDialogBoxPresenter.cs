@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using xyLOGIX.OAuth.GitHub.Interfaces;
 
 namespace GHM.Dialogs.Presenters.Interfaces
 {
@@ -17,7 +18,7 @@ namespace GHM.Dialogs.Presenters.Interfaces
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubSession" /> interface.
+        /// <see cref="T:xyLOGIX.OAuth.GitHub.Interfaces.IGitHubSession" /> interface.
         /// </summary>
         IGitHubSession Session { [DebuggerStepThrough] get; }
 
