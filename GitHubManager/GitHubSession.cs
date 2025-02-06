@@ -1,22 +1,37 @@
 ﻿using Octokit;
+using PostSharp.Patterns.Diagnostics;
+using PostSharp.Patterns.Model;
+using PostSharp.Patterns.Threading;
 using System;
 using System.Diagnostics;
+using xyLOGIX.Core.Debug;
 
 namespace GitHubManager
 {
     /// <summary> Manages all interaction with GitHub. </summary>
+    [ExplicitlySynchronized]
     public class GitHubSession : IGitHubSession
     {
+        /// <summary>
+        /// Reference to an instance of <see cref="T:Octokit.GitHubClient" /> that allows
+        /// access to the GitHub server.
+        /// </summary>
+        [Reference] private readonly GitHubClient _client = new GitHubClient(
+            new ProductHeaderValue("xyLOGIX-GitHub-OAuth-Interface")
+        );
+
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this
         /// class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         static GitHubSession() { }
 
         /// <summary>
         /// Constructs a new instance of
         /// <see cref="T:GitHubManager.GitHubSession" /> and returns a reference to it.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected GitHubSession()
             => CsrfId = Guid.NewGuid()
                             .ToString("N");
@@ -29,8 +44,10 @@ namespace GitHubManager
         /// Reference to an instance of <see cref="T:Octokit.GitHubClient" />
         /// that allows communication with the GitHub server.
         /// </summary>
-        public GitHubClient Client { [DebuggerStepThrough] get; } =
-            new GitHubClient(new ProductHeaderValue("xyLOGIX-GitHub-OAuth-Interface"));
+        public IGitHubClient Client
+        {
+            [DebuggerStepThrough] get => _client;
+        }
 
         /// <summary> Gets a string containing the Client ID of this session. </summary>
         public string ClientId
@@ -40,7 +57,7 @@ namespace GitHubManager
         }
 
         /// <summary> Gets a string containing the Client Secret of this session. </summary>
-        public string ClientSecet
+        public string ClientSecret
         {
             [DebuggerStepThrough] get;
             [DebuggerStepThrough] private set;
@@ -94,28 +111,40 @@ namespace GitHubManager
         /// parameters, <paramref name="clientId" /> or <paramref name="clientSecret" />,
         /// are passed blank or <see langword="null" /> strings for values.
         /// </exception>
-        public void AssociateWithApp(string clientId, string clientSecret)
+        public void AssociateWithApp(
+            [NotLogged] string clientId,
+            [NotLogged] string clientSecret
+        )
         {
-            if (string.IsNullOrWhiteSpace(clientId))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(clientId)
-                );
-            if (string.IsNullOrWhiteSpace(clientSecret))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(clientSecret)
-                );
+            try
+            {
+                if (string.IsNullOrWhiteSpace(clientId))
+                    throw new ArgumentException(
+                        "Value cannot be null or whitespace.", nameof(clientId)
+                    );
+                if (string.IsNullOrWhiteSpace(clientSecret))
+                    throw new ArgumentException(
+                        "Value cannot be null or whitespace.",
+                        nameof(clientSecret)
+                    );
 
-            ClientId = clientId;
-            ClientSecet = clientSecret;
+                ClientId = clientId;
+                ClientSecret = clientSecret;
 
-            Request = null;
-            Token = null;
+                Request = null;
+                Token = null;
 
-            InitializeOAUthRequest();
+                InitializeOAUthRequest();
 
-            GitHubLoginServer.GitHubServerRequestReceived +=
-                OnGitHubServerRequestReceived;
-            GitHubLoginServer.Start(GitHubUrls.OAuthRedirectURL);
+                GitHubLoginServer.GitHubServerRequestReceived +=
+                    OnGitHubServerRequestReceived;
+                GitHubLoginServer.Start(GitHubUrls.OAuthRedirectURL);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary> Occurs when the user's GitHub account has been authenticated. </summary>
@@ -124,15 +153,23 @@ namespace GitHubManager
         /// <summary> This method is called to initiate the OAuth process. </summary>
         public void InitiateOauthFlow()
         {
-            if (Client == null)
-                return;
+            try
+            {
+                if (Client == null)
+                    return;
 
-            if (Request == null)
-                return;
+                if (Request == null)
+                    return;
 
-            OnReadyToNavigateToLoginPage(
-                Client.Oauth.GetGitHubLoginUrl(Request)
-            );
+                OnReadyToNavigateToLoginPage(
+                    Client.Oauth.GetGitHubLoginUrl(Request)
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -188,14 +225,14 @@ namespace GitHubManager
             var info = GitHubAuthorizationRequestInfo.FromRequest(e.Request);
 
             var request = new OauthTokenRequest(
-                ClientId, ClientSecet, info.code
+                ClientId, ClientSecret, info.code
             );
             var token = await Client.Oauth.CreateAccessToken(request);
 
             if (string.IsNullOrWhiteSpace(token.AccessToken))
                 return;
 
-            Client.Credentials = new Credentials(token.AccessToken);
+            _client.Credentials = new Credentials(token.AccessToken);
 
             OnGitHubAuthenticated(
                 new GitHubAuthenticatedEventArgs(token.AccessToken, token.Scope)

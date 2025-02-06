@@ -17,13 +17,13 @@ namespace GitHubManager
         /// Reference to an instance of <see cref="T:Octokit.GitHubClient" />
         /// that allows communication with the GitHub server.
         /// </summary>
-        GitHubClient Client { [DebuggerStepThrough] get; }
+        IGitHubClient Client { [DebuggerStepThrough] get; }
 
         /// <summary> Gets a string containing the Client ID of this session. </summary>
         string ClientId { [DebuggerStepThrough] get; }
 
         /// <summary> Gets a string containing the Client Secret of this session. </summary>
-        string ClientSecet { [DebuggerStepThrough] get; }
+        string ClientSecret { [DebuggerStepThrough] get; }
 
         /// <summary> Gets or sets a random string that uniquely identifies this session. </summary>
         string CsrfId { [DebuggerStepThrough] get; }
