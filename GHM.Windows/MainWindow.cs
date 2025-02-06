@@ -127,6 +127,10 @@ namespace GHM.Windows
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:xyLOGIX.OAuth.GitHub.Interfaces.IGitHubSession" /> interface.
         /// </summary>
+        /// <remarks>
+        /// <b>NOTE:</b> This particular property needs to be computed on each
+        /// call.
+        /// </remarks>
         private static IGitHubSession Session
         {
             [DebuggerStepThrough] get => GetGitHubSession.SoleInstance();
@@ -355,7 +359,9 @@ namespace GHM.Windows
 
                         reposListBindingSource.DataSource = null;
                         reposListBindingSource.DataSource =
-                            new BindingList<IRemoteRepo>(await Presenter.GetRepos());
+                            new BindingList<IRemoteRepo>(
+                                await Presenter.GetRepos()
+                            );
 
                         Thread.Sleep(
                             500
