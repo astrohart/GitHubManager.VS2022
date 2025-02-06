@@ -145,6 +145,14 @@
       <Project>{5528d7fb-b88b-4e9d-9bbd-b6b6b893666a}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GHM.Windows.Interfaces\GHM.Windows.Interfaces.csproj">
+      <Project>{1046F6BE-96F4-444F-8F9B-6623F7E4302E}</Project>
+      <Name>GHM.Windows.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Windows.Presenters.Interfaces\GHM.Windows.Presenters.Interfaces.csproj">
+      <Project>{E062DA03-1D52-42D6-A1C2-46BF707317F2}</Project>
+      <Name>GHM.Windows.Presenters.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="1382_cogs.ico" />

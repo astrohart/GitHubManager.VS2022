@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using xyLOGIX.UI.Dark.Forms;
 
-namespace GitHubManager
+namespace GHM.Windows.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of the main
@@ -19,7 +19,7 @@ namespace GitHubManager
 
         /// <summary>
         /// Occurs when the value of the
-        /// <see cref="P:GitHubManager.IMainWindow.IsSignedIn" /> property changes.
+        /// <see cref="P:GHM.Windows.Interfaces.IMainWindow.IsSignedIn" /> property changes.
         /// </summary>
         event EventHandler SignedInChanged;
     }

@@ -1,16 +1,14 @@
-﻿using PostSharp.Patterns.Diagnostics;
+﻿using GHM.Windows.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
-using xyLOGIX.Core.Dialogs.Progress.Factories;
-using xyLOGIX.Core.Dialogs.Progress.Interfaces;
 using xyLOGIX.Core.Extensions;
-using xyLOGIX.UI.Dark.Controls.Actions;
 using xyLOGIX.UI.Dark.Forms;
 
-namespace GitHubManager
+namespace GHM.Windows
 {
     /// <summary> Main window of the application. </summary>
     public partial class MainWindow : DarkForm, IMainWindow
@@ -70,7 +68,7 @@ namespace GitHubManager
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:GitHubManager.MainWindow" />.
+        /// <see cref="T:GHM.Windows.MainWindow" />.
         /// </summary>
         public static IMainWindow Instance { [DebuggerStepThrough] get; } =
             new MainWindow();
@@ -78,7 +76,7 @@ namespace GitHubManager
         /// <summary> Gets or sets a value indicating whether the user is signed in. </summary>
         /// <remarks>
         /// When this property's value is changed, the
-        /// <see cref="E:GitHubManager.MainWindow.SignedInChanged" /> event is raised.
+        /// <see cref="E:GHM.Windows.MainWindow.SignedInChanged" /> event is raised.
         /// </remarks>
         public bool IsSignedIn
         {
@@ -103,7 +101,7 @@ namespace GitHubManager
 
         /// <summary>
         /// Occurs when the value of the
-        /// <see cref="P:GitHubManager.IMainWindow.IsSignedIn" /> property changes.
+        /// <see cref="P:GHM.Windows.Interfaces.IMainWindow.IsSignedIn" /> property changes.
         /// </summary>
         public event EventHandler SignedInChanged;
 
@@ -337,7 +335,7 @@ namespace GitHubManager
         }
 
         /// <summary>
-        /// Raises the <see cref="E:GitHubManager.MainWindow.SignedInChanged" />
+        /// Raises the <see cref="E:GHM.Windows.MainWindow.SignedInChanged" />
         /// event.
         /// </summary>
         protected virtual void OnSignedInChanged()

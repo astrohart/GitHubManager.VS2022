@@ -1,4 +1,4 @@
-﻿namespace GitHubManager
+﻿namespace GHM.Windows
 {
     public partial class MainWindow
     {

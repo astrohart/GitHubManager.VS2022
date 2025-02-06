@@ -22,7 +22,7 @@ namespace GHM.Windows.Presenters.Interfaces
         /// </summary>
         /// <returns>
         /// Collection of instances of <see cref="T:GitHubManager.Repo" />
-        /// objects that contain the data for all of the repositories for the current user.
+        /// objects that contain the data for all the repositories for the current user.
         /// </returns>
         Task<IList<IRepo>> GetRepos();
     }
