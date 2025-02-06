@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using GHM.Config.Interfaces;
+using System.Diagnostics;
+using xyLOGIX.UI.Dark.Forms;
 
 namespace GHM.Dialogs.Interfaces
 {
@@ -10,9 +12,13 @@ namespace GHM.Dialogs.Interfaces
     {
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface that
+        /// the <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" /> interface that
         /// serves as the config for the application.
         /// </summary>
-        IGitHubManagerConfig CurrentConfig { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
+        IGitHubManagerConfig CurrentConfig
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        }
     }
 }
