@@ -149,17 +149,85 @@
       <Project>{c445c052-26b6-4884-9a7b-25dc7abc0ded}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Dialogs.Progress.VS2019\xyLOGIX.Core.Dialogs.Progress.Factories\xyLOGIX.Core.Dialogs.Progress.Factories.csproj">
+      <Project>{E3617D29-E193-46A6-B085-DB14448F24CF}</Project>
+      <Name>xyLOGIX.Core.Dialogs.Progress.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Dialogs.Progress.VS2019\xyLOGIX.Core.Dialogs.Progress.Interfaces\xyLOGIX.Core.Dialogs.Progress.Interfaces.csproj">
+      <Project>{DB9DF2A9-EC4D-4032-B9A5-16F2EE0AAC79}</Project>
+      <Name>xyLOGIX.Core.Dialogs.Progress.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
       <Project>{5528d7fb-b88b-4e9d-9bbd-b6b6b893666a}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Events\xyLOGIX.OAuth.GitHub.Events.csproj">
+      <Project>{AC27A997-FB38-4BBE-A9BF-E55DBAF0BF77}</Project>
+      <Name>xyLOGIX.OAuth.GitHub.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Factories\xyLOGIX.OAuth.GitHub.Factories.csproj">
+      <Project>{135A8FB0-DF86-4575-B2A2-1746B7C1650E}</Project>
+      <Name>xyLOGIX.OAuth.GitHub.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Interfaces\xyLOGIX.OAuth.GitHub.Interfaces.csproj">
+      <Project>{1585D88B-E073-42BF-90C7-E6C1F07392D6}</Project>
+      <Name>xyLOGIX.OAuth.GitHub.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Models.Interfaces\xyLOGIX.OAuth.GitHub.Models.Interfaces.csproj">
+      <Project>{E85E5BD6-BD2D-4A76-9E61-101DB951E116}</Project>
+      <Name>xyLOGIX.OAuth.GitHub.Models.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Models\xyLOGIX.OAuth.GitHub.Models.csproj">
+      <Project>{4966140B-48D3-408F-BC94-764B2057295A}</Project>
+      <Name>xyLOGIX.OAuth.GitHub.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Actions\xyLOGIX.UI.Dark.Controls.Actions.csproj">
+      <Project>{78A87EAF-E342-4318-AB26-D44015633243}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Interfaces\xyLOGIX.UI.Dark.Controls.Interfaces.csproj">
+      <Project>{a63ca76d-b2b3-42f7-a6c3-78e980b4c629}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls\xyLOGIX.UI.Dark.Controls.csproj">
+      <Project>{9190559b-fb22-4e74-9130-5bfd3ffd6dae}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Forms\xyLOGIX.UI.Dark.Forms.csproj">
       <Project>{E88EC1DD-47DA-4EFF-A3C1-42E7A58E21AC}</Project>
       <Name>xyLOGIX.UI.Dark.Forms</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GHM.Config.Interfaces\GHM.Config.Interfaces.csproj">
+      <Project>{15686B52-5426-418C-AB36-B35B729633E7}</Project>
+      <Name>GHM.Config.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Config.Providers.Factories\GHM.Config.Providers.Factories.csproj">
+      <Project>{7F28798E-B8E1-4B89-87F4-D66502714C22}</Project>
+      <Name>GHM.Config.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Config.Providers.Interfaces\GHM.Config.Providers.Interfaces.csproj">
+      <Project>{DDD70868-6DC9-49AA-96A0-84D40B4FA711}</Project>
+      <Name>GHM.Config.Providers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Dialogs.Factories\GHM.Dialogs.Factories.csproj">
+      <Project>{46E8092B-E5FF-4B20-8381-CAD2A3CE199A}</Project>
+      <Name>GHM.Dialogs.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Dialogs.Interfaces\GHM.Dialogs.Interfaces.csproj">
+      <Project>{11950D55-8FEC-4374-89BF-510C112D77C4}</Project>
+      <Name>GHM.Dialogs.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GHM.Windows.Interfaces\GHM.Windows.Interfaces.csproj">
       <Project>{1046F6BE-96F4-444F-8F9B-6623F7E4302E}</Project>
       <Name>GHM.Windows.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Windows.Presenters.Factories\GHM.Windows.Presenters.Factories.csproj">
+      <Project>{E3BCD967-48C5-461D-B45E-92E9FB4F3C65}</Project>
+      <Name>GHM.Windows.Presenters.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Windows.Presenters.Interfaces\GHM.Windows.Presenters.Interfaces.csproj">
+      <Project>{E062DA03-1D52-42D6-A1C2-46BF707317F2}</Project>
+      <Name>GHM.Windows.Presenters.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
