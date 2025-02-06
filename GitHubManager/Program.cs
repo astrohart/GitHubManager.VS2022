@@ -2,7 +2,6 @@
 using CefSharp;
 using CefSharp.WinForms;
 using GHM.Windows.Factories;
-using GitHubManager;
 using System;
 using System.Diagnostics;
 using System.Threading;
@@ -11,7 +10,7 @@ using xyLOGIX.Core.Assemblies.Info;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Win32.Interact;
 
-namespace DemoApp
+namespace GitHubManager
 {
     /// <summary>
     /// Defines the behavior of the application.
@@ -24,7 +23,8 @@ namespace DemoApp
         /// </summary>
         private static IGitHubManagerConfigProvider ConfigProvider
         {
-            [DebuggerStepThrough] get;
+            [DebuggerStepThrough]
+            get;
         } = GetGitHubManagerConfigProvider.SoleInstance();
 
         /// <summary>
@@ -34,7 +34,8 @@ namespace DemoApp
         /// </summary>
         private static IGitHubManagerConfig CurrentConfig
         {
-            [DebuggerStepThrough] get => ConfigProvider.CurrentConfig;
+            [DebuggerStepThrough]
+            get => ConfigProvider.CurrentConfig;
         }
 
         /// <summary>
