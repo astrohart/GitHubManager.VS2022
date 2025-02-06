@@ -126,12 +126,10 @@
     <Reference Include="System.Buffers, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.6.0\lib\net462\System.Buffers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Memory, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.6.0\lib\net462\System.Memory.dll</HintPath>
     </Reference>
-    <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.6.0\lib\net462\System.Numerics.Vectors.dll</HintPath>
     </Reference>
@@ -141,20 +139,10 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.6.0\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="System.Transactions" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
@@ -199,29 +187,17 @@
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Core.Dialogs.Progress.VS2019\xyLOGIX.Core.Dialogs.Progress.Factories\xyLOGIX.Core.Dialogs.Progress.Factories.csproj">
-      <Project>{E3617D29-E193-46A6-B085-DB14448F24CF}</Project>
-      <Name>xyLOGIX.Core.Dialogs.Progress.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Core.Dialogs.Progress.VS2019\xyLOGIX.Core.Dialogs.Progress.Interfaces\xyLOGIX.Core.Dialogs.Progress.Interfaces.csproj">
-      <Project>{DB9DF2A9-EC4D-4032-B9A5-16F2EE0AAC79}</Project>
-      <Name>xyLOGIX.Core.Dialogs.Progress.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Actions\xyLOGIX.UI.Dark.Controls.Actions.csproj">
-      <Project>{78A87EAF-E342-4318-AB26-D44015633243}</Project>
-      <Name>xyLOGIX.UI.Dark.Controls.Actions</Name>
+    <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Factories\xyLOGIX.OAuth.GitHub.Factories.csproj">
+      <Project>{135A8FB0-DF86-4575-B2A2-1746B7C1650E}</Project>
+      <Name>xyLOGIX.OAuth.GitHub.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Interfaces\xyLOGIX.UI.Dark.Controls.Interfaces.csproj">
-      <Project>{a63ca76d-b2b3-42f7-a6c3-78e980b4c629}</Project>
-      <Name>xyLOGIX.UI.Dark.Controls.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls\xyLOGIX.UI.Dark.Controls.csproj">
-      <Project>{9190559b-fb22-4e74-9130-5bfd3ffd6dae}</Project>
-      <Name>xyLOGIX.UI.Dark.Controls</Name>
+    <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Interfaces\xyLOGIX.OAuth.GitHub.Interfaces.csproj">
+      <Project>{1585D88B-E073-42BF-90C7-E6C1F07392D6}</Project>
+      <Name>xyLOGIX.OAuth.GitHub.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Forms\xyLOGIX.UI.Dark.Forms.csproj">
       <Project>{E88EC1DD-47DA-4EFF-A3C1-42E7A58E21AC}</Project>
@@ -230,6 +206,18 @@
     <ProjectReference Include="..\..\xyLOGIX.Win32.Interact.VS2019\xyLOGIX.Win32.Interact\xyLOGIX.Win32.Interact.csproj">
       <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
       <Name>xyLOGIX.Win32.Interact</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Config.Interfaces\GHM.Config.Interfaces.csproj">
+      <Project>{15686B52-5426-418C-AB36-B35B729633E7}</Project>
+      <Name>GHM.Config.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Config.Providers.Factories\GHM.Config.Providers.Factories.csproj">
+      <Project>{7F28798E-B8E1-4B89-87F4-D66502714C22}</Project>
+      <Name>GHM.Config.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Config.Providers.Interfaces\GHM.Config.Providers.Interfaces.csproj">
+      <Project>{DDD70868-6DC9-49AA-96A0-84D40B4FA711}</Project>
+      <Name>GHM.Config.Providers.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\GHM.Windows.Factories\GHM.Windows.Factories.csproj">
       <Project>{52FED57C-5949-445D-9AF0-DDE1932112A7}</Project>
