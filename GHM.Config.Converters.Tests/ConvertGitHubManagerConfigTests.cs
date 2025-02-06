@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using GHM.Config.Interfaces;
+using NUnit.Framework;
 using PostSharp.Patterns.Threading;
 
 namespace GHM.Config.Converters.Tests
@@ -21,7 +22,7 @@ namespace GHM.Config.Converters.Tests
         /// <see
         ///     cref="F:GitHubManager.ConvertGitHubManagerConfigTests.CONFIGURATION_JSON" />
         /// and returns a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface.
+        /// <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" /> interface.
         /// </summary>
         [Test]
         public void Test_FromJson_Works()
