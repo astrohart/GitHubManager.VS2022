@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace GitHubManager
+namespace GHM.Config
 {
     /// <summary>
     /// Settings that are user-configurable and that alter the behavior of
@@ -12,7 +12,7 @@ namespace GitHubManager
     {
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManager.GitHubManagerConfig" /> and returns a
+        /// <see cref="T:GHM.Config.GitHubManagerConfig" /> and returns a
         /// reference to it.
         /// </summary>
         [JsonConstructor]
