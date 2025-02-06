@@ -279,6 +279,14 @@
       <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
       <Name>xyLOGIX.Win32.Interact</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GHM.Windows.Factories\GHM.Windows.Factories.csproj">
+      <Project>{52FED57C-5949-445D-9AF0-DDE1932112A7}</Project>
+      <Name>GHM.Windows.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Windows.Interfaces\GHM.Windows.Interfaces.csproj">
+      <Project>{1046F6BE-96F4-444F-8F9B-6623F7E4302E}</Project>
+      <Name>GHM.Windows.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,6 +1,7 @@
 ﻿using Alphaleonis.Win32.Filesystem;
 using CefSharp;
 using CefSharp.WinForms;
+using GHM.Windows.Factories;
 using GitHubManager;
 using System;
 using System.Diagnostics;
