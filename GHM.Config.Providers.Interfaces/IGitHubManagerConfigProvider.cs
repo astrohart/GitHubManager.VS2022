@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using GHM.Config.Interfaces;
+using System.Diagnostics;
 
 namespace GHM.Config.Providers.Interfaces
 {
@@ -10,10 +11,14 @@ namespace GHM.Config.Providers.Interfaces
     {
         /// <summary>
         /// Gets or sets a reference to the instance of an object implementing
-        /// the <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface that
+        /// the <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" /> interface that
         /// represents the currently-loaded config.
         /// </summary>
-        IGitHubManagerConfig CurrentConfig { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
+        IGitHubManagerConfig CurrentConfig
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        }
 
         /// <summary>
         /// Loads the config from the default config file, and
@@ -21,7 +26,7 @@ namespace GHM.Config.Providers.Interfaces
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface, whose
+        /// <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" /> interface, whose
         /// properties have been initialized from the values in the application's default
         /// config file.
         /// </returns>
