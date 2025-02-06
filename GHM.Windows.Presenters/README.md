@@ -93,7 +93,8 @@ Gets a reference to an instance of an object that implements the
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IGitHubManagerConfigProvider](#T-GHM-Config-Providers-Interfaces-IGitHubManagerConfigProvider 'GHM.Config.Providers.Interfaces.IGitHubManagerConfigProvider') interface.
+[IGitHubManagerConfigProvider](#T-GHM-Config-Providers-Interfaces-IGitHubManagerConfigProvider 'GHM.Config.Providers.Interfaces.IGitHubManagerConfigProvider')
+interface.
 
 <a name='P-GHM-Windows-Presenters-MainWindowPresenter-Session'></a>
 ### Session `property`
@@ -151,7 +152,7 @@ Gets all the user's repositories.
 ##### Returns
 
 Collection of objects, each of which implements the
-[IRepo](#T-xyLOGIX-OAuth-GitHub-Models-Interfaces-IRepo 'xyLOGIX.OAuth.GitHub.Models.Interfaces.IRepo') interface,
+[IRemoteRepo](#T-xyLOGIX-OAuth-GitHub-Models-Interfaces-IRemoteRepo 'xyLOGIX.OAuth.GitHub.Models.Interfaces.IRemoteRepo') interface,
 respectively, that represents the requested data set.
 
 

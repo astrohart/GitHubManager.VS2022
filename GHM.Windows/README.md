@@ -146,6 +146,11 @@ When this property's value is changed, the
 Gets a reference to an instance of an object that implements the
 [IGitHubSession](#T-xyLOGIX-OAuth-GitHub-Interfaces-IGitHubSession 'xyLOGIX.OAuth.GitHub.Interfaces.IGitHubSession') interface.
 
+##### Remarks
+
+This particular property needs to be computed on each
+call.
+
 <a name='M-GHM-Windows-MainWindow-#cctor'></a>
 ### #cctor() `method`
 
