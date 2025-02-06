@@ -1,4 +1,9 @@
-﻿using System.Diagnostics;
+﻿using CefSharp;
+using PostSharp.Patterns.Diagnostics;
+using System.Diagnostics;
+using System.Windows.Forms;
+using xyLOGIX.Core.Extensions;
+using xyLOGIX.UI.Dark.Forms;
 
 namespace GHM.Dialogs.Helpers
 {
@@ -10,9 +15,25 @@ namespace GHM.Dialogs.Helpers
     public class KeyboardHandler : IKeyboardHandler
     {
         /// <summary>
-        /// Constructs a new instance of
-        /// <see cref="T:GHM.Dialogs.Helpers.KeyboardHandler" /> and returns a reference to it.
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:GHM.Dialogs.Helpers.KeyboardHandler" /> class.
         /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static KeyboardHandler() { }
+
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see cref="T:GHM.Dialogs.Helpers.KeyboardHandler" /> and returns a reference to
+        /// it.
+        /// </summary>
+        [Log(AttributeExclude = true)]
         public KeyboardHandler()
             => Form = null;
 
@@ -24,7 +45,8 @@ namespace GHM.Dialogs.Helpers
         /// (Required.) Reference to an instance of an object that
         /// implements the <see cref="T:xyLOGIX.UI.Dark.Forms.IDarkForm" /> interface.
         /// </param>
-        public KeyboardHandler(IDarkForm form)
+        [Log(AttributeExclude = true)]
+        public KeyboardHandler([NotLogged] IDarkForm form)
             => Form = form;
 
         /// <summary>
@@ -61,14 +83,15 @@ namespace GHM.Dialogs.Helpers
         /// for details).
         /// </param>
         /// <returns>Return true if the keyboard event was handled or false otherwise.</returns>
+        [Log(AttributeExclude = true)]
         public bool OnKeyEvent(
-            IWebBrowser chromiumWebBrowser,
-            IBrowser browser,
-            KeyType type,
-            int windowsKeyCode,
-            int nativeKeyCode,
-            CefEventFlags modifiers,
-            bool isSystemKey
+            [NotLogged] IWebBrowser chromiumWebBrowser,
+            [NotLogged] IBrowser browser,
+            [NotLogged] KeyType type,
+            [NotLogged] int windowsKeyCode,
+            [NotLogged] int nativeKeyCode,
+            [NotLogged] CefEventFlags modifiers,
+            [NotLogged] bool isSystemKey
         )
         {
             if (Form == null)
