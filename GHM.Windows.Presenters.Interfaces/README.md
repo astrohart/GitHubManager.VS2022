@@ -48,7 +48,7 @@ Gets all the user's repositories.
 ##### Returns
 
 Collection of objects, each of which implements the
-[IRepo](#T-xyLOGIX-OAuth-GitHub-Models-Interfaces-IRepo 'xyLOGIX.OAuth.GitHub.Models.Interfaces.IRepo') interface,
+[IRemoteRepo](#T-xyLOGIX-OAuth-GitHub-Models-Interfaces-IRemoteRepo 'xyLOGIX.OAuth.GitHub.Models.Interfaces.IRemoteRepo') interface,
 respectively, that represents the requested data set.
 
 

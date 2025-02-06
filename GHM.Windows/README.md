@@ -25,6 +25,8 @@
   - [OnFileExit(sender,e)](#M-GHM-Windows-MainWindow-OnFileExit-System-Object,System-EventArgs- 'GHM.Windows.MainWindow.OnFileExit(System.Object,System.EventArgs)')
   - [OnFileLogin(sender,e)](#M-GHM-Windows-MainWindow-OnFileLogin-System-Object,System-EventArgs- 'GHM.Windows.MainWindow.OnFileLogin(System.Object,System.EventArgs)')
   - [OnFileMenuDropDownOpening(sender,e)](#M-GHM-Windows-MainWindow-OnFileMenuDropDownOpening-System-Object,System-EventArgs- 'GHM.Windows.MainWindow.OnFileMenuDropDownOpening(System.Object,System.EventArgs)')
+  - [OnFileSignOut(sender,e)](#M-GHM-Windows-MainWindow-OnFileSignOut-System-Object,System-EventArgs- 'GHM.Windows.MainWindow.OnFileSignOut(System.Object,System.EventArgs)')
+  - [OnFormClosing(e)](#M-GHM-Windows-MainWindow-OnFormClosing-System-Windows-Forms-FormClosingEventArgs- 'GHM.Windows.MainWindow.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)')
   - [OnGitHubAuthenticated(sender,e)](#M-GHM-Windows-MainWindow-OnGitHubAuthenticated-System-Object,xyLOGIX-OAuth-GitHub-Events-GitHubAuthenticatedEventArgs- 'GHM.Windows.MainWindow.OnGitHubAuthenticated(System.Object,xyLOGIX.OAuth.GitHub.Events.GitHubAuthenticatedEventArgs)')
   - [OnLoad(e)](#M-GHM-Windows-MainWindow-OnLoad-System-EventArgs- 'GHM.Windows.MainWindow.OnLoad(System.EventArgs)')
   - [OnShown(e)](#M-GHM-Windows-MainWindow-OnShown-System-EventArgs- 'GHM.Windows.MainWindow.OnShown(System.EventArgs)')
@@ -329,6 +331,39 @@ data. |
 This method responds by showing the enabled and/or disabled state of
 the items on the menu to correspond with the current
 state of the application.
+
+<a name='M-GHM-Windows-MainWindow-OnFileSignOut-System-Object,System-EventArgs-'></a>
+### OnFileSignOut(sender,e) `method`
+
+##### Summary
+
+Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click') event
+raised by the menu item on the menu when the user
+clicks it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | (Required.) Reference to an instance of the object that raised the event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | (Required.) A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
+
+##### Remarks
+
+This method responds by signing the user out of the GitHub account.
+
+<a name='M-GHM-Windows-MainWindow-OnFormClosing-System-Windows-Forms-FormClosingEventArgs-'></a>
+### OnFormClosing(e) `method`
+
+##### Summary
+
+Raises the [](#E-System-Windows-Forms-Form-FormClosing 'System.Windows.Forms.Form.FormClosing') event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [System.Windows.Forms.FormClosingEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormClosingEventArgs 'System.Windows.Forms.FormClosingEventArgs') | A [FormClosingEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormClosingEventArgs 'System.Windows.Forms.FormClosingEventArgs') that contains the event data. |
 
 <a name='M-GHM-Windows-MainWindow-OnGitHubAuthenticated-System-Object,xyLOGIX-OAuth-GitHub-Events-GitHubAuthenticatedEventArgs-'></a>
 ### OnGitHubAuthenticated(sender,e) `method`

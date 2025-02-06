@@ -8,6 +8,7 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.OAuth.GitHub.Events;
 using xyLOGIX.OAuth.GitHub.Models.Factories;
@@ -266,47 +267,61 @@ namespace GHM.Dialogs
             LoadingStateChangedEventArgs e
         )
         {
-            if (!webBrowser.IsBrowserInitialized)
-                return;
-
-            if (webBrowser.IsLoading)
-                return;
-
-            var source = await webBrowser.GetSourceAsync();
-            if (string.IsNullOrWhiteSpace(source)) return;
-
-            if (!source.Contains(
-                    "You are being redirected to the authorized application."
-                ))
+            try
             {
-                this.InvokeIfRequired(
-                    () =>
-                    {
-                        Show();
-                        browserCoverPanel.Hide();
-                    }
-                );
-                return;
-            }
+                if (!webBrowser.IsBrowserInitialized)
+                    return;
 
-            Thread.Sleep(500);
+                if (webBrowser.IsLoading)
+                    return;
 
-            if (InvokeRequired)
-            {
-                Invoke(
-                    new MethodInvoker(
+                if (IsDisposed) return;
+
+                var source = await webBrowser.GetSourceAsync();
+                if (string.IsNullOrWhiteSpace(source)) return;
+
+                if (!source.Contains(
+                        "You are being redirected to the authorized application."
+                    ))
+                {
+                    this.InvokeIfRequired(
                         () =>
                         {
-                            DialogResult = DialogResult.OK;
-                            Close();
+                            Show();
+                            browserCoverPanel.Hide();
                         }
-                    )
-                );
+                    );
+                    return;
+                }
+
+                Thread.Sleep(500);
+
+                if (InvokeRequired)
+                {
+                    Invoke(
+                        new MethodInvoker(
+                            () =>
+                            {
+                                if (IsDisposed) return;
+
+                                DialogResult = DialogResult.OK;
+                                Close();
+                            }
+                        )
+                    );
+                }
+                else
+                {
+                    if (IsDisposed) return;
+
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                DialogResult = DialogResult.OK;
-                Close();
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
             }
         }
 
@@ -315,6 +330,10 @@ namespace GHM.Dialogs
         /// hosted by this dialog, and does so in a thread-safe manner.
         /// </summary>
         private void SetFocusToWebBrowser()
-            => this.InvokeIfRequired(() => webBrowser.Focus());
+            => this.InvokeIfRequired(() =>
+            {
+                browserCoverPanel.Hide();
+                return webBrowser.Focus();
+            });
     }
 }

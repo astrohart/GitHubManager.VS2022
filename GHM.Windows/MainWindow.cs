@@ -22,6 +22,7 @@ using xyLOGIX.OAuth.GitHub.Interfaces;
 using xyLOGIX.OAuth.GitHub.Models.Interfaces;
 using xyLOGIX.UI.Dark.Controls.Actions;
 using xyLOGIX.UI.Dark.Forms;
+using Application = System.Windows.Forms.Application;
 
 namespace GHM.Windows
 {
@@ -320,6 +321,62 @@ namespace GHM.Windows
             => fileLogin.Enabled = !IsSignedIn;
 
         /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event
+        /// raised by the <b>Sign Out</b> menu item on the <b>File</b> menu when the user
+        /// clicks it.
+        /// </summary>
+        /// <param name="sender">
+        /// (Required.) Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// (Required.) A <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by signing the user out of the GitHub account.
+        /// </remarks>
+        private void OnFileSignOut(
+            [NotLogged] object sender,
+            [NotLogged] EventArgs e
+        )
+        {
+            try
+            {
+                if (!IsSignedIn) return;
+
+                workspacePanel.Show();
+                reposDataGridView.DataSource = null;
+                reposDataGridView.Hide();
+
+                IsSignedIn = false;
+
+                Session.Close();
+
+                Text = Application.ProductName;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.Windows.Forms.FormClosingEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (IsSignedIn)
+                fileSignOut.PerformClick();
+        }
+
+        /// <summary>
         /// Handles the
         /// <see cref="E:GitHubManager.IGitHubSession.GitHubAuthenticated" /> event raised
         /// by the GitHub Session Object when the OAuth flow is complete.
@@ -370,6 +427,8 @@ namespace GHM.Windows
                         workspacePanel.Hide();
 
                         Text = $"Repositories - {Application.ProductName}";
+
+                        IsSignedIn = true;
 
                         CloseProgressDialog();
                     }
@@ -458,7 +517,11 @@ namespace GHM.Windows
             [NotLogged] object sender,
             [NotLogged] EventArgs e
         )
-            => navigateToolBar.Enabled = reposDataGridView.RowCount > 0;
+        {
+            fileLogin.Enabled = !IsSignedIn;
+            fileSignOut.Enabled = IsSignedIn;
+            navigateToolBar.Enabled = reposDataGridView.RowCount > 0;
+        }
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
