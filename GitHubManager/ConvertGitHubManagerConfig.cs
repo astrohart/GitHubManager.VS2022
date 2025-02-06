@@ -12,7 +12,7 @@ namespace GitHubManager
     /// to and/or from JSON content.
     /// </summary>
     [ExplicitlySynchronized]
-    public static class ConvertGitHubManagerConfiguration
+    public static class ConvertGitHubManagerConfig
     {
         /// <summary>
         /// Reference to an instance of
@@ -24,7 +24,7 @@ namespace GitHubManager
         /// <summary>
         /// Initializes static data or performs actions that need to be performed once only
         /// for the
-        /// <see cref="T:GitHubManager.ConvertGitHubManagerConfiguration" />
+        /// <see cref="T:GitHubManager.ConvertGitHubManagerConfig" />
         /// class.
         /// </summary>
         /// <remarks>
@@ -35,7 +35,7 @@ namespace GitHubManager
         /// attribute in order to simplify the logging output.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        static ConvertGitHubManagerConfiguration()
+        static ConvertGitHubManagerConfig()
             => Settings = new JsonSerializerSettings
             {
                 MetadataPropertyHandling = MetadataPropertyHandling.Ignore,

@@ -5,10 +5,10 @@ namespace GitHubManager
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
-    /// <see cref="T:ConvertGitHubManagerConfiguration" /> class.
+    /// <see cref="T:ConvertGitHubManagerConfig" /> class.
     /// </summary>
     [TestFixture, ExplicitlySynchronized]
-    public class ConvertGitHubManagerConfigurationTests
+    public class ConvertGitHubManagerConfigTests
     {
         /// <summary> <see cref="T:System.String" /> containing sample JSON content. </summary>
         private const string CONFIGURATION_JSON =
@@ -16,10 +16,10 @@ namespace GitHubManager
 
         /// <summary>
         /// Asserts that the
-        /// <see cref="M:GitHubManager.ConvertGitHubManagerConfiguration.FromJson" />
+        /// <see cref="M:GitHubManager.ConvertGitHubManagerConfig.FromJson" />
         /// method correctly parses the sample
         /// <see
-        ///     cref="F:GitHubManager.ConvertGitHubManagerConfigurationTests.CONFIGURATION_JSON" />
+        ///     cref="F:GitHubManager.ConvertGitHubManagerConfigTests.CONFIGURATION_JSON" />
         /// and returns a reference to an instance of an object that implements the
         /// <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface.
         /// </summary>
@@ -30,7 +30,7 @@ namespace GitHubManager
 
             Assert.DoesNotThrow(
                 () => config =
-                    ConvertGitHubManagerConfiguration.FromJson(
+                    ConvertGitHubManagerConfig.FromJson(
                         CONFIGURATION_JSON
                     )
             );
@@ -41,7 +41,7 @@ namespace GitHubManager
 
         /// <summary>
         /// Asserts that the
-        /// <see cref="M:GitHubManager.ConvertGitHubManagerConfiguration.ToJson" /> method
+        /// <see cref="M:GitHubManager.ConvertGitHubManagerConfig.ToJson" /> method
         /// correctly turns an instance of
         /// <see cref="T:GitHubManager.GitHubManagerConfig" /> into JSON content.
         /// </summary>

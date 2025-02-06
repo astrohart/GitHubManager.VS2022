@@ -87,7 +87,7 @@ namespace GitHubManager
                     return result;
 
                 result = CurrentConfig =
-                    ConvertGitHubManagerConfiguration.FromJson(fileContents);
+                    ConvertGitHubManagerConfig.FromJson(fileContents);
             }
             catch (Exception ex)
             {
