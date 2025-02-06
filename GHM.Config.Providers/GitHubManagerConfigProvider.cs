@@ -1,8 +1,12 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using GHM.Config.Converters;
+using GHM.Config.Interfaces;
+using GHM.Config.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Files.Actions;
 
 namespace GHM.Config.Providers
 {
@@ -35,7 +39,7 @@ namespace GHM.Config.Providers
 
         /// <summary>
         /// Gets or sets a reference to the instance of an object implementing
-        /// the <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface that
+        /// the <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" /> interface that
         /// represents the currently-loaded config.
         /// </summary>
         public IGitHubManagerConfig CurrentConfig
@@ -47,7 +51,7 @@ namespace GHM.Config.Providers
         /// <summary>
         /// Gets a reference to the one and only instance of the object that
         /// implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfigProvider" /> interface.
+        /// <see cref="T:GHM.Config.Providers.Interfaces.IGitHubManagerConfigProvider" /> interface.
         /// </summary>
         [Log(AttributeExclude = true)]
         public static IGitHubManagerConfigProvider Instance
@@ -61,7 +65,7 @@ namespace GHM.Config.Providers
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface, whose
+        /// <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" /> interface, whose
         /// properties have been initialized from the values in the application's default
         /// config file.
         /// </returns>
@@ -73,15 +77,13 @@ namespace GHM.Config.Providers
         /// </remarks>
         public IGitHubManagerConfig Load()
         {
-            var result = CurrentConfig =
-                MakeNewGitHubManagerConfig.FromScratch();
+            var result = CurrentConfig = GitHubManagerConfig.Blank;
 
             try
             {
-                if (!File.Exists(ConfigurationFilePathname))
-                    return result;
+                if (!Does.FileExist(ConfigurationFilePathname)) return result;
 
-                var fileContents = File.ReadAllText(ConfigurationFilePathname);
+                var fileContents = Read.FileContents(ConfigurationFilePathname);
 
                 if (string.IsNullOrWhiteSpace(fileContents))
                     return result;
@@ -94,8 +96,7 @@ namespace GHM.Config.Providers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = CurrentConfig =
-                    MakeNewGitHubManagerConfig.FromScratch();
+                result = CurrentConfig = GitHubManagerConfig.Blank;
             }
 
             return result;
@@ -107,24 +108,25 @@ namespace GHM.Config.Providers
         /// </summary>
         public void Save()
         {
-            var folder = Path.GetDirectoryName(ConfigurationFilePathname);
-
-            if (CurrentConfig == null)
-                CurrentConfig = MakeNewGitHubManagerConfig.FromScratch();
-
             try
             {
-                if (!Directory.Exists(folder))
-                    Directory.CreateDirectory(folder);
+                if (string.IsNullOrWhiteSpace(ConfigurationFilePathname))
+                    return;
 
-                if (File.Exists(ConfigurationFilePathname))
-                    File.Delete(ConfigurationFilePathname);
+                var folder = Path.GetDirectoryName(ConfigurationFilePathname);
+                if (string.IsNullOrWhiteSpace(folder)) return;
+
+                if (CurrentConfig == null)
+                    CurrentConfig = GitHubManagerConfig.Blank;
+
+                Create.DirectoryIfNotExists(folder);
+
+                Delete.FileIfExists(ConfigurationFilePathname);
 
                 var fileContents = CurrentConfig.ToJson();
-
                 if (string.IsNullOrWhiteSpace(fileContents)) return;
 
-                File.WriteAllText(ConfigurationFilePathname, fileContents);
+                Write.FileContents(ConfigurationFilePathname, fileContents);
             }
             catch (Exception ex)
             {
