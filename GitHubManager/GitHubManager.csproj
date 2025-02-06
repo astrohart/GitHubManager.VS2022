@@ -180,7 +180,6 @@
     <Compile Include="KeyboardHandler.cs" />
     <Compile Include="KeyChars.cs" />
     <Compile Include="MakeNewGitHubLoginInfo.cs" />
-    <Compile Include="MakeNewGitHubManagerConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryStringHelpers.cs" />
