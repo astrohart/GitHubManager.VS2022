@@ -163,7 +163,6 @@
     <Compile Include="GitHubLoginInfoReceivedEventArgs.cs" />
     <Compile Include="GitHubLoginInfoReceivedEventHandler.cs" />
     <Compile Include="GitHubLoginServer.cs" />
-    <Compile Include="GitHubManagerConfig.cs" />
     <Compile Include="GitHubManagerConfigProvider.cs" />
     <Compile Include="GitHubServerRequestReceivedEventArgs.cs" />
     <Compile Include="GitHubServerRequestReceivedEventHandler.cs" />
