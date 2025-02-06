@@ -3,11 +3,11 @@
 
 ## Contents
 
-- [Resources](#T-GHM.Config.Converters-Properties-Resources 'GHM.Config.Converters.Properties.Resources')
-  - [Culture](#P-GHM.Config.Converters-Properties-Resources-Culture 'GHM.Config.Converters.Properties.Resources.Culture')
-  - [ResourceManager](#P-GHM.Config.Converters-Properties-Resources-ResourceManager 'GHM.Config.Converters.Properties.Resources.ResourceManager')
+- [Resources](#T-GHM-Config-Converters-Properties-Resources 'GHM.Config.Converters.Properties.Resources')
+  - [Culture](#P-GHM-Config-Converters-Properties-Resources-Culture 'GHM.Config.Converters.Properties.Resources.Culture')
+  - [ResourceManager](#P-GHM-Config-Converters-Properties-Resources-ResourceManager 'GHM.Config.Converters.Properties.Resources.ResourceManager')
 
-<a name='T-GHM.Config.Converters-Properties-Resources'></a>
+<a name='T-GHM-Config-Converters-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -18,7 +18,7 @@ GHM.Config.Converters.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-GHM.Config.Converters-Properties-Resources-Culture'></a>
+<a name='P-GHM-Config-Converters-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -26,7 +26,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-GHM.Config.Converters-Properties-Resources-ResourceManager'></a>
+<a name='P-GHM-Config-Converters-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
