@@ -173,7 +173,6 @@
     <Compile Include="IGitHubSession.cs" />
     <Compile Include="ILoginDialogBox.cs" />
     <Compile Include="ILoginDialogBoxPresenter.cs" />
-    <Compile Include="IMainWindowPresenter.cs" />
     <Compile Include="IntExtensions.cs" />
     <Compile Include="IOptionsDialogBox.cs" />
     <Compile Include="IOptionsDialogBoxPresenter.cs" />
@@ -186,7 +185,6 @@
       <DependentUpon>LoginDialogBox.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginDialogBoxPresenter.cs" />
-    <Compile Include="MainWindowPresenter.cs" />
     <Compile Include="MakeNewGitHubLoginInfo.cs" />
     <Compile Include="MakeNewGitHubManagerConfig.cs" />
     <Compile Include="MakeNewLoginDialogBox.cs" />

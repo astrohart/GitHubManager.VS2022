@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace GitHubManager
+namespace GHM.Windows.Presenters.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of the

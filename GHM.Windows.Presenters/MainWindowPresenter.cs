@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GitHubManager
+namespace GHM.Windows.Presenters
 {
     /// <summary>
     /// Presenter object that defines the behaviors of the main application
@@ -20,7 +19,7 @@ namespace GitHubManager
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GitHubManager.MainWindowPresenter" /> and returns a reference to
+        /// <see cref="T:GHM.Windows.Presenters.MainWindowPresenter" /> and returns a reference to
         /// it.
         /// </summary>
         public MainWindowPresenter()
