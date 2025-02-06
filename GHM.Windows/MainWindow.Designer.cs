@@ -1,4 +1,6 @@
-﻿namespace GHM.Windows
+﻿using xyLOGIX.OAuth.GitHub.Models;
+
+namespace GHM.Windows
 {
     public partial class MainWindow
     {
@@ -282,7 +284,7 @@
             // 
             // reposListBindingSource
             // 
-            this.reposListBindingSource.DataSource = typeof(GitHubManager.Repo);
+            this.reposListBindingSource.DataSource = typeof(Repo);
             // 
             // countLabel
             // 
