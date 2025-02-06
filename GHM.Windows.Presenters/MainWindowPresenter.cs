@@ -1,8 +1,21 @@
-﻿using GHM.Windows.Interfaces;
+﻿using GHM.Config.Interfaces;
+using GHM.Config.Providers.Factories;
+using GHM.Config.Providers.Interfaces;
+using GHM.Dialogs.Factories;
+using GHM.Windows.Interfaces;
 using GHM.Windows.Presenters.Interfaces;
+using PostSharp.Patterns.Collections;
+using PostSharp.Patterns.Diagnostics;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.OAuth.GitHub.Factories;
+using xyLOGIX.OAuth.GitHub.Interfaces;
+using xyLOGIX.OAuth.GitHub.Models;
+using xyLOGIX.OAuth.GitHub.Models.Interfaces;
 
 namespace GHM.Windows.Presenters
 {
@@ -20,10 +33,26 @@ namespace GHM.Windows.Presenters
         private readonly IMainWindow View;
 
         /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:GHM.Windows.Presenters.MainWindowPresenter" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static MainWindowPresenter() { }
+
+        /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:GHM.Windows.Presenters.MainWindowPresenter" /> and returns a reference to
+        /// <see cref="T:GHM.Windows.Presenters.MainWindowPresenter" /> and returns a
+        /// reference to
         /// it.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public MainWindowPresenter()
             => View = null;
 
@@ -37,30 +66,39 @@ namespace GHM.Windows.Presenters
         /// implements the <see cref="T:GitHubManager.IMainWindow" /> interface that plays
         /// the role of the main application window.
         /// </param>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required
+        /// parameter, <paramref name="view" />, is passed a <see langword="null" /> value.
+        /// </exception>
+        [Log(AttributeExclude = true)]
         public MainWindowPresenter(IMainWindow view)
-            => View = view;
+            => View = view ?? throw new ArgumentNullException(nameof(view));
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface.
+        /// <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" /> interface.
         /// </summary>
         private static IGitHubManagerConfig CurrentConfig
-            => GitHubManagerConfigProvider.CurrentConfig;
+        {
+            [DebuggerStepThrough]
+            get => GitHubManagerConfigProvider.CurrentConfig;
+        }
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfigProvider" /> interface.
+        /// <see cref="T:GHM.Config.Providers.Interfaces.IGitHubManagerConfigProvider" /> interface.
         /// </summary>
-        private static IGitHubManagerConfigProvider
-            GitHubManagerConfigProvider
-            => GetGitHubManagerConfigProvider.SoleInstance();
+        private static IGitHubManagerConfigProvider GitHubManagerConfigProvider
+        {
+            [DebuggerStepThrough] get;
+        } = GetGitHubManagerConfigProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubSession" /> interface.
+        /// <see cref="T:xyLOGIX.OAuth.GitHub.Interfaces.IGitHubSession" /> interface.
         /// </summary>
-        private static IGitHubSession Session
-            => GetGitHubSession.SoleInstance();
+        private static IGitHubSession Session { [DebuggerStepThrough] get; } =
+            GetGitHubSession.SoleInstance();
 
         /// <summary>
         /// Shows the user a dialog that allows the user to set the options that
@@ -71,8 +109,10 @@ namespace GHM.Windows.Presenters
         {
             using (var dialogBox = MakeNewOptionsDialogBox.FromScratch()
                        .HavingConfiguration(CurrentConfig))
+            {
                 if (DialogResult.Cancel == dialogBox.ShowDialog(View))
                     return;
+            }
         }
 
         /// <summary>
@@ -80,32 +120,51 @@ namespace GHM.Windows.Presenters
         /// <para />
         /// </summary>
         /// <returns>
-        /// Collection of instances of <see cref="T:GitHubManager.Repo" />
-        /// objects that contain the data for all of the repositories for the current user.
+        /// Collection of objects, each of which implements the
+        /// <see cref="T:xyLOGIX.OAuth.GitHub.Models.Interfaces.IRepo" /> interface,
+        /// respectively, that represents the requested data set.
+        /// <para />
+        /// The empty collection is returned if either the information could not be
+        /// obtained or if a different error occurred.
         /// </returns>
         public async Task<IList<IRepo>> GetRepos()
         {
-            var result = new List<IRepo>();
+            var result = new AdvisableCollection<IRepo>();
 
             try
             {
                 var repositories =
                     await Session.Client.Repository.GetAllForCurrent();
 
-                result = repositories.Select(
-                                         r => new Repo
-                                         {
-                                             CloneUrl = r.CloneUrl,
-                                             Description = r.Description,
-                                             Name = r.Name
-                                         }
-                                     )
-                                     .Cast<IRepo>()
-                                     .ToList();
+                if (repositories == null) return result;
+                if (repositories.Count <= 0) return result;
+
+                foreach (var gitHubRepoInfo in repositories)
+                {
+                    if (gitHubRepoInfo == null) continue;
+                    if (string.IsNullOrWhiteSpace(gitHubRepoInfo.Name))
+                        continue;
+                    if (string.IsNullOrWhiteSpace(gitHubRepoInfo.CloneUrl))
+                        continue;
+                    if (string.IsNullOrWhiteSpace(gitHubRepoInfo.Description))
+                        continue;
+
+                    result.Add(
+                        new Repo
+                        {
+                            CloneUrl = gitHubRepoInfo.CloneUrl,
+                            Description = gitHubRepoInfo.Description,
+                            Name = gitHubRepoInfo.Name
+                        }
+                    );
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                result = new List<IRepo>();
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = new AdvisableCollection<IRepo>();
             }
 
             return result;
