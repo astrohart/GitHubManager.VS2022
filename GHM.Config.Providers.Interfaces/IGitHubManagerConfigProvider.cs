@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace GitHubManager
+namespace GHM.Config.Providers.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a

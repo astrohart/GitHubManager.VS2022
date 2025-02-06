@@ -4,7 +4,7 @@ using System;
 using System.Diagnostics;
 using xyLOGIX.Core.Debug;
 
-namespace GitHubManager
+namespace GHM.Config.Providers
 {
     /// <summary>
     /// Methods and properties for loading, accessing, and saving the
