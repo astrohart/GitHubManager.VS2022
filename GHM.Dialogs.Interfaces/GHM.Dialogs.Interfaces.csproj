@@ -118,7 +118,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -138,13 +137,25 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
-      <Project>{c445c052-26b6-4884-9a7b-25dc7abc0ded}</Project>
-      <Name>xyLOGIX.Core.Debug</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
       <Project>{5528d7fb-b88b-4e9d-9bbd-b6b6b893666a}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Events\xyLOGIX.OAuth.GitHub.Events.csproj">
+      <Project>{AC27A997-FB38-4BBE-A9BF-E55DBAF0BF77}</Project>
+      <Name>xyLOGIX.OAuth.GitHub.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Models.Interfaces\xyLOGIX.OAuth.GitHub.Models.Interfaces.csproj">
+      <Project>{E85E5BD6-BD2D-4A76-9E61-101DB951E116}</Project>
+      <Name>xyLOGIX.OAuth.GitHub.Models.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Forms\xyLOGIX.UI.Dark.Forms.csproj">
+      <Project>{E88EC1DD-47DA-4EFF-A3C1-42E7A58E21AC}</Project>
+      <Name>xyLOGIX.UI.Dark.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Config.Interfaces\GHM.Config.Interfaces.csproj">
+      <Project>{15686B52-5426-418C-AB36-B35B729633E7}</Project>
+      <Name>GHM.Config.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
