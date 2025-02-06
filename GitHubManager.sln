@@ -168,6 +168,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.OAuth.GitHub.LoginI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.OAuth.GitHub.LoginInfo", "..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.LoginInfo\xyLOGIX.OAuth.GitHub.LoginInfo.csproj", "{904BC65F-5B86-40B1-B4DC-7FCCBEC73A18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.OAUth.GitHub.Helpers", "..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAUth.GitHub.Helpers\xyLOGIX.OAUth.GitHub.Helpers.csproj", "{C8B96F51-9685-4935-B7ED-A5EFE1441581}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -816,6 +818,14 @@ Global
 		{904BC65F-5B86-40B1-B4DC-7FCCBEC73A18}.Release|x64.Build.0 = Release|x64
 		{904BC65F-5B86-40B1-B4DC-7FCCBEC73A18}.Release|x86.ActiveCfg = Release|x86
 		{904BC65F-5B86-40B1-B4DC-7FCCBEC73A18}.Release|x86.Build.0 = Release|x86
+		{C8B96F51-9685-4935-B7ED-A5EFE1441581}.Debug|x64.ActiveCfg = Debug|x64
+		{C8B96F51-9685-4935-B7ED-A5EFE1441581}.Debug|x64.Build.0 = Debug|x64
+		{C8B96F51-9685-4935-B7ED-A5EFE1441581}.Debug|x86.ActiveCfg = Debug|x86
+		{C8B96F51-9685-4935-B7ED-A5EFE1441581}.Debug|x86.Build.0 = Debug|x86
+		{C8B96F51-9685-4935-B7ED-A5EFE1441581}.Release|x64.ActiveCfg = Release|x64
+		{C8B96F51-9685-4935-B7ED-A5EFE1441581}.Release|x64.Build.0 = Release|x64
+		{C8B96F51-9685-4935-B7ED-A5EFE1441581}.Release|x86.ActiveCfg = Release|x86
+		{C8B96F51-9685-4935-B7ED-A5EFE1441581}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
