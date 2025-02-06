@@ -131,7 +131,6 @@
     <Reference Include="System.Memory, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.6.0\lib\net462\System.Memory.dll</HintPath>
     </Reference>
-    <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.6.0\lib\net462\System.Numerics.Vectors.dll</HintPath>
     </Reference>
@@ -161,13 +160,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
-      <Project>{c445c052-26b6-4884-9a7b-25dc7abc0ded}</Project>
-      <Name>xyLOGIX.Core.Debug</Name>
+    <ProjectReference Include="..\GHM.Config.Converters\GHM.Config.Converters.csproj">
+      <Project>{F90ACCB0-9529-4A89-9924-48DE33E773EE}</Project>
+      <Name>GHM.Config.Converters</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
-      <Project>{5528d7fb-b88b-4e9d-9bbd-b6b6b893666a}</Project>
-      <Name>xyLOGIX.Core.Extensions</Name>
+    <ProjectReference Include="..\GHM.Config.Interfaces\GHM.Config.Interfaces.csproj">
+      <Project>{15686B52-5426-418C-AB36-B35B729633E7}</Project>
+      <Name>GHM.Config.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Config\GHM.Config.csproj">
+      <Project>{2D65F681-CA18-4155-8D4C-B7B81529081C}</Project>
+      <Name>GHM.Config</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
