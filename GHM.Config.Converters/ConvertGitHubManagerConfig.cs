@@ -1,9 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using GHM.Config.Interfaces;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Threading;
 using System;
 using System.Globalization;
+using xyLOGIX.Core.Debug;
 
 namespace GHM.Config.Converters
 {
@@ -54,14 +56,14 @@ namespace GHM.Config.Converters
         /// <summary>
         /// Parses the specified <paramref name="json" /> content and, if
         /// successful, initializes an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfig" />
+        /// <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" />
         /// interface and
         /// returns a reference to it.
         /// </summary>
         /// <param name="json">(Required.) String containing the JSON content to be parsed.</param>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfig" />
+        /// <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" />
         /// interface whose
         /// properties are initialized from the JSON provided..
         /// </returns>
@@ -71,29 +73,39 @@ namespace GHM.Config.Converters
         /// for a value.
         /// </exception>
         [return: NotLogged]
-        public static IGitHubManagerConfig FromJson(
-            [NotLogged] string json
-        )
+        public static IGitHubManagerConfig FromJson([NotLogged] string json)
         {
-            if (string.IsNullOrWhiteSpace(json))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(json)
+            IGitHubManagerConfig result = default;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(json)) return result;
+
+                result = JsonConvert.DeserializeObject<GitHubManagerConfig>(
+                    json, Settings
                 );
-            return JsonConvert.DeserializeObject<GitHubManagerConfig>(
-                json, Settings
-            );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = default;
+            }
+
+            return result;
         }
 
         /// <summary>
         /// Serializes an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfig" />
+        /// <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" />
         /// interface to JSON
         /// and returns this data in the form of a <see cref="T:System.String" />.
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object
         /// that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfig" />
+        /// <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" />
         /// interface.
         /// </param>
         /// <returns>
@@ -110,10 +122,23 @@ namespace GHM.Config.Converters
             [NotLogged] this IGitHubManagerConfig config
         )
         {
-            if (config == null)
-                throw new ArgumentNullException(nameof(config));
+            var result = string.Empty;
 
-            return JsonConvert.SerializeObject(config, Settings);
+            try
+            {
+                if (config == null) return result;
+
+                result = JsonConvert.SerializeObject(config, Settings);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            return result;
         }
     }
 }
