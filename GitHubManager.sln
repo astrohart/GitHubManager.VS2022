@@ -110,6 +110,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHM.Windows.Presenters.Fact
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHM.Windows.Presenters.Interfaces", "GHM.Windows.Presenters.Interfaces\GHM.Windows.Presenters.Interfaces.csproj", "{E062DA03-1D52-42D6-A1C2-46BF707317F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHM.Dialogs", "GHM.Dialogs\GHM.Dialogs.csproj", "{647358F9-85F3-416B-805B-F649E3B5CE7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHM.Dialogs.Factories", "GHM.Dialogs.Factories\GHM.Dialogs.Factories.csproj", "{46E8092B-E5FF-4B20-8381-CAD2A3CE199A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHM.Dialogs.Interfaces", "GHM.Dialogs.Interfaces\GHM.Dialogs.Interfaces.csproj", "{11950D55-8FEC-4374-89BF-510C112D77C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -526,6 +532,30 @@ Global
 		{E062DA03-1D52-42D6-A1C2-46BF707317F2}.Release|x64.Build.0 = Release|x64
 		{E062DA03-1D52-42D6-A1C2-46BF707317F2}.Release|x86.ActiveCfg = Release|x86
 		{E062DA03-1D52-42D6-A1C2-46BF707317F2}.Release|x86.Build.0 = Release|x86
+		{647358F9-85F3-416B-805B-F649E3B5CE7D}.Debug|x64.ActiveCfg = Debug|x64
+		{647358F9-85F3-416B-805B-F649E3B5CE7D}.Debug|x64.Build.0 = Debug|x64
+		{647358F9-85F3-416B-805B-F649E3B5CE7D}.Debug|x86.ActiveCfg = Debug|x86
+		{647358F9-85F3-416B-805B-F649E3B5CE7D}.Debug|x86.Build.0 = Debug|x86
+		{647358F9-85F3-416B-805B-F649E3B5CE7D}.Release|x64.ActiveCfg = Release|x64
+		{647358F9-85F3-416B-805B-F649E3B5CE7D}.Release|x64.Build.0 = Release|x64
+		{647358F9-85F3-416B-805B-F649E3B5CE7D}.Release|x86.ActiveCfg = Release|x86
+		{647358F9-85F3-416B-805B-F649E3B5CE7D}.Release|x86.Build.0 = Release|x86
+		{46E8092B-E5FF-4B20-8381-CAD2A3CE199A}.Debug|x64.ActiveCfg = Debug|x64
+		{46E8092B-E5FF-4B20-8381-CAD2A3CE199A}.Debug|x64.Build.0 = Debug|x64
+		{46E8092B-E5FF-4B20-8381-CAD2A3CE199A}.Debug|x86.ActiveCfg = Debug|x86
+		{46E8092B-E5FF-4B20-8381-CAD2A3CE199A}.Debug|x86.Build.0 = Debug|x86
+		{46E8092B-E5FF-4B20-8381-CAD2A3CE199A}.Release|x64.ActiveCfg = Release|x64
+		{46E8092B-E5FF-4B20-8381-CAD2A3CE199A}.Release|x64.Build.0 = Release|x64
+		{46E8092B-E5FF-4B20-8381-CAD2A3CE199A}.Release|x86.ActiveCfg = Release|x86
+		{46E8092B-E5FF-4B20-8381-CAD2A3CE199A}.Release|x86.Build.0 = Release|x86
+		{11950D55-8FEC-4374-89BF-510C112D77C4}.Debug|x64.ActiveCfg = Debug|x64
+		{11950D55-8FEC-4374-89BF-510C112D77C4}.Debug|x64.Build.0 = Debug|x64
+		{11950D55-8FEC-4374-89BF-510C112D77C4}.Debug|x86.ActiveCfg = Debug|x86
+		{11950D55-8FEC-4374-89BF-510C112D77C4}.Debug|x86.Build.0 = Debug|x86
+		{11950D55-8FEC-4374-89BF-510C112D77C4}.Release|x64.ActiveCfg = Release|x64
+		{11950D55-8FEC-4374-89BF-510C112D77C4}.Release|x64.Build.0 = Release|x64
+		{11950D55-8FEC-4374-89BF-510C112D77C4}.Release|x86.ActiveCfg = Release|x86
+		{11950D55-8FEC-4374-89BF-510C112D77C4}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
