@@ -1,6 +1,9 @@
 ﻿using Alphaleonis.Win32.Filesystem;
 using CefSharp;
 using CefSharp.WinForms;
+using GHM.Config.Interfaces;
+using GHM.Config.Providers.Factories;
+using GHM.Config.Providers.Interfaces;
 using GHM.Windows.Factories;
 using System;
 using System.Diagnostics;
@@ -8,6 +11,8 @@ using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Assemblies.Info;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.OAuth.GitHub.Factories;
+using xyLOGIX.OAuth.GitHub.Interfaces;
 using xyLOGIX.Win32.Interact;
 
 namespace GitHubManager
@@ -19,7 +24,7 @@ namespace GitHubManager
     {
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfigProvider" /> interface.
+        /// <see cref="T:GHM.Config.Providers.Interfaces.IGitHubManagerConfigProvider" /> interface.
         /// </summary>
         private static IGitHubManagerConfigProvider ConfigProvider
         {
@@ -29,7 +34,7 @@ namespace GitHubManager
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface that represents
+        /// <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" /> interface that represents
         /// the currently-loaded application configuration.
         /// </summary>
         private static IGitHubManagerConfig CurrentConfig
@@ -40,7 +45,7 @@ namespace GitHubManager
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubSession" /> interface.
+        /// <see cref="T:xyLOGIX.OAuth.GitHub.Interfaces.IGitHubSession" /> interface.
         /// </summary>
         private static IGitHubSession Session { [DebuggerStepThrough] get; } =
             GetGitHubSession.SoleInstance();
