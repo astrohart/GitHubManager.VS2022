@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using xyLOGIX.OAuth.GitHub.Models.Interfaces;
 
 namespace GHM.Windows.Presenters.Interfaces
 {
@@ -21,8 +22,12 @@ namespace GHM.Windows.Presenters.Interfaces
         /// <para />
         /// </summary>
         /// <returns>
-        /// Collection of instances of <see cref="T:GitHubManager.Repo" />
-        /// objects that contain the data for all the repositories for the current user.
+        /// Collection of objects, each of which implements the
+        /// <see cref="T:xyLOGIX.OAuth.GitHub.Models.Interfaces.IRepo" /> interface,
+        /// respectively, that represents the requested data set.
+        /// <para />
+        /// The empty collection is returned if either the information could not be
+        /// obtained or if a different error occurred.
         /// </returns>
         Task<IList<IRepo>> GetRepos();
     }
