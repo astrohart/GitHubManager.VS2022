@@ -56,12 +56,14 @@ namespace GHM.Windows
         /// Empty, static constructor to prohibit direct allocation of this
         /// class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         static MainWindow() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this
         /// class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected MainWindow()
         {
             InitializeComponent();
@@ -109,7 +111,8 @@ namespace GHM.Windows
         public bool IsSignedIn
         {
             [DebuggerStepThrough] get => _isSignedIn;
-            [DebuggerStepThrough] private set
+            [DebuggerStepThrough]
+            private set
             {
                 var changed = value != _isSignedIn;
 
@@ -124,8 +127,10 @@ namespace GHM.Windows
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:xyLOGIX.OAuth.GitHub.Interfaces.IGitHubSession" /> interface.
         /// </summary>
-        private static IGitHubSession Session { [DebuggerStepThrough] get; } =
-            GetGitHubSession.SoleInstance();
+        private static IGitHubSession Session
+        {
+            [DebuggerStepThrough] get => GetGitHubSession.SoleInstance();
+        }
 
         /// <summary>
         /// Occurs when the value of the
