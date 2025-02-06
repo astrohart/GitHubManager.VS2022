@@ -186,6 +186,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.OAuth.GitHub.Server
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.OAuth.GitHub.Servers.Models", "..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Servers.Models\xyLOGIX.OAuth.GitHub.Servers.Models.csproj", "{B8104D3A-83AC-4E57-94C9-79408C437B53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Files.Actions.Constants", "..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions.Constants\xyLOGIX.Files.Actions.Constants.csproj", "{F4419217-55C2-4716-8F0A-4C6E3A28BEEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Files.Actions", "..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj", "{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -906,6 +910,22 @@ Global
 		{B8104D3A-83AC-4E57-94C9-79408C437B53}.Release|x64.Build.0 = Release|x64
 		{B8104D3A-83AC-4E57-94C9-79408C437B53}.Release|x86.ActiveCfg = Release|x86
 		{B8104D3A-83AC-4E57-94C9-79408C437B53}.Release|x86.Build.0 = Release|x86
+		{F4419217-55C2-4716-8F0A-4C6E3A28BEEB}.Debug|x64.ActiveCfg = Debug|x64
+		{F4419217-55C2-4716-8F0A-4C6E3A28BEEB}.Debug|x64.Build.0 = Debug|x64
+		{F4419217-55C2-4716-8F0A-4C6E3A28BEEB}.Debug|x86.ActiveCfg = Debug|x86
+		{F4419217-55C2-4716-8F0A-4C6E3A28BEEB}.Debug|x86.Build.0 = Debug|x86
+		{F4419217-55C2-4716-8F0A-4C6E3A28BEEB}.Release|x64.ActiveCfg = Release|x64
+		{F4419217-55C2-4716-8F0A-4C6E3A28BEEB}.Release|x64.Build.0 = Release|x64
+		{F4419217-55C2-4716-8F0A-4C6E3A28BEEB}.Release|x86.ActiveCfg = Release|x86
+		{F4419217-55C2-4716-8F0A-4C6E3A28BEEB}.Release|x86.Build.0 = Release|x86
+		{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}.Debug|x64.ActiveCfg = Debug|x64
+		{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}.Debug|x64.Build.0 = Debug|x64
+		{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}.Debug|x86.ActiveCfg = Debug|x86
+		{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}.Debug|x86.Build.0 = Debug|x86
+		{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}.Release|x64.ActiveCfg = Release|x64
+		{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}.Release|x64.Build.0 = Release|x64
+		{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}.Release|x86.ActiveCfg = Release|x86
+		{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
