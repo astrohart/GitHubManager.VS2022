@@ -23,12 +23,12 @@ namespace GHM.Windows.Presenters.Interfaces
         /// </summary>
         /// <returns>
         /// Collection of objects, each of which implements the
-        /// <see cref="T:xyLOGIX.OAuth.GitHub.Models.Interfaces.IRepo" /> interface,
+        /// <see cref="T:xyLOGIX.OAuth.GitHub.Models.Interfaces.IRemoteRepo" /> interface,
         /// respectively, that represents the requested data set.
         /// <para />
         /// The empty collection is returned if either the information could not be
         /// obtained or if a different error occurred.
         /// </returns>
-        Task<IList<IRepo>> GetRepos();
+        Task<IList<IRemoteRepo>> GetRepos();
     }
 }

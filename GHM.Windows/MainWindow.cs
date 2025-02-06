@@ -355,7 +355,7 @@ namespace GHM.Windows
 
                         reposListBindingSource.DataSource = null;
                         reposListBindingSource.DataSource =
-                            new BindingList<IRepo>(await Presenter.GetRepos());
+                            new BindingList<IRemoteRepo>(await Presenter.GetRepos());
 
                         Thread.Sleep(
                             500

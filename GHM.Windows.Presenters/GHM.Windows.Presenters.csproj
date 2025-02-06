@@ -155,6 +155,10 @@
       <Project>{1585D88B-E073-42BF-90C7-E6C1F07392D6}</Project>
       <Name>xyLOGIX.OAuth.GitHub.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Models.Factories\xyLOGIX.OAuth.GitHub.Models.Factories.csproj">
+      <Project>{7355D49B-28C4-4C23-AA11-A29E55DB68FA}</Project>
+      <Name>xyLOGIX.OAuth.GitHub.Models.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Models.Interfaces\xyLOGIX.OAuth.GitHub.Models.Interfaces.csproj">
       <Project>{E85E5BD6-BD2D-4A76-9E61-101DB951E116}</Project>
       <Name>xyLOGIX.OAuth.GitHub.Models.Interfaces</Name>

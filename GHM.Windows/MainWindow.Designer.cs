@@ -284,7 +284,7 @@ namespace GHM.Windows
             // 
             // reposListBindingSource
             // 
-            this.reposListBindingSource.DataSource = typeof(Repo);
+            this.reposListBindingSource.DataSource = typeof(RemoteRepo);
             // 
             // countLabel
             // 

@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.OAuth.GitHub.Factories;
 using xyLOGIX.OAuth.GitHub.Interfaces;
-using xyLOGIX.OAuth.GitHub.Models;
+using xyLOGIX.OAuth.GitHub.Models.Factories;
 using xyLOGIX.OAuth.GitHub.Models.Interfaces;
 
 namespace GHM.Windows.Presenters
@@ -86,7 +86,8 @@ namespace GHM.Windows.Presenters
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GHM.Config.Providers.Interfaces.IGitHubManagerConfigProvider" /> interface.
+        /// <see cref="T:GHM.Config.Providers.Interfaces.IGitHubManagerConfigProvider" />
+        /// interface.
         /// </summary>
         private static IGitHubManagerConfigProvider GitHubManagerConfigProvider
         {
@@ -121,15 +122,15 @@ namespace GHM.Windows.Presenters
         /// </summary>
         /// <returns>
         /// Collection of objects, each of which implements the
-        /// <see cref="T:xyLOGIX.OAuth.GitHub.Models.Interfaces.IRepo" /> interface,
+        /// <see cref="T:xyLOGIX.OAuth.GitHub.Models.Interfaces.IRemoteRepo" /> interface,
         /// respectively, that represents the requested data set.
         /// <para />
         /// The empty collection is returned if either the information could not be
         /// obtained or if a different error occurred.
         /// </returns>
-        public async Task<IList<IRepo>> GetRepos()
+        public async Task<IList<IRemoteRepo>> GetRepos()
         {
-            var result = new AdvisableCollection<IRepo>();
+            var result = new AdvisableCollection<IRemoteRepo>();
 
             try
             {
@@ -150,12 +151,9 @@ namespace GHM.Windows.Presenters
                         continue;
 
                     result.Add(
-                        new Repo
-                        {
-                            CloneUrl = gitHubRepoInfo.CloneUrl,
-                            Description = gitHubRepoInfo.Description,
-                            Name = gitHubRepoInfo.Name
-                        }
+                        MakeNewRemoteRepo.HavingCloneUrl(gitHubRepoInfo.CloneUrl)
+                                   .AndDescription(gitHubRepoInfo.Description)
+                                   .AndName(gitHubRepoInfo.Name)
                     );
                 }
             }
@@ -164,7 +162,7 @@ namespace GHM.Windows.Presenters
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = new AdvisableCollection<IRepo>();
+                result = new AdvisableCollection<IRemoteRepo>();
             }
 
             return result;
