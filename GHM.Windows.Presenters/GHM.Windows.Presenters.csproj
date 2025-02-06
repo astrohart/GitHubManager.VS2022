@@ -95,6 +95,9 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Octokit, Version=14.0.0.0, Culture=neutral, PublicKeyToken=0be8860aee462442, processorArchitecture=MSIL">
+      <HintPath>..\packages\Octokit.14.0.0\lib\netstandard2.0\Octokit.dll</HintPath>
+    </Reference>
     <Reference Include="PostSharp, Version=2024.1.6.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Redist.2024.1.6\lib\net45\PostSharp.dll</HintPath>
     </Reference>
@@ -118,7 +121,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +146,46 @@
     <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
       <Project>{5528d7fb-b88b-4e9d-9bbd-b6b6b893666a}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Factories\xyLOGIX.OAuth.GitHub.Factories.csproj">
+      <Project>{135A8FB0-DF86-4575-B2A2-1746B7C1650E}</Project>
+      <Name>xyLOGIX.OAuth.GitHub.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Interfaces\xyLOGIX.OAuth.GitHub.Interfaces.csproj">
+      <Project>{1585D88B-E073-42BF-90C7-E6C1F07392D6}</Project>
+      <Name>xyLOGIX.OAuth.GitHub.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Models.Interfaces\xyLOGIX.OAuth.GitHub.Models.Interfaces.csproj">
+      <Project>{E85E5BD6-BD2D-4A76-9E61-101DB951E116}</Project>
+      <Name>xyLOGIX.OAuth.GitHub.Models.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.OAuth.GitHub\xyLOGIX.OAuth.GitHub.Models\xyLOGIX.OAuth.GitHub.Models.csproj">
+      <Project>{4966140B-48D3-408F-BC94-764B2057295A}</Project>
+      <Name>xyLOGIX.OAuth.GitHub.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Forms\xyLOGIX.UI.Dark.Forms.csproj">
+      <Project>{E88EC1DD-47DA-4EFF-A3C1-42E7A58E21AC}</Project>
+      <Name>xyLOGIX.UI.Dark.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Config.Interfaces\GHM.Config.Interfaces.csproj">
+      <Project>{15686B52-5426-418C-AB36-B35B729633E7}</Project>
+      <Name>GHM.Config.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Config.Providers.Factories\GHM.Config.Providers.Factories.csproj">
+      <Project>{7F28798E-B8E1-4B89-87F4-D66502714C22}</Project>
+      <Name>GHM.Config.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Config.Providers.Interfaces\GHM.Config.Providers.Interfaces.csproj">
+      <Project>{DDD70868-6DC9-49AA-96A0-84D40B4FA711}</Project>
+      <Name>GHM.Config.Providers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Dialogs.Factories\GHM.Dialogs.Factories.csproj">
+      <Project>{46E8092B-E5FF-4B20-8381-CAD2A3CE199A}</Project>
+      <Name>GHM.Dialogs.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Dialogs.Interfaces\GHM.Dialogs.Interfaces.csproj">
+      <Project>{11950D55-8FEC-4374-89BF-510C112D77C4}</Project>
+      <Name>GHM.Dialogs.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\GHM.Windows.Interfaces\GHM.Windows.Interfaces.csproj">
       <Project>{1046F6BE-96F4-444F-8F9B-6623F7E4302E}</Project>
