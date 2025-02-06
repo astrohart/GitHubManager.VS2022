@@ -78,7 +78,7 @@ namespace GHM.Dialogs.Presenters
 
         /// <summary>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.ILoginDialogBox" /> interface.
+        /// <see cref="T:GHM.Dialogs.Interfaces.ILoginDialogBox" /> interface.
         /// </summary>
         public ILoginDialogBox View { [DebuggerStepThrough] get; }
 

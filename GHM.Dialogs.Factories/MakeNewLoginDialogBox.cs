@@ -1,11 +1,12 @@
-﻿using PostSharp.Patterns.Diagnostics;
+﻿using GHM.Dialogs.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System.Diagnostics;
 
 namespace GHM.Dialogs.Factories
 {
     /// <summary>
     /// Creates new instances of objects that implement the
-    /// <see cref="T:GitHubManager.ILoginDialogBox" /> interface, and returns
+    /// <see cref="T:GHM.Dialogs.Interfaces.ILoginDialogBox" /> interface, and returns
     /// references to them.
     /// </summary>
     public static class MakeNewLoginDialogBox
@@ -26,12 +27,12 @@ namespace GHM.Dialogs.Factories
 
         /// <summary>
         /// Creates a new instance of an object that implements the
-        /// <see cref="T:GitHubManager.ILoginDialogBox" /> interface and returns a
+        /// <see cref="T:GHM.Dialogs.Interfaces.ILoginDialogBox" /> interface and returns a
         /// reference to it.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.ILoginDialogBox" /> interface.
+        /// <see cref="T:GHM.Dialogs.Interfaces.ILoginDialogBox" /> interface.
         /// </returns>
         [return: NotLogged]
         [DebuggerStepThrough]

@@ -18,7 +18,7 @@ namespace GHM.Windows
 
         /// <summary>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.ILoginDialogBox" /> interface.
+        /// <see cref="T:GHM.Dialogs.Interfaces.ILoginDialogBox" /> interface.
         /// </summary>
         private ILoginDialogBox _loginDialogBox;
 

@@ -146,6 +146,18 @@
       <Project>{5528d7fb-b88b-4e9d-9bbd-b6b6b893666a}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Forms\xyLOGIX.UI.Dark.Forms.csproj">
+      <Project>{E88EC1DD-47DA-4EFF-A3C1-42E7A58E21AC}</Project>
+      <Name>xyLOGIX.UI.Dark.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Dialogs.Interfaces\GHM.Dialogs.Interfaces.csproj">
+      <Project>{11950D55-8FEC-4374-89BF-510C112D77C4}</Project>
+      <Name>GHM.Dialogs.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Dialogs\GHM.Dialogs.csproj">
+      <Project>{647358F9-85F3-416B-805B-F649E3B5CE7D}</Project>
+      <Name>GHM.Dialogs</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="1382_cogs.ico" />
