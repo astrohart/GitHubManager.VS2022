@@ -170,7 +170,6 @@
     <Compile Include="GitHubUrls.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="IGitHubLoginServer.cs" />
-    <Compile Include="IGitHubManagerConfig.cs" />
     <Compile Include="IGitHubManagerConfigProvider.cs" />
     <Compile Include="IGitHubSession.cs" />
     <Compile Include="IntExtensions.cs" />
