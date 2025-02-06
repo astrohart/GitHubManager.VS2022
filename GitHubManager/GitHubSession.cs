@@ -30,7 +30,7 @@ namespace GitHubManager
         /// that allows communication with the GitHub server.
         /// </summary>
         public GitHubClient Client { [DebuggerStepThrough] get; } =
-            new GitHubClient(new ProductHeaderValue("xyLOGIX-GitHub-Manager"));
+            new GitHubClient(new ProductHeaderValue("xyLOGIX-GitHub-OAuth-Interface"));
 
         /// <summary> Gets a string containing the Client ID of this session. </summary>
         public string ClientId
