@@ -1,11 +1,26 @@
-﻿using GHM.Windows.Interfaces;
+﻿using GHM.Config.Interfaces;
+using GHM.Config.Providers.Factories;
+using GHM.Config.Providers.Interfaces;
+using GHM.Dialogs.Factories;
+using GHM.Dialogs.Interfaces;
+using GHM.Windows.Interfaces;
+using GHM.Windows.Presenters.Factories;
+using GHM.Windows.Presenters.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Dialogs.Progress.Factories;
+using xyLOGIX.Core.Dialogs.Progress.Interfaces;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.OAuth.GitHub.Events;
+using xyLOGIX.OAuth.GitHub.Factories;
+using xyLOGIX.OAuth.GitHub.Interfaces;
+using xyLOGIX.OAuth.GitHub.Models.Interfaces;
+using xyLOGIX.UI.Dark.Controls.Actions;
 using xyLOGIX.UI.Dark.Forms;
 
 namespace GHM.Windows
@@ -51,7 +66,7 @@ namespace GHM.Windows
         {
             InitializeComponent();
 
-            Presenter = new MainWindowPresenter(this);
+            Presenter = MakeNewMainWindowPresenter.ForView(this);
 
             Session.GitHubAuthenticated += OnGitHubAuthenticated;
 
@@ -60,11 +75,24 @@ namespace GHM.Windows
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubManagerConfigProvider" /> interface.
+        /// <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" /> interface that
+        /// represents the currently-loaded application configuration.
         /// </summary>
-        private static IGitHubManagerConfigProvider
-            GitHubManagerConfigProvider
-            => GetGitHubManagerConfigProvider.SoleInstance();
+        private IGitHubManagerConfig CurrentConfig
+        {
+            [DebuggerStepThrough]
+            get => GitHubManagerConfigProvider.CurrentConfig;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:GHM.Config.Providers.Interfaces.IGitHubManagerConfigProvider" />
+        /// interface.
+        /// </summary>
+        private static IGitHubManagerConfigProvider GitHubManagerConfigProvider
+        {
+            [DebuggerStepThrough] get;
+        } = GetGitHubManagerConfigProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -80,8 +108,8 @@ namespace GHM.Windows
         /// </remarks>
         public bool IsSignedIn
         {
-            get => _isSignedIn;
-            private set
+            [DebuggerStepThrough] get => _isSignedIn;
+            [DebuggerStepThrough] private set
             {
                 var changed = value != _isSignedIn;
 
@@ -94,44 +122,67 @@ namespace GHM.Windows
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubSession" /> interface.
+        /// <see cref="T:xyLOGIX.OAuth.GitHub.Interfaces.IGitHubSession" /> interface.
         /// </summary>
-        private static IGitHubSession Session
-            => GetGitHubSession.SoleInstance();
+        private static IGitHubSession Session { [DebuggerStepThrough] get; } =
+            GetGitHubSession.SoleInstance();
 
         /// <summary>
         /// Occurs when the value of the
-        /// <see cref="P:GHM.Windows.Interfaces.IMainWindow.IsSignedIn" /> property changes.
+        /// <see cref="P:GHM.Windows.Interfaces.IMainWindow.IsSignedIn" /> property
+        /// changes.
         /// </summary>
         public event EventHandler SignedInChanged;
 
+        /// <summary>
+        /// Closes the Login dialog box, if it is open.
+        /// </summary>
         private void CloseLoginDialogBox()
         {
-            if (_loginDialogBox == null) return;
-            if (_loginDialogBox.IsDisposed) return;
+            try
+            {
+                if (_loginDialogBox == null) return;
+                if (_loginDialogBox.IsDisposed) return;
 
-            _loginDialogBox.DoIfNotDisposed(
-                () =>
-                {
-                    _loginDialogBox.Hide();
-                    _loginDialogBox.Dispose();
-                    _loginDialogBox = null;
-                }
-            );
+                _loginDialogBox.DoIfNotDisposed(
+                    () =>
+                    {
+                        _loginDialogBox.Hide();
+                        _loginDialogBox.Dispose();
+                        _loginDialogBox = null;
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
+        /// <summary>
+        /// Closes the progress dialog box, if it is open.
+        /// </summary>
         private void CloseProgressDialog()
         {
-            if (_progressDialog == null) return;
+            try
+            {
+                if (_progressDialog == null) return;
 
-            _progressDialog.DoIfNotDisposed(
-                () =>
-                {
-                    _progressDialog.Close();
-                    _progressDialog.Dispose();
-                    _progressDialog = null;
-                }
-            );
+                _progressDialog.DoIfNotDisposed(
+                    () =>
+                    {
+                        _progressDialog.Close();
+                        _progressDialog.Dispose();
+                        _progressDialog = null;
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -152,7 +203,10 @@ namespace GHM.Windows
         /// items that tell the user whether UI/UX elements are visible (checked) or hidden
         /// (not checked).
         /// </remarks>
-        private void OnDropDownOpeningViewMenu(object sender, EventArgs e)
+        private void OnDropDownOpeningViewMenu(
+            [NotLogged] object sender,
+            [NotLogged] EventArgs e
+        )
             => viewStatusBar.Checked = statusBar.Visible;
 
         /// <summary>
@@ -175,8 +229,8 @@ namespace GHM.Windows
         /// whether they are visible (checked) or hidden (not checked)
         /// </remarks>
         private void OnDropDownOpeningViewToolbarsMenu(
-            object sender,
-            EventArgs e
+            [NotLogged] object sender,
+            [NotLogged] EventArgs e
         )
             => viewNavigateToolbar.Checked = navigateToolBar.Visible;
 
@@ -198,7 +252,10 @@ namespace GHM.Windows
         /// main application window, this also terminates the lifecycle of the application
         /// process.
         /// </remarks>
-        private void OnFileExit(object sender, EventArgs e)
+        private void OnFileExit(
+            [NotLogged] object sender,
+            [NotLogged] EventArgs e
+        )
             => Close();
 
         /// <summary>
@@ -218,7 +275,10 @@ namespace GHM.Windows
         /// This menu responds by showing the user the Login dialog box for
         /// GitHub and signing the user into the account that is chosen.
         /// </remarks>
-        private void OnFileLogin(object sender, EventArgs e)
+        private void OnFileLogin(
+            [NotLogged] object sender,
+            [NotLogged] EventArgs e
+        )
         {
             _loginDialogBox = MakeNewLoginDialogBox.FromScratch();
 
@@ -244,7 +304,10 @@ namespace GHM.Windows
         /// the items on the <strong>File</strong> menu to correspond with the current
         /// state of the application.
         /// </remarks>
-        private void OnFileMenuDropDownOpening(object sender, EventArgs e)
+        private void OnFileMenuDropDownOpening(
+            [NotLogged] object sender,
+            [NotLogged] EventArgs e
+        )
             => fileLogin.Enabled = !IsSignedIn;
 
         /// <summary>
@@ -265,8 +328,8 @@ namespace GHM.Windows
         /// data into the DataGridView displayed in the middle of the window.
         /// </remarks>
         private void OnGitHubAuthenticated(
-            object sender,
-            GitHubAuthenticatedEventArgs e
+            [NotLogged] object sender,
+            [NotLogged] GitHubAuthenticatedEventArgs e
         )
             => this.InvokeIfRequired(
                 new MethodInvoker(
@@ -325,12 +388,11 @@ namespace GHM.Windows
         /// A <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
-        protected override void OnShown(EventArgs e)
+        protected override void OnShown([NotLogged] EventArgs e)
         {
             base.OnShown(e);
 
-            if (GitHubManagerConfigProvider.CurrentConfig
-                                                  .LoginOnStartup)
+            if (CurrentConfig.LoginOnStartup)
                 fileLogin.PerformClick();
         }
 
@@ -358,7 +420,10 @@ namespace GHM.Windows
         /// This method responds by instructing the Presenter to enable the user
         /// to configure options that affect the behavior of this application.
         /// </remarks>
-        private void OnToolsOptions(object sender, EventArgs e)
+        private void OnToolsOptions(
+            [NotLogged] object sender,
+            [NotLogged] EventArgs e
+        )
             => Presenter.ConfigureOptions();
 
         /// <summary>
@@ -378,7 +443,10 @@ namespace GHM.Windows
         /// controls corresponds to the internal state of the application.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private void OnUpdateCmdUI(object sender, EventArgs e)
+        private void OnUpdateCmdUI(
+            [NotLogged] object sender,
+            [NotLogged] EventArgs e
+        )
             => navigateToolBar.Enabled = reposDataGridView.RowCount > 0;
 
         /// <summary>
@@ -395,7 +463,10 @@ namespace GHM.Windows
         /// data.
         /// </param>
         /// <remarks>This method shows or hides the <strong>Navigate</strong> toolbar.</remarks>
-        private void OnViewNavigateToolbar(object sender, EventArgs e)
+        private void OnViewNavigateToolbar(
+            [NotLogged] object sender,
+            [NotLogged] EventArgs e
+        )
             => navigateToolBar.Visible = !navigateToolBar.Visible;
 
         /// <summary>
@@ -412,7 +483,10 @@ namespace GHM.Windows
         /// data.
         /// </param>
         /// <remarks>This method shows or hides the Status Bar.</remarks>
-        private void OnViewStatusBar(object sender, EventArgs e)
+        private void OnViewStatusBar(
+            [NotLogged] object sender,
+            [NotLogged] EventArgs e
+        )
             => statusBar.Visible = !statusBar.Visible;
     }
 }
