@@ -139,9 +139,25 @@
       <Project>{c445c052-26b6-4884-9a7b-25dc7abc0ded}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
-      <Project>{5528d7fb-b88b-4e9d-9bbd-b6b6b893666a}</Project>
-      <Name>xyLOGIX.Core.Extensions</Name>
+    <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj">
+      <Project>{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}</Project>
+      <Name>xyLOGIX.Files.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Config.Converters\GHM.Config.Converters.csproj">
+      <Project>{F90ACCB0-9529-4A89-9924-48DE33E773EE}</Project>
+      <Name>GHM.Config.Converters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Config.Interfaces\GHM.Config.Interfaces.csproj">
+      <Project>{15686B52-5426-418C-AB36-B35B729633E7}</Project>
+      <Name>GHM.Config.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Config.Providers.Interfaces\GHM.Config.Providers.Interfaces.csproj">
+      <Project>{DDD70868-6DC9-49AA-96A0-84D40B4FA711}</Project>
+      <Name>GHM.Config.Providers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GHM.Config\GHM.Config.csproj">
+      <Project>{2D65F681-CA18-4155-8D4C-B7B81529081C}</Project>
+      <Name>GHM.Config</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
