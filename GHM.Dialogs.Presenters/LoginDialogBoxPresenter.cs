@@ -6,6 +6,8 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using xyLOGIX.OAuth.GitHub.Factories;
+using xyLOGIX.OAuth.GitHub.Interfaces;
 
 namespace GHM.Dialogs.Presenters
 {
@@ -71,10 +73,10 @@ namespace GHM.Dialogs.Presenters
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:GitHubManager.IGitHubSession" /> interface.
+        /// <see cref="T:xyLOGIX.OAuth.GitHub.Interfaces.IGitHubSession" /> interface.
         /// </summary>
-        public IGitHubSession Session
-            => GetGitHubSession.SoleInstance();
+        public IGitHubSession Session { [DebuggerStepThrough] get; } =
+            GetGitHubSession.SoleInstance();
 
         /// <summary>
         /// Reference to an instance of an object that implements the
