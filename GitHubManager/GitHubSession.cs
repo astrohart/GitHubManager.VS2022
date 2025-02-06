@@ -29,15 +29,22 @@ namespace GitHubManager
         /// Reference to an instance of <see cref="T:Octokit.GitHubClient" />
         /// that allows communication with the GitHub server.
         /// </summary>
-        public GitHubClient Client { [DebuggerStepThrough] get; } = new GitHubClient(
-            new ProductHeaderValue("xyLOGIX-GitHub-Manager")
-        );
+        public GitHubClient Client { [DebuggerStepThrough] get; } =
+            new GitHubClient(new ProductHeaderValue("xyLOGIX-GitHub-Manager"));
 
         /// <summary> Gets a string containing the Client ID of this session. </summary>
-        public string ClientId { [DebuggerStepThrough] get; [DebuggerStepThrough] private set; }
+        public string ClientId
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] private set;
+        }
 
         /// <summary> Gets a string containing the Client Secret of this session. </summary>
-        public string ClientSecet { [DebuggerStepThrough] get; [DebuggerStepThrough] private set; }
+        public string ClientSecet
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] private set;
+        }
 
         /// <summary> Gets or sets a random string that uniquely identifies this session. </summary>
         public string CsrfId { [DebuggerStepThrough] get; }
@@ -53,28 +60,28 @@ namespace GitHubManager
         /// Gets a reference to the one and only instance of
         /// <see cref="T:GitHubManager.GitHubSession" />.
         /// </summary>
-        public static IGitHubSession Instance { [DebuggerStepThrough] get; } = new GitHubSession();
+        public static IGitHubSession Instance { [DebuggerStepThrough] get; } =
+            new GitHubSession();
 
         /// <summary>
         /// Gets or sets a <see cref="T:Octokit.OauthLoginRequest" /> that
         /// represents the OAuth Flow.
         /// </summary>
-        private OauthLoginRequest Request { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
+        private OauthLoginRequest Request
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        }
 
         /// <summary>
         /// Gets or sets a <see cref="T:Octokit.OauthToken" /> to be used for API
         /// calls.
         /// </summary>
-        public OauthToken Token { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
-
-        /// <summary> Occurs when the user's GitHub account has been authenticated. </summary>
-        public event GitHubAuthenticatedEventHandler GitHubAuthenticated;
-
-        /// <summary>
-        /// Occurs when we are ready to have a client, e.g., form, navigate to
-        /// the login page.
-        /// </summary>
-        public event EventHandler<Uri> ReadyToNavigateToLoginPage;
+        public OauthToken Token
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        }
 
         /// <summary> Associates this session object with a particular GitHub OAuth App. </summary>
         /// <param name="clientId">(Required.) String containing the Client ID of the app.</param>
@@ -111,6 +118,9 @@ namespace GitHubManager
             GitHubLoginServer.Start(GitHubUrls.OAuthRedirectURL);
         }
 
+        /// <summary> Occurs when the user's GitHub account has been authenticated. </summary>
+        public event GitHubAuthenticatedEventHandler GitHubAuthenticated;
+
         /// <summary> This method is called to initiate the OAuth process. </summary>
         public void InitiateOauthFlow()
         {
@@ -126,6 +136,19 @@ namespace GitHubManager
         }
 
         /// <summary>
+        /// Occurs when we are ready to have a client, e.g., form, navigate to
+        /// the login page.
+        /// </summary>
+        public event EventHandler<Uri> ReadyToNavigateToLoginPage;
+
+        /// <summary> Sets up the parameters of the OAuth request object for this session. </summary>
+        private void InitializeOAUthRequest()
+            => Request = new OauthLoginRequest(ClientId)
+            {
+                Scopes = { "repo" }, State = CsrfId
+            };
+
+        /// <summary>
         /// Raises the
         /// <see cref="E:GitHubManager.GitHubSession.GitHubAuthenticated" /> event.
         /// </summary>
@@ -137,13 +160,6 @@ namespace GitHubManager
             GitHubAuthenticatedEventArgs e
         )
             => GitHubAuthenticated?.Invoke(this, e);
-
-        /// <summary> Sets up the parameters of the OAuth request object for this session. </summary>
-        private void InitializeOAUthRequest()
-            => Request = new OauthLoginRequest(ClientId)
-            {
-                Scopes = { "repo" }, State = CsrfId
-            };
 
         /// <summary>
         /// Handles the
