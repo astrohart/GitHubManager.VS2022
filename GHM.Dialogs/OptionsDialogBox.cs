@@ -1,4 +1,5 @@
-﻿using GHM.Dialogs.Interfaces;
+﻿using GHM.Config.Interfaces;
+using GHM.Dialogs.Interfaces;
 using GHM.Dialogs.Presenters.Factories;
 using GHM.Dialogs.Presenters.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -17,7 +18,8 @@ namespace GHM.Dialogs
     {
         /// <summary>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:GHM.Dialogs.Presenters.Interfaces.IOptionsDialogBoxPresenter" /> interface.
+        /// <see cref="T:GHM.Dialogs.Presenters.Interfaces.IOptionsDialogBoxPresenter" />
+        /// interface.
         /// </summary>
         /// <remarks>This object plays the role of this dialog box's Presenter.</remarks>
         private readonly IOptionsDialogBoxPresenter Presenter;
@@ -37,10 +39,14 @@ namespace GHM.Dialogs
 
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
-        /// the <see cref="T:GitHubManager.IGitHubManagerConfig" /> interface that
+        /// the <see cref="T:GHM.Config.Interfaces.IGitHubManagerConfig" /> interface that
         /// serves as the config for the application.
         /// </summary>
-        public IGitHubManagerConfig CurrentConfig { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
+        public IGitHubManagerConfig CurrentConfig
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        }
 
         /// <summary>
         /// Occurs when the user clicks the <strong>Apply</strong> button.
@@ -56,18 +62,6 @@ namespace GHM.Dialogs
         /// </summary>
         protected virtual void OnApplied()
             => Applied?.Invoke(this, EventArgs.Empty);
-
-        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
-        /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event
-        /// data.
-        /// </param>
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            UpdateData(false);
-        }
 
         /// <summary>
         /// Handles the
@@ -97,6 +91,18 @@ namespace GHM.Dialogs
 
         private void OnClickOK(object sender, EventArgs e)
             => UpdateData();
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            UpdateData(false);
+        }
 
         [Log(AttributeExclude = true)]
         private void OnUpdateCmdUI(object sender, EventArgs e)
