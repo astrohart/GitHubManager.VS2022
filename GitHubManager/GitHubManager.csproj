@@ -173,7 +173,6 @@
     <Compile Include="IGitHubLoginServer.cs" />
     <Compile Include="IGitHubManagerConfigProvider.cs" />
     <Compile Include="IGitHubSession.cs" />
-    <Compile Include="IntExtensions.cs" />
     <Compile Include="IRepo.cs" />
     <Compile Include="MakeNewGitHubLoginInfo.cs" />
     <Compile Include="Program.cs" />
