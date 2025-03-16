@@ -23,7 +23,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
-    <SkipPostSharp>false</SkipPostSharp>
+    <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x64\Debug\GHM.Dialogs.Helpers.xml</DocumentationFile>
     <WarningLevel>4</WarningLevel>
     <NoWarn>CS1591;CS1587</NoWarn>
@@ -38,7 +38,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
-    <SkipPostSharp>true</SkipPostSharp>
+    <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x64\Release\GHM.Dialogs.Helpers.xml</DocumentationFile>
     <WarningLevel>4</WarningLevel>
     <NoWarn>CS1591;CS1587</NoWarn>
@@ -53,7 +53,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
-    <SkipPostSharp>false</SkipPostSharp>
+    <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x86\Debug\GHM.Dialogs.Helpers.xml</DocumentationFile>
     <WarningLevel>4</WarningLevel>
     <NoWarn>CS1591;CS1587</NoWarn>
@@ -68,7 +68,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
-    <SkipPostSharp>true</SkipPostSharp>
+    <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x86\Release\GHM.Dialogs.Helpers.xml</DocumentationFile>
     <WarningLevel>4</WarningLevel>
     <NoWarn>CS1591;CS1587</NoWarn>
