@@ -56,7 +56,7 @@ namespace GitHubManager
         [STAThread]
         private static void Main()
         {
-            LogFileManager.InitializeLogging(
+            LoggingSubsystemManager.InitializeLogging(
                 muteConsole: false,
                 infrastructureType: LoggingInfrastructureType.PostSharp,
                 logFileName: Get.LogFilePath(),
