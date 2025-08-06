@@ -61,11 +61,11 @@ namespace GHM.Windows
         static MainWindow() { }
 
         /// <summary>
-        /// Empty, protected constructor to prohibit direct allocation of this
+        /// Empty, private constructor to prohibit direct allocation of this
         /// class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected MainWindow()
+        private MainWindow()
         {
             InitializeComponent();
 
