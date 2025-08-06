@@ -31,11 +31,11 @@ namespace GHM.Config.Providers
         static GitHubManagerConfigProvider() { }
 
         /// <summary>
-        /// Empty, protected constructor to prohibit direct allocation of this
+        /// Empty, private constructor to prohibit direct allocation of this
         /// class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected GitHubManagerConfigProvider() { }
+        private GitHubManagerConfigProvider() { }
 
         /// <summary>
         /// Gets or sets a reference to the instance of an object implementing
