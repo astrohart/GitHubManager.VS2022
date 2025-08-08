@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("xyLOGIX Support Library for GHM.Dialogs.Helpers")]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]
+        "Copyright ? 2020-23 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
         "This software is a component of xyLOGIX Foo.  Foo is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.  Other brand names, brands, logos, service marks, trademarks, and registered trademarks herein belong to their respective owners.")]
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e42756dd-229c-4ca9-8d21-0eee447fde0a")]
+[assembly: Guid("2e655dd4-3aa9-410a-b032-6cecda55d131")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("xyLOGIX GitHub Manager Sample Application")]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2021-25 by xyLOGIX, LLC.  All rights reserved.")]
+        "Copyright ?? 2021-25 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
         "This software is a component of xyLOGIX GitHub Manager Sample Application.  GitHub Manager Sample Application is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.  Other brand names, brands, logos, service marks, trademarks, and registered trademarks herein belong to their respective owners.")]
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1ed58c87-78bc-45bc-b433-40072903ee78")]
+[assembly: Guid("382ab679-df52-474f-b91b-716b5772566e")]
 
 // Version information for an assembly consists of the following four values:
 //
