@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("xyLOGIX Support Library for GHM.Dialogs.Helpers")]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]
+        "Copyright ?? 2020-23 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
         "This software is a component of xyLOGIX Foo.  Foo is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.  Other brand names, brands, logos, service marks, trademarks, and registered trademarks herein belong to their respective owners.")]
