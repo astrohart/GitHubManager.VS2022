@@ -82,14 +82,14 @@ namespace GHM.Dialogs
         /// in the property sheet has been modified.
         /// </remarks>
         private void OnCheckedChangedLoginOnStartupCheckBox(
-            object sender,
-            EventArgs e
+            [NotLogged] object sender,
+            [NotLogged] EventArgs e
         )
             => Presenter.IsModified =
                 !Presenter
                     .IsModified; // toggle because the checkbox is a toggle
 
-        private void OnClickOK(object sender, EventArgs e)
+        private void OnClickOK([NotLogged] object sender, [NotLogged] EventArgs e)
             => UpdateData();
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
@@ -97,7 +97,7 @@ namespace GHM.Dialogs
         /// An <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
-        protected override void OnLoad(EventArgs e)
+        protected override void OnLoad([NotLogged] EventArgs e)
         {
             base.OnLoad(e);
 
@@ -105,7 +105,7 @@ namespace GHM.Dialogs
         }
 
         [Log(AttributeExclude = true)]
-        private void OnUpdateCmdUI(object sender, EventArgs e)
+        private void OnUpdateCmdUI([NotLogged] object sender, [NotLogged] EventArgs e)
             => applyButton.Enabled = Presenter.IsModified;
 
         /// <summary> Moves data from this dialog's controls to the config object. </summary>
