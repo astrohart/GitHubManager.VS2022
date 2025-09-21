@@ -98,7 +98,7 @@ namespace GHM.Dialogs
         /// <param name="e">
         /// A <see cref="T:System.Windows.Forms.FormClosingEventArgs" />
         /// that contains the event data.</pa
-        protected override void OnFormClosing(FormClosingEventArgs e)
+        protected override void OnFormClosing(FormClosing[NotLogged] EventArgs e)
         {
             base.OnFormClosing(e);
 
@@ -115,7 +115,7 @@ namespace GHM.Dialogs
         /// the event data.
         /// </param>
         protected virtual void OnGitHubLoginInfoReceived(
-            GitHubLoginInfoReceivedEventArgs e
+        [NotLogged] GitHubLoginInfoReceivedEventArgs e
         )
             => GitHubLoginInfoReceived?.Invoke(this, e);
 
@@ -136,8 +136,8 @@ namespace GHM.Dialogs
         /// This method responds by navigating the embedded web browser to the
         /// page specified in the <paramref name="e" /> parameter. </rema
         private void OnReadyToNavigateToLoginPage(
-            object sender,
-            ReadyToNavigateToLoginPageEventArgs e
+            [NotLogged] object sender,
+            [NotLogged] ReadyToNavigateToLoginPageEventArgs e
         )
         {
             if (e.Uri == null) return;
@@ -160,7 +160,7 @@ namespace GHM.Dialogs
         /// A <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
-        protected override void OnShown(EventArgs e)
+        protected override void OnShown([NotLogged] EventArgs e)
         {
             base.OnShown(e);
 
@@ -191,8 +191,8 @@ namespace GHM.Dialogs
         /// portion of the authorization is finished.
         /// </remarks>
         private void OnWebBrowserAddressChanged(
-            object sender,
-            AddressChangedEventArgs e
+            [NotLogged] object sender,
+            [NotLogged] AddressChangedEventArgs e
         )
         {
             if (!webBrowser.IsBrowserInitialized)
@@ -232,7 +232,7 @@ namespace GHM.Dialogs
         /// Browser control once the initialization of the control is completed (such as
         /// loading a page).
         /// </remarks>
-        private void OnWebBrowserInitializedChanged(object sender, EventArgs e)
+        private void OnWebBrowserInitializedChanged([NotLogged] object sender, [NotLogged] EventArgs e)
         {
             if (!webBrowser.IsBrowserInitialized)
                 return;
@@ -263,8 +263,8 @@ namespace GHM.Dialogs
         /// <see cref="P:System.Windows.Forms.Form.DialogResult" /> property set.
         /// </remarks>
         private async void OnWebBrowserLoadingStateChanged(
-            object sender,
-            LoadingStateChangedEventArgs e
+            [NotLogged] object sender,
+            [NotLogged] LoadingStateChangedEventArgs e
         )
         {
             try
