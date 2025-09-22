@@ -368,7 +368,7 @@ namespace GHM.Windows
         /// A <see cref="T:System.Windows.Forms.FormClosingEventArgs" />
         /// that contains the event data.
         /// </param>
-        protected override void OnFormClosing(FormClosing[NotLogged] EventArgs e)
+        protected override void OnFormClosing([NotLogged] FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
 
@@ -395,7 +395,7 @@ namespace GHM.Windows
         /// </remarks>
         private void OnGitHubAuthenticated(
             [NotLogged] object sender,
-            [NotLogged] GitHubAuthenticated[NotLogged] EventArgs e
+            [NotLogged] GitHubAuthenticatedEventArgs e
         )
             => this.InvokeIfRequired(
                 new MethodInvoker(
