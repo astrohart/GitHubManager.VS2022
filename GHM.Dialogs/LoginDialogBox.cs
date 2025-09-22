@@ -98,7 +98,7 @@ namespace GHM.Dialogs
         /// <param name="e">
         /// A <see cref="T:System.Windows.Forms.FormClosingEventArgs" />
         /// that contains the event data.</pa
-        protected override void OnFormClosing(FormClosing[NotLogged] EventArgs e)
+        protected override void OnFormClosing([NotLogged] FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
 
