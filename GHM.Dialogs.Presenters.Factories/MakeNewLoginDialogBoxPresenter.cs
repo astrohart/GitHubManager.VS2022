@@ -1,4 +1,5 @@
-﻿using GHM.Dialogs.Interfaces;
+﻿using System.Diagnostics;
+using GHM.Dialogs.Interfaces;
 using GHM.Dialogs.Presenters.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
