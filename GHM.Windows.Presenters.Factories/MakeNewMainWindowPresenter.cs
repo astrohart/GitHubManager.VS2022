@@ -1,4 +1,5 @@
-﻿using GHM.Windows.Interfaces;
+﻿using System.Diagnostics;
+using GHM.Windows.Interfaces;
 using GHM.Windows.Presenters.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
