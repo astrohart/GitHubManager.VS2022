@@ -7,8 +7,7 @@
     <TargetFrameworkProfile />
     <ProjectGuid>{46E8092B-E5FF-4B20-8381-CAD2A3CE199A}</ProjectGuid>
     <Deterministic>false</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
