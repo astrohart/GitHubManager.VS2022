@@ -22,6 +22,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x64\Debug\GHM.Config.Converters.Tests.xml</DocumentationFile>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
@@ -36,6 +37,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x64\Release\GHM.Config.Converters.Tests.xml</DocumentationFile>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -50,6 +52,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x86\Debug\GHM.Config.Converters.Tests.xml</DocumentationFile>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -64,6 +67,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x86\Release\GHM.Config.Converters.Tests.xml</DocumentationFile>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>

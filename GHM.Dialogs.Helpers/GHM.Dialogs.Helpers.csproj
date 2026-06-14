@@ -25,7 +25,7 @@
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x64\Debug\GHM.Dialogs.Helpers.xml</DocumentationFile>
     <WarningLevel>4</WarningLevel>
-    <NoWarn>CS1591;CS1587</NoWarn>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -40,7 +40,7 @@
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x64\Release\GHM.Dialogs.Helpers.xml</DocumentationFile>
     <WarningLevel>4</WarningLevel>
-    <NoWarn>CS1591;CS1587</NoWarn>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -55,7 +55,7 @@
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x86\Debug\GHM.Dialogs.Helpers.xml</DocumentationFile>
     <WarningLevel>4</WarningLevel>
-    <NoWarn>CS1591;CS1587</NoWarn>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -70,7 +70,7 @@
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x86\Release\GHM.Dialogs.Helpers.xml</DocumentationFile>
     <WarningLevel>4</WarningLevel>
-    <NoWarn>CS1591;CS1587</NoWarn>
+    <NoWarn>1591, 1587, 1580, 1584</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
