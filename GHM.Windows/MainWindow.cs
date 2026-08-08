@@ -205,7 +205,7 @@ namespace GHM.Windows
         /// event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// An <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
         /// <remarks>
@@ -230,7 +230,7 @@ namespace GHM.Windows
         /// event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// An <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
         /// <remarks>
@@ -254,7 +254,7 @@ namespace GHM.Windows
         /// event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// An <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
         /// <remarks>
@@ -278,7 +278,7 @@ namespace GHM.Windows
         /// event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// An <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
         /// <remarks>
@@ -306,7 +306,7 @@ namespace GHM.Windows
         /// event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// An <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
         /// <remarks>
@@ -329,7 +329,7 @@ namespace GHM.Windows
         /// (Required.) Reference to an instance of the object that raised the event.
         /// </param>
         /// <param name="e">
-        /// (Required.) A <see cref="T:System.EventArgs" /> that contains the event data.
+        /// (Required.) An <see cref="T:System.EventArgs" /> that contains the event data.
         /// </param>
         /// <remarks>
         /// This method responds by signing the user out of the GitHub account.
@@ -455,7 +455,7 @@ namespace GHM.Windows
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// An <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
         protected override void OnShown([NotLogged] EventArgs e)
@@ -483,7 +483,7 @@ namespace GHM.Windows
         /// event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// An <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
         /// <remarks>
@@ -505,7 +505,7 @@ namespace GHM.Windows
         /// event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// An <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
         /// <remarks>
@@ -533,7 +533,7 @@ namespace GHM.Windows
         /// event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// An <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
         /// <remarks>This method shows or hides the <strong>Navigate</strong> toolbar.</remarks>
@@ -553,7 +553,7 @@ namespace GHM.Windows
         /// event.
         /// </param>
         /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// An <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
         /// <remarks>This method shows or hides the Status Bar.</remarks>
